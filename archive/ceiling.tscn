@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dauf36anwe3ed"]
+
+[ext_resource type="PackedScene" uid="uid://qn6qafr0g58t" path="res://Assets/models/level_props/Ceiling.glb" id="1_tampc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6cisk"]
+size = Vector3(4, 3, 0.2)
+
+[node name="Ceiling" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_6cisk")
+
+[node name="Ceiling" parent="." instance=ExtResource("1_tampc")]

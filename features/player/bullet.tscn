@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhbvqw4y4wfmo"]
+
+[ext_resource type="Script" uid="uid://crpk4n0b7kyse" path="res://features/player/bullet.gd" id="1_0fdcv"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_v7oki"]
+radius = 0.09
+height = 0.18
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_v8qja"]
+radius = 0.09
+
+[node name="Bullet" type="RigidBody3D" groups=["bullets"]]
+script = ExtResource("1_0fdcv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_v7oki")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_v8qja")

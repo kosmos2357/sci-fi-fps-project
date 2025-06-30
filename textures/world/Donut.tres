@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dbg0oykwif34r"]
+
+[ext_resource type="Texture2D" uid="uid://mkvq3cvhvi58" path="res://textures/world/Donut.png" id="1_wjyhj"]
+
+[resource]
+albedo_texture = ExtResource("1_wjyhj")
+metallic_specular = 0.0
+texture_filter = 2

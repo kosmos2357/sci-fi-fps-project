@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://biidyiyv6j0cd"]
+
+[ext_resource type="Script" uid="uid://gohdwdysen1q" path="res://archive/player.gd" id="1_4flbx"]
+[ext_resource type="PackedScene" uid="uid://qduamm4c076l" path="res://Assets/models/flashlight/FlashLight_2_Final.tscn" id="2_onrkg"]
+[ext_resource type="AudioStream" uid="uid://ogr03vwfao3w" path="res://Assets/Sound/flashlight1.wav" id="3_i3pqv"]
+[ext_resource type="AudioStream" uid="uid://6gn88h5yxunf" path="res://Assets/Sound/hlusekey.mp3" id="4_hqtel"]
+[ext_resource type="AudioStream" uid="uid://b75nq4oygy638" path="res://Assets/Sound/fixedmetalsounds.mp3" id="5_sweqy"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_onrkg"]
+
+[node name="Player" type="CharacterBody3D" groups=["player"]]
+script = ExtResource("1_4flbx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_onrkg")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000560403, 0.734257, 7.23898e-05)
+
+[node name="ViewModelContainer" type="Node3D" parent="Camera3D"]
+transform = Transform3D(-0.0400969, 0, -0.999196, 0, 1, 0, 0.999196, 0, -0.0400969, 0.234246, -0.209801, -0.42255)
+
+[node name="flashlight" parent="Camera3D/ViewModelContainer" instance=ExtResource("2_onrkg")]
+transform = Transform3D(0.09, 0, -3.72529e-09, 0, 0.09, 0, 3.72529e-09, 0, 0.09, 0.255084, 0.131049, 0.0996896)
+layers = 1048575
+
+[node name="FlashLightBeam" type="SpotLight3D" parent="Camera3D/ViewModelContainer/flashlight"]
+transform = Transform3D(-2.08616e-07, 0, 5, 0, 5, 0, -5, 0, -2.08616e-07, -1.28087, 0.155445, 0.00016892)
+layers = 1048575
+light_color = Color(0.992157, 0.686275, 0, 1)
+light_energy = 7.655
+light_indirect_energy = 2.379
+light_volumetric_fog_energy = 1.736
+spot_angle = 23.3225
+
+[node name="Muzzle" type="Marker3D" parent="Camera3D"]
+
+[node name="FlashLightClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_i3pqv")
+
+[node name="UseKeySound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_hqtel")
+
+[node name="WalkingSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_sweqy")
+parameters/looping = true
+
+[node name="Archive_ViewPort" type="Node" parent="."]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Archive_ViewPort"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="Archive_ViewPort/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="ViewModelCamera" type="Camera3D" parent="Archive_ViewPort/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.73215, 0)
+cull_mask = 0

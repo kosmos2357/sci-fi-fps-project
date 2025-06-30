@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cftiwakfsr7db"]
+
+[ext_resource type="PackedScene" uid="uid://vaa6a8ps0qmv" path="res://Assets/models/level_props/Door.glb" id="1_1vvux"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y4f30"]
+size = Vector3(1.02805, 3, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iu8q0"]
+size = Vector3(0.519463, 3, 0.2)
+
+[node name="Wall" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.48766, 0, 0)
+shape = SubResource("BoxShape3D_y4f30")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
+shape = SubResource("BoxShape3D_y4f30")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.500303, 1.23407, 0.0020045)
+shape = SubResource("BoxShape3D_iu8q0")
+
+[node name="Door" parent="." instance=ExtResource("1_1vvux")]

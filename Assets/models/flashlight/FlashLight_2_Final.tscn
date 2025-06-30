@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://qduamm4c076l"]
+
+[ext_resource type="ArrayMesh" uid="uid://csrh2nvv67wpn" path="res://Assets/models/flashlight/flashlight_2_1.res" id="1_nupci"]
+
+[node name="MeshInstance3D" type="MeshInstance3D"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+mesh = ExtResource("1_nupci")

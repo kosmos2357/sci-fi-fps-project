@@ -1,0 +1,16 @@
+// Game: Generic
+// Format: Standard
+// entity 0
+{
+"classname" "worldspawn"
+"_tb_textures" "textures"
+// brush 0
+{
+( -80 -80 0 ) ( -80 -79 0 ) ( -80 -80 1 ) buldiron3 0 0 0 1 1
+( -16 -112 0 ) ( -16 -112 1 ) ( -15 -112 0 ) buldiron3 0 0 0 1 1
+( -16 -80 0 ) ( -15 -80 0 ) ( -16 -79 0 ) buldiron3 0 0 0 1 1
+( 0 48 96 ) ( 0 49 96 ) ( 1 48 96 ) buldiron3 0 0 0 1 1
+( 0 48 16 ) ( 1 48 16 ) ( 0 48 17 ) buldiron3 0 0 0 1 1
+( 0 48 16 ) ( 0 48 17 ) ( 0 49 16 ) buldiron3 0 0 0 1 1
+}
+}

@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://bqtrsusyad12b"]
+
+[ext_resource type="Script" uid="uid://braiildyk4vs" path="res://features/interactables/terminal/terminal.gd" id="1_8c15x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sxuvd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7d6gb"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_yrvhh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxuvd"]
+albedo_color = Color(0, 0, 0.898039, 1)
+
+[node name="Terminal" type="Area3D"]
+script = ExtResource("1_8c15x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_sxuvd")
+
+[node name="Interaction_Object" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interaction_Object"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("BoxShape3D_7d6gb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interaction_Object"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("BoxMesh_yrvhh")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_sxuvd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

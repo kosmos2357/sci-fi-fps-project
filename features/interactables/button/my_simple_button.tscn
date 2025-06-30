@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://djogg5x1qneyw"]
+
+[ext_resource type="Script" uid="uid://boqxkxfg3snst" path="res://features/interactables/button/my_simple_button.gd" id="1_o08qn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ixl82"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0es65"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_67frb"]
+
+[node name="MySimpleButton" type="Area3D"]
+script = ExtResource("1_o08qn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+shape = SubResource("BoxShape3D_ixl82")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+shape = SubResource("BoxShape3D_0es65")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+mesh = SubResource("BoxMesh_67frb")
+skeleton = NodePath("../..")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

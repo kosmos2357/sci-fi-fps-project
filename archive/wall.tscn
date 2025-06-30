@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://v08fm4ccwex2"]
+
+[ext_resource type="PackedScene" uid="uid://bj1doqae3x5hr" path="res://Assets/models/level_props/wall_1.glb" id="1_xxgf6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y4f30"]
+size = Vector3(4, 3, 0.2)
+
+[node name="Wall" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_y4f30")
+
+[node name="wall_1" parent="." instance=ExtResource("1_xxgf6")]
