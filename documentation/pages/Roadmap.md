@@ -1,0 +1,44 @@
+# Development Plan
+- ## Phase 0 Initial Understanding
+	- Initial Concept
+		- Procedural overworld + Quake/HL style linear Level with dark Sci-Fi theme
+	- Squash the Creeps Tutorial
+	- Blender Donut Tutorial
+- ## Phase 1 Level Creation
+	- Asset Placement
+		- Child Nodes effect
+	- Basic 3d FPS Movement
+	- World Lighting Basics
+	- Simple Button Interactable
+	- Func_Godot Pipeline Established
+- ## Phase 2 Basic Core FPS Features
+- Built Custom Demo Area
+- Improved Character Movement
+- FPS Viewmodel
+	- Flashlight
+	- Asset pipeline
+	- VIewmodel clipping solved via shader
+- Basic shooting
+- Basic target entity
+- Terminal lock system
+- ## Phase 2.5 Refactor
+- Cleanup Folder
+- Git/Github
+- Logseq Documentation
+- ## Phase 3 Initial Content Creation
+- Procedural Overworld fleshed out
+	- Terrain shaders
+	- Terrain assets
+	- Procedural Scattering and placement via perlin noise
+	- First Level I (Abandoned Human Outpost)
+	- Link Level to Overworld
+- ## Phase 4 Advanced Gameplay
+- Additional Levels II and III
+- Enemy NPC
+	- Turret
+	- Drone
+- Our main "Tool"
+- ## Phase 5 Game Shell
+- Main Menu
+- Pause Menu
+- GUI
