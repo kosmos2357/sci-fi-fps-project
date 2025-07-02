@@ -1,0 +1,630 @@
+{:blocks (
+{:block/content "# Singly Player FPSGame"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "686320ea-7a64-4bad-ad6f-71af2ec94478"}
+:block/parent 
+{:block/uuid #uuid "686320ea-7a64-4bad-ad6f-71af2ec94478"}
+:block/properties 
+{:heading 1}
+:block/uuid #uuid "686320fc-ac52-4490-89b7-f759019781b8"} 
+{:block/created-at 1751327377681
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:blockType "B"
+:stroke ""
+:collapsed false
+:borderRadius 8
+:index 0
+:scale [1 1]
+:pageId "686320fc-ac52-4490-89b7-f759019781b8"
+:scaleLevel "md"
+:fill ""
+:compact true
+:isAutoResizing true
+:type "logseq-portal"
+:size [400 78]
+:strokeType "line"
+:strokeWidth 2
+:opacity 1
+:id "edccb410-560b-11f0-9bdb-01acb89edbfa"
+:noFill false
+:point [1680 0]
+:parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
+:collapsedHeight 0
+:nonce 1751326968807}}
+:block/updated-at 1751327377681} 
+{:block/content "## Graphics\nShaders\nvfx"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "686320fc-ac52-4490-89b7-f759019781b8"}
+:block/parent 
+{:block/uuid #uuid "686320ea-7a64-4bad-ad6f-71af2ec94478"}
+:block/properties 
+{:heading 2}
+:block/uuid #uuid "6863210e-d851-4f31-81a2-662a7e41d5d3"} 
+{:block/created-at 1751327396918
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:blockType "B"
+:stroke ""
+:collapsed false
+:borderRadius 8
+:index 1
+:scale [1 1]
+:pageId "6863210e-d851-4f31-81a2-662a7e41d5d3"
+:scaleLevel "md"
+:fill ""
+:compact true
+:isAutoResizing true
+:type "logseq-portal"
+:size [400 111.00005294486849]
+:strokeType "line"
+:strokeWidth 2
+:opacity 1
+:id "f8a50a40-560b-11f0-9bdb-01acb89edbfa"
+:noFill false
+:point [456 288]
+:parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
+:collapsedHeight 0
+:nonce 1751326986571}}
+:block/updated-at 1751327396918} 
+{:block/content "## Sound\nMusic\nsound effects"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "6863210e-d851-4f31-81a2-662a7e41d5d3"}
+:block/parent 
+{:block/uuid #uuid "686320ea-7a64-4bad-ad6f-71af2ec94478"}
+:block/properties 
+{:heading 2}
+:block/uuid #uuid "68632119-8968-4923-9f48-b3aba9bcdd6f"} 
+{:block/created-at 1751327407172
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:blockType "B"
+:stroke ""
+:collapsed false
+:borderRadius 8
+:index 2
+:scale [1 1]
+:pageId "68632119-8968-4923-9f48-b3aba9bcdd6f"
+:scaleLevel "md"
+:fill ""
+:compact true
+:isAutoResizing true
+:type "logseq-portal"
+:size [400 111.00005294486849]
+:strokeType "line"
+:strokeWidth 2
+:opacity 1
+:id "005a0060-560c-11f0-9bdb-01acb89edbfa"
+:noFill false
+:point [880 288]
+:parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
+:collapsedHeight 0
+:nonce 1751326999641}}
+:block/updated-at 1751327407172} 
+{:block/content "## Logic"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "68632119-8968-4923-9f48-b3aba9bcdd6f"}
+:block/parent 
+{:block/uuid #uuid "686320ea-7a64-4bad-ad6f-71af2ec94478"}
+:block/properties 
+{:heading 2}
+:block/uuid #uuid "68632127-faba-4532-87a2-1476d6125b4f"} 
+{:block/created-at 1751327359458
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:blockType "B"
+:stroke ""
+:collapsed false
+:borderRadius 8
+:index 3
+:scale [1 1]
+:pageId "68632127-faba-4532-87a2-1476d6125b4f"
+:scaleLevel "md"
+:fill ""
+:compact true
+:isAutoResizing true
+:type "logseq-portal"
+:size [400 63]
+:strokeType "line"
+:strokeWidth 2
+:opacity 1
+:id "067cbdc0-560c-11f0-9bdb-01acb89edbfa"
+:noFill false
+:point [1296 288]
+:parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
+:collapsedHeight 0
+:nonce 1751327009966}}
+:block/updated-at 1751327359458} 
+{:block/content "## Assets/Textures/Materials"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "68632127-faba-4532-87a2-1476d6125b4f"}
+:block/parent 
+{:block/uuid #uuid "686320ea-7a64-4bad-ad6f-71af2ec94478"}
+:block/properties 
+{:heading 2}
+:block/uuid #uuid "68632147-6946-4da4-b364-6366878e98fe"} 
+{:block/created-at 1751327361810
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:blockType "B"
+:stroke ""
+:collapsed false
+:borderRadius 8
+:index 4
+:scale [1 1]
+:pageId "68632147-6946-4da4-b364-6366878e98fe"
+:scaleLevel "md"
+:fill ""
+:compact true
+:isAutoResizing true
+:type "logseq-portal"
+:size [400 63]
+:strokeType "line"
+:strokeWidth 2
+:opacity 1
+:id "1a4214e0-560c-11f0-9bdb-01acb89edbfa"
+:noFill false
+:point [1704 288]
+:parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
+:collapsedHeight 0
+:nonce 1751327043118}}
+:block/updated-at 1751327361810} 
+{:block/content "## Levels"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "68632147-6946-4da4-b364-6366878e98fe"}
+:block/parent 
+{:block/uuid #uuid "686320ea-7a64-4bad-ad6f-71af2ec94478"}
+:block/properties 
+{:heading 2}
+:block/uuid #uuid "68632165-4ebb-4d0e-8eed-69b2cefd5325"} 
+{:block/created-at 1751327364366
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:blockType "B"
+:stroke ""
+:collapsed false
+:borderRadius 8
+:index 5
+:scale [1 1]
+:pageId "68632165-4ebb-4d0e-8eed-69b2cefd5325"
+:scaleLevel "md"
+:fill ""
+:compact true
+:isAutoResizing true
+:type "logseq-portal"
+:size [400 63]
+:strokeType "line"
+:strokeWidth 2
+:opacity 1
+:id "2e33fa40-560c-11f0-9bdb-01acb89edbfa"
+:noFill false
+:point [2104 288]
+:parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
+:collapsedHeight 0
+:nonce 1751327076700}}
+:block/updated-at 1751327364366} 
+{:block/content "## Writing"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "68632165-4ebb-4d0e-8eed-69b2cefd5325"}
+:block/parent 
+{:block/uuid #uuid "686320ea-7a64-4bad-ad6f-71af2ec94478"}
+:block/properties 
+{:heading 2}
+:block/uuid #uuid "68632196-349e-4015-9368-443eceb15a7b"} 
+{:block/created-at 1751327371102
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:blockType "B"
+:stroke ""
+:collapsed false
+:borderRadius 8
+:index 6
+:scale [1 1]
+:pageId "68632196-349e-4015-9368-443eceb15a7b"
+:scaleLevel "md"
+:fill ""
+:compact true
+:isAutoResizing true
+:type "logseq-portal"
+:size [400 63]
+:strokeType "line"
+:strokeWidth 2
+:opacity 1
+:id "48b9fc70-560c-11f0-9bdb-01acb89edbfa"
+:noFill false
+:point [2928 288]
+:parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
+:collapsedHeight 0
+:nonce 1751327121339}}
+:block/updated-at 1751327371102} 
+{:block/content "## GUI"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "68632196-349e-4015-9368-443eceb15a7b"}
+:block/parent 
+{:block/uuid #uuid "686320ea-7a64-4bad-ad6f-71af2ec94478"}
+:block/properties 
+{:heading 2}
+:block/uuid #uuid "686321c7-471e-444c-89e2-2f7466863f60"} 
+{:block/created-at 1751327367004
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:blockType "B"
+:stroke ""
+:collapsed false
+:borderRadius 8
+:index 7
+:scale [1 1]
+:pageId "686321c7-471e-444c-89e2-2f7466863f60"
+:scaleLevel "md"
+:fill ""
+:compact true
+:isAutoResizing true
+:type "logseq-portal"
+:size [400 63]
+:strokeType "line"
+:strokeWidth 2
+:opacity 1
+:id "68e85be0-560c-11f0-9bdb-01acb89edbfa"
+:noFill false
+:point [2512 288]
+:parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
+:collapsedHeight 0
+:nonce 1751327175354}}
+:block/updated-at 1751327367004} 
+{:block/content "# Core Components Game"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "686321c7-471e-444c-89e2-2f7466863f60"}
+:block/parent 
+{:block/uuid #uuid "686320ea-7a64-4bad-ad6f-71af2ec94478"}
+:block/properties 
+{:heading 1}
+:block/uuid #uuid "68632341-c7d6-472b-96bc-9f569f696865"} 
+{:block/created-at 1751327702246
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:blockType "B"
+:stroke ""
+:collapsed false
+:borderRadius 8
+:index 8
+:scale [1 1]
+:pageId "68632341-c7d6-472b-96bc-9f569f696865"
+:scaleLevel "md"
+:fill ""
+:compact true
+:isAutoResizing true
+:type "logseq-portal"
+:size [400 126.00002873600708]
+:strokeType "line"
+:strokeWidth 2
+:opacity 1
+:id "3c2b0020-560d-11f0-9bdb-01acb89edbfa"
+:noFill false
+:point [4136 264]
+:parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
+:collapsedHeight 0
+:nonce 1751327529438}}
+:block/updated-at 1751327702246} 
+{:block/content "## Entity Management (Func_Godot)"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "68632341-c7d6-472b-96bc-9f569f696865"}
+:block/parent 
+{:block/uuid #uuid "686320ea-7a64-4bad-ad6f-71af2ec94478"}
+:block/properties 
+{:heading 2}
+:block/uuid #uuid "6863234e-47fe-4c06-bd92-5db66c2e8642"} 
+{:block/created-at 1751328743286
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:blockType "B"
+:stroke ""
+:collapsed false
+:borderRadius 8
+:index 9
+:scale [1 1]
+:pageId "6863234e-47fe-4c06-bd92-5db66c2e8642"
+:scaleLevel "md"
+:fill ""
+:compact true
+:isAutoResizing true
+:type "logseq-portal"
+:size [400 99.00000868637645]
+:strokeType "line"
+:strokeWidth 2
+:opacity 1
+:id "4df23d50-560d-11f0-9bdb-01acb89edbfa"
+:noFill false
+:point [4256 1152]
+:parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
+:collapsedHeight 0
+:nonce 1751327560304}}
+:block/updated-at 1751328743286} 
+{:block/content "## Procedural World Generation"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "6863234e-47fe-4c06-bd92-5db66c2e8642"}
+:block/parent 
+{:block/uuid #uuid "686320ea-7a64-4bad-ad6f-71af2ec94478"}
+:block/properties 
+{:heading 2}
+:block/uuid #uuid "68632399-4173-4007-8fa2-0057f21fa4e0"} 
+{:block/created-at 1751328743286
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:blockType "B"
+:stroke ""
+:collapsed false
+:borderRadius 8
+:index 10
+:scale [1 1]
+:pageId "68632399-4173-4007-8fa2-0057f21fa4e0"
+:scaleLevel "md"
+:fill ""
+:compact true
+:isAutoResizing true
+:type "logseq-portal"
+:size [400 62.999981953535595]
+:strokeType "line"
+:strokeWidth 2
+:opacity 1
+:id "6fb01660-560d-11f0-9bdb-01acb89edbfa"
+:noFill false
+:point [4264 1032]
+:parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
+:collapsedHeight 0
+:nonce 1751327616335}}
+:block/updated-at 1751328743286} 
+{:block/content "## Player\nPlayer I/O\nViewmodels\nAnimations - tween\nLocal State"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "68632399-4173-4007-8fa2-0057f21fa4e0"}
+:block/parent 
+{:block/uuid #uuid "686320ea-7a64-4bad-ad6f-71af2ec94478"}
+:block/properties 
+{:heading 2}
+:block/uuid #uuid "686323c3-5f4d-4a25-82f7-5b5fda203384"} 
+{:block/created-at 1751336119537
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:blockType "B"
+:stroke ""
+:collapsed false
+:borderRadius 8
+:index 11
+:scale [1 1]
+:pageId "686323c3-5f4d-4a25-82f7-5b5fda203384"
+:scaleLevel "md"
+:fill ""
+:compact true
+:isAutoResizing true
+:type "logseq-portal"
+:size [400 137.00000970147067]
+:strokeType "line"
+:strokeWidth 2
+:opacity 1
+:id "93a98790-560d-11f0-9bdb-01acb89edbfa"
+:noFill false
+:point [4256 480]
+:parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
+:collapsedHeight 0
+:nonce 1751327676351}}
+:block/updated-at 1751336119537} 
+{:block/content "## AI\nModel\nAnimations\nLocal State"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "686323c3-5f4d-4a25-82f7-5b5fda203384"}
+:block/parent 
+{:block/uuid #uuid "686320ea-7a64-4bad-ad6f-71af2ec94478"}
+:block/properties 
+{:heading 2}
+:block/uuid #uuid "68632410-3cd8-4692-b345-decb36ed98db"} 
+{:block/created-at 1751328776847
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:blockType "B"
+:stroke ""
+:collapsed false
+:borderRadius 8
+:index 12
+:scale [1 1]
+:pageId "68632410-3cd8-4692-b345-decb36ed98db"
+:scaleLevel "md"
+:fill ""
+:compact true
+:isAutoResizing true
+:type "logseq-portal"
+:size [400 134.9999665656637]
+:strokeType "line"
+:strokeWidth 2
+:opacity 1
+:id "c3e406b0-560d-11f0-9bdb-01acb89edbfa"
+:noFill false
+:point [4256 672]
+:parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
+:collapsedHeight 0
+:nonce 1751327757192}}
+:block/updated-at 1751328776847} 
+{:block/content "## GameManager/Event Manager\nEntity Management\nGlobal State management\nPlayer quest items\nLoad/Save State"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "68632410-3cd8-4692-b345-decb36ed98db"}
+:block/parent 
+{:block/uuid #uuid "686320ea-7a64-4bad-ad6f-71af2ec94478"}
+:block/properties 
+{:heading 2}
+:block/uuid #uuid "6863263c-aea4-40d7-989f-585e8ad3eb59"} 
+{:block/created-at 1751328743286
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:blockType "B"
+:stroke ""
+:collapsed false
+:borderRadius 8
+:index 13
+:scale [1 1]
+:pageId "6863263c-aea4-40d7-989f-585e8ad3eb59"
+:scaleLevel "md"
+:fill ""
+:compact true
+:isAutoResizing true
+:type "logseq-portal"
+:size [400 159.00005839756807]
+:strokeType "line"
+:strokeWidth 2
+:opacity 1
+:id "0c8b2870-560f-11f0-9bdb-01acb89edbfa"
+:noFill false
+:point [4256 832]
+:parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
+:collapsedHeight 0
+:nonce 1751328308770}}
+:block/updated-at 1751328743286} 
+{:block/content "## UI System"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "6863263c-aea4-40d7-989f-585e8ad3eb59"}
+:block/parent 
+{:block/uuid #uuid "686320ea-7a64-4bad-ad6f-71af2ec94478"}
+:block/properties 
+{:heading 2}
+:block/uuid #uuid "68632654-1cf8-4774-8815-51d3a9713bcf"} 
+{:block/created-at 1751328743286
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:blockType "B"
+:stroke ""
+:collapsed false
+:borderRadius 8
+:index 14
+:scale [1 1]
+:pageId "68632654-1cf8-4774-8815-51d3a9713bcf"
+:scaleLevel "md"
+:fill ""
+:compact true
+:isAutoResizing true
+:type "logseq-portal"
+:size [400 63.00004590143341]
+:strokeType "line"
+:strokeWidth 2
+:opacity 1
+:id "1abeb790-560f-11f0-9bdb-01acb89edbfa"
+:noFill false
+:point [4256 1288]
+:parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
+:collapsedHeight 0
+:nonce 1751328332509}}
+:block/updated-at 1751328743286} 
+{:block/content "## Scene/Level Manager"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "68632654-1cf8-4774-8815-51d3a9713bcf"}
+:block/parent 
+{:block/uuid #uuid "686320ea-7a64-4bad-ad6f-71af2ec94478"}
+:block/properties 
+{:heading 2}
+:block/uuid #uuid "68632661-9c5e-4b8c-91d3-701822490a67"} 
+{:block/created-at 1751328743286
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:blockType "B"
+:stroke ""
+:collapsed false
+:borderRadius 8
+:index 15
+:scale [1 1]
+:pageId "68632661-9c5e-4b8c-91d3-701822490a67"
+:scaleLevel "md"
+:fill ""
+:compact true
+:isAutoResizing true
+:type "logseq-portal"
+:size [400 63.00004590143341]
+:strokeType "line"
+:strokeWidth 2
+:opacity 1
+:id "23d47630-560f-11f0-9bdb-01acb89edbfa"
+:noFill false
+:point [4256 1392]
+:parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
+:collapsedHeight 0
+:nonce 1751328347796}}
+:block/updated-at 1751328743286} 
+{:block/content "### Player Movement I/O\nShooting and Movement\n[[Player]]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "68632661-9c5e-4b8c-91d3-701822490a67"}
+:block/parent 
+{:block/uuid #uuid "686320ea-7a64-4bad-ad6f-71af2ec94478"}
+:block/properties 
+{:heading 3}
+:block/uuid #uuid "686328bf-8ed0-4fd1-a700-b22793808503"} 
+{:block/created-at 1751328987068
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:blockType "B"
+:stroke ""
+:collapsed false
+:borderRadius 8
+:index 16
+:scale [1 1]
+:pageId "686328bf-8ed0-4fd1-a700-b22793808503"
+:scaleLevel "md"
+:fill ""
+:compact true
+:isAutoResizing true
+:type "logseq-portal"
+:size [400 93.79689930273581]
+:strokeType "line"
+:strokeWidth 2
+:opacity 1
+:id "71b33200-5610-11f0-9bdb-01acb89edbfa"
+:noFill false
+:point [4800 544]
+:parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
+:collapsedHeight 0
+:nonce 1751328907561}}
+:block/updated-at 1751328987068})
+:pages (
+{:block/uuid #uuid "686320ea-7a64-4bad-ad6f-71af2ec94478"
+:block/properties 
+{:ls-type :whiteboard-page
+:logseq.tldraw.page 
+{:id "686320ea-7a64-4bad-ad6f-71af2ec94478"
+:name "game structure"
+:bindings 
+{}
+:nonce 1
+:assets []
+:shapes-index ("edccb410-560b-11f0-9bdb-01acb89edbfa" "f8a50a40-560b-11f0-9bdb-01acb89edbfa" "005a0060-560c-11f0-9bdb-01acb89edbfa" "067cbdc0-560c-11f0-9bdb-01acb89edbfa" "1a4214e0-560c-11f0-9bdb-01acb89edbfa" "2e33fa40-560c-11f0-9bdb-01acb89edbfa" "48b9fc70-560c-11f0-9bdb-01acb89edbfa" "68e85be0-560c-11f0-9bdb-01acb89edbfa" "3c2b0020-560d-11f0-9bdb-01acb89edbfa" "4df23d50-560d-11f0-9bdb-01acb89edbfa" "6fb01660-560d-11f0-9bdb-01acb89edbfa" "93a98790-560d-11f0-9bdb-01acb89edbfa" "c3e406b0-560d-11f0-9bdb-01acb89edbfa" "0c8b2870-560f-11f0-9bdb-01acb89edbfa" "1abeb790-560f-11f0-9bdb-01acb89edbfa" "23d47630-560f-11f0-9bdb-01acb89edbfa" "71b33200-5610-11f0-9bdb-01acb89edbfa")}}
+:block/updated-at 1751336129614
+:block/created-at 1751326954881
+:block/type "whiteboard"
+:block/name "game structure"
+:block/original-name "game structure"})}

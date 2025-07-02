@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-const BULLET_SCENE = preload("res://bullet.tscn")
+const BULLET_SCENE = preload("res://features/player/scenes/bullet.tscn")
 # --- Variables ---
 # How fast the player moves
 @export var SPEED = 7.0

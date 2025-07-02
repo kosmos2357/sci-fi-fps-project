@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=4 uid="uid://vxhoiivdyixh"]
 
-[ext_resource type="Script" uid="uid://uiteq6gahhhd" path="res://features/player/play_viewmodel_test.gd" id="1_21j6u"]
+[ext_resource type="Script" uid="uid://uiteq6gahhhd" path="res://features/player/scripts/play_viewmodel_test.gd" id="1_21j6u"]
 [ext_resource type="PackedScene" uid="uid://qduamm4c076l" path="res://Assets/models/flashlight/FlashLight_2_Final.tscn" id="2_24auq"]
 [ext_resource type="Texture2D" uid="uid://beewg834s2cta" path="res://Assets/models/flashlight/flashlight2_Preview.png" id="3_24auq"]
 [ext_resource type="AudioStream" uid="uid://ogr03vwfao3w" path="res://Assets/Sound/flashlight1.wav" id="3_ar4uc"]
@@ -257,23 +257,3 @@ stream = ExtResource("4_xyelf")
 [node name="WalkingSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_wtjoh")
 parameters/looping = true
-
-[node name="Archive_ViewPort" type="Node" parent="."]
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="Archive_ViewPort"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="SubViewport" type="SubViewport" parent="Archive_ViewPort/SubViewportContainer"]
-transparent_bg = true
-handle_input_locally = false
-size = Vector2i(1920, 1080)
-render_target_update_mode = 4
-
-[node name="ViewModelCamera" type="Camera3D" parent="Archive_ViewPort/SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.73215, 0)
-cull_mask = 0

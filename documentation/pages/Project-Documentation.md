@@ -4,3 +4,9 @@
 - [[Journal]]
 - # Roadmap
 - [[Roadmap]]
+-
+- # Components
+- [[Components]]
+- # Known Issue
+- [[Bugs]]
+-

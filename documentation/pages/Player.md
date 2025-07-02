@@ -1,0 +1,17 @@
+- Player Core Features:
+	- Camera viewport
+	- Movement
+		- Run
+		- Jump
+		- Sprint
+	- Interaction
+		- Shooting
+		- E Interact
+		- f flashlight
+- UI management
+	- esc
+- 3 Core Methods
+	- _ready()
+	- _unhandled_input(event)
+	- physics_process(delta)
+-

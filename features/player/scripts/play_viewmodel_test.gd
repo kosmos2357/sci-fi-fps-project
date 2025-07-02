@@ -1,6 +1,9 @@
 extends CharacterBody3D
-
-const BULLET_SCENE = preload("res://features/player/bullet.tscn")
+# NOTE--------
+"""
+This script requires Bullet path to be preset here!
+"""
+const BULLET_SCENE = preload("res://features/player/scenes/bullet.tscn")
 # --- Variables ---
 # How fast the player moves
 @export var SPEED = 7.0
@@ -11,8 +14,7 @@ const BULLET_SCENE = preload("res://features/player/bullet.tscn")
 # How sensitive the mouse is
 @export var MOUSE_SENSITIVITY = 0.002
 
-#@onready var flashlight_beam = $Camera3D/ViewModelContainer/flashlight/FlashLightBeam
-#@onready var flashlight_beam = $Camera3D/SubViewportContainer/SubViewport/flashlight/FlashLightBeam
+
 @onready var flashlight_beam = $Camera3D/ViewModelContainer/flashlight/FlashLightBeam
 @onready var flashlight_click_sound = $FlashLightClickSound
 @onready var use_key_sound = $UseKeySound
@@ -28,6 +30,9 @@ var gravity_vec = Vector3.ZERO
 @onready var camera = $Camera3D
 
 # --- Functions ---
+@onready var flash_light_model = $Camera3D/ViewModelContainer/flashlight
+
+
 
 func _ready():
 	# This hides the mouse cursor and keeps it centered in the window
@@ -75,7 +80,9 @@ func _physics_process(delta):
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	var current_speed = SPEED
+		
 	if Input.is_action_pressed("sprint"):
+
 		current_speed = SPEED * SPRINT_SPEED
 	# Apply movement
 	if direction:

@@ -1,0 +1,237 @@
+{:blocks (
+{:block/content "# Ideas"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "68644308-b872-47b9-938d-aa1f602dc6e1"}
+:block/parent 
+{:block/uuid #uuid "68644308-b872-47b9-938d-aa1f602dc6e1"}
+:block/properties 
+{:heading 1}
+:block/uuid #uuid "68644311-1924-4664-b04a-ac053b2b4381"} 
+{:block/created-at 1751401254966
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:blockType "B"
+:stroke ""
+:collapsed false
+:borderRadius 8
+:index 0
+:scale [1 1]
+:pageId "68644311-1924-4664-b04a-ac053b2b4381"
+:scaleLevel "md"
+:fill ""
+:compact true
+:isAutoResizing true
+:type "logseq-portal"
+:size [400 78]
+:strokeType "line"
+:strokeWidth 2
+:opacity 1
+:id "d532e8e0-56b8-11f0-b445-8d3bdc99db1e"
+:noFill false
+:point [864 488]
+:parentId "68644308-b872-47b9-938d-aa1f602dc6e1"
+:collapsedHeight 0
+:nonce 1751401229997}}
+:block/updated-at 1751401254966} 
+{:block/content "## Minigame"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "68644311-1924-4664-b04a-ac053b2b4381"}
+:block/parent 
+{:block/uuid #uuid "68644308-b872-47b9-938d-aa1f602dc6e1"}
+:block/properties 
+{:heading 2}
+:block/uuid #uuid "6864431b-be20-4a92-b600-4aad37303bef"} 
+{:block/created-at 1751401304866
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:blockType "B"
+:stroke ""
+:collapsed false
+:borderRadius 8
+:index 1
+:scale [1 1]
+:pageId "6864431b-be20-4a92-b600-4aad37303bef"
+:scaleLevel "md"
+:fill ""
+:compact true
+:isAutoResizing true
+:type "logseq-portal"
+:size [400 63]
+:strokeType "line"
+:strokeWidth 2
+:opacity 1
+:id "dc590c80-56b8-11f0-b445-8d3bdc99db1e"
+:noFill false
+:point [1296 688]
+:parentId "68644308-b872-47b9-938d-aa1f602dc6e1"
+:collapsedHeight 0
+:nonce 1751401242690}}
+:block/updated-at 1751401304866} 
+{:block/created-at 1751401304866
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:stroke ""
+:index 2
+:scale [1 1]
+:scaleLevel "md"
+:fill ""
+:type "line"
+:strokeType "line"
+:strokeWidth 1
+:opacity 1
+:label ""
+:id "f01c19b2-56b8-11f0-b445-8d3bdc99db1e"
+:fontWeight 400
+:noFill true
+:point [1114.36 567]
+:fontSize 20
+:handles 
+{:start 
+{:id "start"
+:canBind true
+:point [0 0]
+:bindingId "f01c19b0-56b8-11f0-b445-8d3bdc99db1e"}
+:end 
+{:id "end"
+:canBind true
+:point [177.64 141.09]
+:bindingId "f01c19b1-56b8-11f0-b445-8d3bdc99db1e"}}
+:decorations 
+{:end "arrow"}
+:parentId "68644308-b872-47b9-938d-aa1f602dc6e1"
+:nonce 1751401275475
+:italic false}}
+:block/updated-at 1751401304866} 
+{:block/content ""
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "6864431b-be20-4a92-b600-4aad37303bef"}
+:block/parent 
+{:block/uuid #uuid "68644308-b872-47b9-938d-aa1f602dc6e1"}
+:block/uuid #uuid "6864435c-b08b-4789-bc48-bc26b12ae28e"} 
+{:block/content "## Terminal Minigame\n\nHUMAN\n\nALIEN\nGlyph based substituion cypher\n\nhttps://www.google.com/search?q=substitution+cypher+glyph&udm=2&sxsrf=AE3TifMaPf9d7dGzxvCneaRk5yqRT1Ae2Q%3A1751401245882#vhid=zldVl4-PrHS5OM&vssid=mosaic"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "6864435c-b08b-4789-bc48-bc26b12ae28e"}
+:block/parent 
+{:block/uuid #uuid "68644308-b872-47b9-938d-aa1f602dc6e1"}
+:block/properties 
+{:heading 2}
+:block/uuid #uuid "68644361-5d0f-4d9f-ab8f-84269ab5704e"} 
+{:block/created-at 1751401419726
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:blockType "B"
+:stroke ""
+:rotation 0
+:collapsed false
+:borderRadius 8
+:index 3
+:scale [1 1]
+:pageId "68644361-5d0f-4d9f-ab8f-84269ab5704e"
+:scaleLevel "md"
+:fill ""
+:compact true
+:isAutoResizing true
+:type "logseq-portal"
+:size [744 278.99997287326386]
+:strokeType "line"
+:strokeWidth 2
+:opacity 1
+:id "063c02a0-56b9-11f0-b445-8d3bdc99db1e"
+:noFill false
+:point [1616 912]
+:parentId "68644308-b872-47b9-938d-aa1f602dc6e1"
+:collapsedHeight 0
+:nonce 1751401312290}}
+:block/updated-at 1751401419726} 
+{:block/created-at 1751401419726
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:stroke ""
+:index 4
+:scale [1 1]
+:scaleLevel "md"
+:fill ""
+:type "line"
+:strokeType "line"
+:strokeWidth 1
+:opacity 1
+:label ""
+:id "131bc192-56b9-11f0-b445-8d3bdc99db1e"
+:fontWeight 400
+:noFill true
+:point [1539.67 752]
+:fontSize 20
+:handles 
+{:start 
+{:id "start"
+:canBind true
+:point [0 0]
+:bindingId "131bc190-56b9-11f0-b445-8d3bdc99db1e"}
+:end 
+{:id "end"
+:canBind true
+:point [209.62 156]
+:bindingId "131bc191-56b9-11f0-b445-8d3bdc99db1e"}}
+:decorations 
+{:end "arrow"}
+:parentId "68644308-b872-47b9-938d-aa1f602dc6e1"
+:nonce 1751401334241
+:italic false}}
+:block/updated-at 1751401419726})
+:pages (
+{:block/uuid #uuid "68644308-b872-47b9-938d-aa1f602dc6e1"
+:block/properties 
+{:ls-type :whiteboard-page
+:logseq.tldraw.page 
+{:id "68644308-b872-47b9-938d-aa1f602dc6e1"
+:name "ideas"
+:bindings 
+{:f01c19b0-56b8-11f0-b445-8d3bdc99db1e 
+{:id "f01c19b0-56b8-11f0-b445-8d3bdc99db1e"
+:type "line"
+:fromId "f01c19b2-56b8-11f0-b445-8d3bdc99db1e"
+:toId "d532e8e0-56b8-11f0-b445-8d3bdc99db1e"
+:handleId "start"
+:point [0.5 0.5]
+:distance 4}
+:f01c19b1-56b8-11f0-b445-8d3bdc99db1e 
+{:id "f01c19b1-56b8-11f0-b445-8d3bdc99db1e"
+:type "line"
+:fromId "f01c19b2-56b8-11f0-b445-8d3bdc99db1e"
+:toId "dc590c80-56b8-11f0-b445-8d3bdc99db1e"
+:handleId "end"
+:point [0.09 0.75]
+:distance 4}
+:131bc190-56b9-11f0-b445-8d3bdc99db1e 
+{:id "131bc190-56b9-11f0-b445-8d3bdc99db1e"
+:type "line"
+:fromId "131bc192-56b9-11f0-b445-8d3bdc99db1e"
+:toId "dc590c80-56b8-11f0-b445-8d3bdc99db1e"
+:handleId "start"
+:point [0.5 0.5]
+:distance 4}
+:131bc191-56b9-11f0-b445-8d3bdc99db1e 
+{:id "131bc191-56b9-11f0-b445-8d3bdc99db1e"
+:type "line"
+:fromId "131bc192-56b9-11f0-b445-8d3bdc99db1e"
+:toId "063c02a0-56b9-11f0-b445-8d3bdc99db1e"
+:handleId "end"
+:point [0.48 0.58]
+:distance 4}}
+:nonce 1
+:assets []
+:shapes-index ("d532e8e0-56b8-11f0-b445-8d3bdc99db1e" "dc590c80-56b8-11f0-b445-8d3bdc99db1e" "f01c19b2-56b8-11f0-b445-8d3bdc99db1e" "063c02a0-56b9-11f0-b445-8d3bdc99db1e" "131bc192-56b9-11f0-b445-8d3bdc99db1e")}}
+:block/updated-at 1751401419726
+:block/created-at 1751401224582
+:block/type "whiteboard"
+:block/name "ideas"
+:block/original-name "ideas"})}

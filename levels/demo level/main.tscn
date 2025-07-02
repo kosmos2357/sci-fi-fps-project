@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bc1qnhot6npv6" path="res://Assets/models/flashlight/flashlight.glb" id="12_iivgo"]
 [ext_resource type="PackedScene" uid="uid://qduamm4c076l" path="res://Assets/models/flashlight/FlashLight_2_Final.tscn" id="13_woytj"]
 [ext_resource type="PackedScene" uid="uid://bqtrsusyad12b" path="res://features/interactables/terminal/terminal.tscn" id="14_o6dmv"]
-[ext_resource type="PackedScene" uid="uid://vxhoiivdyixh" path="res://features/player/play_viewmodel_test.tscn" id="15_wk3pi"]
+[ext_resource type="PackedScene" uid="uid://vxhoiivdyixh" path="res://features/player/scenes/Player_ViewModel.tscn" id="15_wk3pi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7dm0k"]
 size = Vector3(61, 2, 60)

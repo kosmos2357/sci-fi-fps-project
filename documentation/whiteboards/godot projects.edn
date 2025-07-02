@@ -1,0 +1,206 @@
+{:blocks (
+{:block/content "# Godot Stuct"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "68635db6-c113-4229-8c54-9c2b7cf0bd1b"}
+:block/parent 
+{:block/uuid #uuid "68635db6-c113-4229-8c54-9c2b7cf0bd1b"}
+:block/properties 
+{:heading 1}
+:block/uuid #uuid "68635dc9-4a42-4a13-87a1-78a98ddcdbb3"} 
+{:block/created-at 1751343670396
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:blockType "B"
+:stroke ""
+:rotation 0
+:collapsed false
+:borderRadius 8
+:index 0
+:scale [1 -1]
+:pageId "68635dc9-4a42-4a13-87a1-78a98ddcdbb3"
+:scaleLevel "md"
+:fill ""
+:compact true
+:isAutoResizing true
+:type "logseq-portal"
+:size [400 78]
+:strokeType "line"
+:strokeWidth 2
+:opacity 1
+:id "2d8a4260-5630-11f0-90a6-ad65f78d8aa9"
+:noFill false
+:point [-288 960]
+:parentId "68635db6-c113-4229-8c54-9c2b7cf0bd1b"
+:collapsedHeight 0
+:nonce 1751342537479}}
+:block/updated-at 1751343670396} 
+{:block/content "## Nodes and Scenes"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "68635dc9-4a42-4a13-87a1-78a98ddcdbb3"}
+:block/parent 
+{:block/uuid #uuid "68635db6-c113-4229-8c54-9c2b7cf0bd1b"}
+:block/uuid #uuid "68635dfa-7f5b-4aba-9b8f-7e75adcbcce2"} 
+{:block/content "## Nodes and Scenes \nSpecialists for an organization with a single responsiblity\n\nExample: SmartDoor.gd only contains methods and data that are useful for a \"game door\" function\n\nis_open() Bool\nuse()\n\nEncapslation\n(Data + Method)"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "68635dfa-7f5b-4aba-9b8f-7e75adcbcce2"}
+:block/parent 
+{:block/uuid #uuid "68635db6-c113-4229-8c54-9c2b7cf0bd1b"}
+:block/properties 
+{:heading 2}
+:block/uuid #uuid "68635dff-6cdc-4652-9a33-0d5d271bee73"} 
+{:block/created-at 1751342874905
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:blockType "B"
+:stroke ""
+:collapsed false
+:borderRadius 8
+:index 1
+:scale [1 1]
+:pageId "68635dff-6cdc-4652-9a33-0d5d271bee73"
+:scaleLevel "md"
+:fill ""
+:compact true
+:isAutoResizing true
+:type "logseq-portal"
+:size [400 351]
+:strokeType "line"
+:strokeWidth 2
+:opacity 1
+:id "4d757e50-5630-11f0-90a6-ad65f78d8aa9"
+:noFill false
+:point [240 344]
+:parentId "68635db6-c113-4229-8c54-9c2b7cf0bd1b"
+:collapsedHeight 0
+:nonce 1751342590740}}
+:block/updated-at 1751342874905} 
+{:block/content "## Resources\nCustom data objects"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "68635dff-6cdc-4652-9a33-0d5d271bee73"}
+:block/parent 
+{:block/uuid #uuid "68635db6-c113-4229-8c54-9c2b7cf0bd1b"}
+:block/properties 
+{:heading 2}
+:block/uuid #uuid "68635f5e-1712-4834-9d57-b4d9ae7c0498"} 
+{:block/created-at 1751342971961
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:blockType "B"
+:stroke ""
+:collapsed false
+:borderRadius 8
+:index 2
+:scale [1 1]
+:pageId "68635f5e-1712-4834-9d57-b4d9ae7c0498"
+:scaleLevel "md"
+:fill ""
+:compact true
+:isAutoResizing true
+:type "logseq-portal"
+:size [400 87]
+:strokeType "line"
+:strokeWidth 2
+:opacity 1
+:id "1be787b0-5631-11f0-90a6-ad65f78d8aa9"
+:noFill false
+:point [240 728]
+:parentId "68635db6-c113-4229-8c54-9c2b7cf0bd1b"
+:collapsedHeight 0
+:nonce 1751342937024}}
+:block/updated-at 1751342971961} 
+{:block/content "# Autoloads as Managers\n\nBreak up Nodes and Scenes to be managed by global managers such as: \n\nGameManager.gd\n  Game state management\nSceneManager.gd\n  Load/unload Level\nAudioManger.gd\n  Sound Manager"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "68635f5e-1712-4834-9d57-b4d9ae7c0498"}
+:block/parent 
+{:block/uuid #uuid "68635f5e-1712-4834-9d57-b4d9ae7c0498"}
+:block/properties 
+{:heading 1}
+:block/uuid #uuid "68635f7d-5a78-415f-b70d-56b09b36c154"} 
+{:block/created-at 1751343126582
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:blockType "B"
+:stroke ""
+:collapsed false
+:borderRadius 8
+:index 3
+:scale [1 1]
+:pageId "68635f7d-5a78-415f-b70d-56b09b36c154"
+:scaleLevel "md"
+:fill ""
+:compact true
+:isAutoResizing true
+:type "logseq-portal"
+:size [400 318]
+:strokeType "line"
+:strokeWidth 2
+:opacity 1
+:id "31392420-5631-11f0-90a6-ad65f78d8aa9"
+:noFill false
+:point [240 856]
+:parentId "68635db6-c113-4229-8c54-9c2b7cf0bd1b"
+:collapsedHeight 0
+:nonce 1751342972803}}
+:block/updated-at 1751343126582} 
+{:block/content "# Global Event Bus\nObserver Design Pattern\n\nRather than having one manager for all nodes. We have one single memo system that all managers use to communicate with, which propagate to nodes/scenes.\n\nAutoload: Signal Bus/Event Bus\n\nSay we have a script that detects whether a player dies. That script would say SignalBus.emit_signal(\"Player_died\")\n\nUiManager would connect to the signal and show death screen.\n\nAudioManager would connect to signal and play death sound.\n\nGamemanager would connect to handle reloading level.\n\nObserver"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "68635f5e-1712-4834-9d57-b4d9ae7c0498"}
+:block/parent 
+{:block/uuid #uuid "68635db6-c113-4229-8c54-9c2b7cf0bd1b"}
+:block/properties 
+{:heading 1}
+:block/uuid #uuid "68636019-101e-4284-91d7-448ea7323f42"} 
+{:block/created-at 1751343609185
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:blockType "B"
+:stroke ""
+:collapsed false
+:borderRadius 8
+:index 4
+:scale [1 1]
+:pageId "68636019-101e-4284-91d7-448ea7323f42"
+:scaleLevel "md"
+:fill ""
+:compact true
+:isAutoResizing true
+:type "logseq-portal"
+:size [400 630]
+:strokeType "line"
+:strokeWidth 2
+:opacity 1
+:id "8dabfb10-5631-11f0-90a6-ad65f78d8aa9"
+:noFill false
+:point [248 1224]
+:parentId "68635db6-c113-4229-8c54-9c2b7cf0bd1b"
+:collapsedHeight 0
+:nonce 1751343127951}}
+:block/updated-at 1751343609185})
+:pages (
+{:block/uuid #uuid "68635db6-c113-4229-8c54-9c2b7cf0bd1b"
+:block/properties 
+{:ls-type :whiteboard-page
+:logseq.tldraw.page 
+{:id "68635db6-c113-4229-8c54-9c2b7cf0bd1b"
+:name "godot projects"
+:bindings 
+{}
+:nonce 1
+:assets []
+:shapes-index ("2d8a4260-5630-11f0-90a6-ad65f78d8aa9" "4d757e50-5630-11f0-90a6-ad65f78d8aa9" "1be787b0-5631-11f0-90a6-ad65f78d8aa9" "31392420-5631-11f0-90a6-ad65f78d8aa9" "8dabfb10-5631-11f0-90a6-ad65f78d8aa9")}}
+:block/updated-at 1751343670396
+:block/created-at 1751342518488
+:block/type "whiteboard"
+:block/name "godot projects"
+:block/original-name "godot projects"})}

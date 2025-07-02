@@ -1,7 +1,7 @@
 @tool
 extends AnimatableBody3D
 
-# Use @export to ensure the values set by the importer are SAVED.
+
 @export var targetname: String = ""
 @export var move_offset: Vector3 = Vector3.ZERO
 @export var speed: float = 1.0
@@ -20,7 +20,6 @@ func _func_godot_apply_properties(props: Dictionary):
 	name_id = props.get("name_id", "")
 	starts_locked = props.get("starts_locked", true) 
 	
-
 # This runs when the game starts, using the SAVED @export variables.
 func _ready():
 	if Engine.is_editor_hint(): return
@@ -41,8 +40,6 @@ func use(activator):
 	# We ask the GameManager if this specific door is unlocked.
 	# Note: I'm assuming the variable is named 'door_id', change it if yours is different.
 	if not GAME.is_door_unlocked(self.name_id):
-		# If it's locked, we print the message and STOP.
-		print("DOOR IS LOCKED. USE THE TERMINAL.")
 		return # This exits the function immediately.
 
 	# STEP 2: If we passed the check, proceed with normal open/close logic.

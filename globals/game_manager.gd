@@ -1,5 +1,3 @@
-# GameManager.gd
-# This is our global "switchboard" script. It must be set up as an Autoload.
 class_name GameManager
 extends Node
 
@@ -83,28 +81,3 @@ func is_door_unlocked(door_name: String) -> bool:
 	return false # If it's not in the list, it's considered locked.
 	
 	
-# This is the corrected version of the function
-static func id_vec_to_godot_vec(vec: Variant) -> Vector3:
-	if vec is String:
-		# THIS IS THE CORRECT FUNCTION: split_floats()
-		# It takes a string like "0 0 4" and directly returns an array of floats: [0.0, 0.0, 4.0]
-		var arr: PackedFloat64Array = vec.split_floats(" ", false)
-		
-		# Make sure we got exactly 3 numbers
-		if arr.size() == 3:
-			# Now we can directly create the Vector3 from the float array
-			var org_vec = Vector3(arr[0], arr[1], arr[2])
-			
-			# This is the Quake-to-Godot coordinate swap: (X Y Z) from TB -> (X Z -Y) in Godot
-			return Vector3(org_vec.x, org_vec.z, -org_vec.y)
-		else:
-			# If the format was wrong, return zero to avoid crashing
-			return Vector3.ZERO
-	
-	elif vec is Vector3:
-		# If it's already a vector, just do the coordinate swap
-		var org_vec = vec
-		return Vector3(org_vec.x, org_vec.z, -org_vec.y)
-
-	# If it's neither a String nor a Vector3, return zero as a fallback
-	return Vector3.ZERO
