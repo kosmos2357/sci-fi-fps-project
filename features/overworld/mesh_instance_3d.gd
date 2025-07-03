@@ -66,3 +66,49 @@ func update_mesh() -> void:
 	var array_mesh := ArrayMesh.new()
 	array_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, plane_arrays)
 	mesh = array_mesh
+
+
+
+# --- Prop Scattering Settings ---
+@export_group("Prop Scattering")
+@export var prop_to_scatter: PackedScene # The prop scene to place (e.g., your tree)
+@export var prop_count: int = 500       # How many props to try and place
+@export var water_level: float = 0.0      # Any point below this height is considered water
+
+# This runs once when the game starts.
+func _ready():
+	# If the game is running (NOT in the editor), generate the mesh once
+	# and then scatter the props.
+	if not Engine.is_editor_hint():
+		update_mesh()
+		scatter_props_simple()
+
+
+# The Simple Scattering Function
+func scatter_props_simple():
+	if prop_to_scatter == null: return
+	
+	var prop_container = find_child("ScatteredProps", true, false)
+	if not is_instance_valid(prop_container):
+		prop_container = Node3D.new()
+		prop_container.name = "ScatteredProps"
+		add_child(prop_container)
+	
+	for child in prop_container.get_children():
+		child.queue_free()
+
+	
+	for i in range(prop_count):
+		var random_x = randf_range(-terrain_size.x / 2, terrain_size.x / 2)
+		var random_z = randf_range(-terrain_size.y / 2, terrain_size.y / 2)
+		var ground_y = get_height(random_x, random_z)
+		# Handles Water check
+		if ground_y > water_level:
+			var prop_instance = prop_to_scatter.instantiate()
+			prop_container.add_child(prop_instance)
+			
+			var final_position = Vector3(random_x, ground_y, random_z)
+			# prop.call_deffered fixes race condition issue 
+			# Cant simply add_child. We must set it to call_defferred, its positioning, and position
+			prop_instance.call_deferred("set_global_position", final_position)
+			prop_instance.call_deferred("set_rotation", Vector3(0, randf_range(0, TAU), 0))

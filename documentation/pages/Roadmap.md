@@ -30,15 +30,18 @@
 	- Terrain shaders
 	- Terrain assets
 	- Procedural Scattering and placement via perlin noise
-	- First Level I (Abandoned Human Outpost)
+	- First Level I (Abandoned Human Outpost) (Grey Box Protoype)
+		- Still need Functional AI And NPC to test level properly
 	- Link Level to Overworld
 - ## Phase 4 Advanced Gameplay
-- Additional Levels II and III
-- Enemy NPC
+- Enemy NPC (Generic Asset only concerned with logic)
 	- Turret
 	- Drone
 - Our main "Tool"
+- Levels I, II, and III Fleshed out
+- Assets finished for NPC
 - ## Phase 5 Game Shell
+- Additional Levels II and III
 - Main Menu
 - Pause Menu
 - GUI

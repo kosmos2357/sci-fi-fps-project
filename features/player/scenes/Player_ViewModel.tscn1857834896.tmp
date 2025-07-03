@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=4 uid="uid://vxhoiivdyixh"]
 
-[ext_resource type="Script" uid="uid://uiteq6gahhhd" path="res://features/player/scripts/player_viewModel.gd" id="1_21j6u"]
+[ext_resource type="Script" uid="uid://uiteq6gahhhd" path="res://features/player/scripts/play_viewmodel_test.gd" id="1_21j6u"]
 [ext_resource type="PackedScene" uid="uid://qduamm4c076l" path="res://Assets/models/flashlight/FlashLight_2_Final.tscn" id="2_24auq"]
 [ext_resource type="Texture2D" uid="uid://beewg834s2cta" path="res://Assets/models/flashlight/flashlight2_Preview.png" id="3_24auq"]
 [ext_resource type="AudioStream" uid="uid://ogr03vwfao3w" path="res://Assets/Sound/flashlight1.wav" id="3_ar4uc"]
@@ -222,6 +222,12 @@ shadow_mesh = SubResource("ArrayMesh_h84am")
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_21j6u")
+speed = null
+sprint_speed = null
+jump_velocity = null
+friction = null
+acceleration = null
+mouse_sensitivity = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_onrkg")

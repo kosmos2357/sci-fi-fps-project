@@ -1,6 +1,7 @@
-- Go through FPS controller code
+- Go through FPS controller code x
 - Go through Proc Gen Code
-- Go through entity Management code
+- Go through entity Management code x
 - Add fgd entity class resource .tres to entity_Def
 - Asset pipeline
--
+- Clean Repo Uneeded files
+- Add I/O information to needed methods
