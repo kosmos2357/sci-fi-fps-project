@@ -71,7 +71,7 @@ func update_mesh() -> void:
 
 # --- Prop Scattering Settings ---
 @export_group("Prop Scattering")
-@export var prop_to_scatter: PackedScene # The prop scene to place (e.g., your tree)
+@export var props_to_scatter: Array[PackedScene] # The prop scene to place (e.g., your tree)
 @export var prop_count: int = 500       # How many props to try and place
 @export var water_level: float = 0.0      # Any point below this height is considered water
 
@@ -86,7 +86,7 @@ func _ready():
 
 # The Simple Scattering Function
 func scatter_props_simple():
-	if prop_to_scatter == null: return
+	if props_to_scatter == null: return
 	
 	var prop_container = find_child("ScatteredProps", true, false)
 	if not is_instance_valid(prop_container):
@@ -102,13 +102,15 @@ func scatter_props_simple():
 		var random_x = randf_range(-terrain_size.x / 2, terrain_size.x / 2)
 		var random_z = randf_range(-terrain_size.y / 2, terrain_size.y / 2)
 		var ground_y = get_height(random_x, random_z)
-		# Handles Water check
+		# Handles Water
 		if ground_y > water_level:
-			var prop_instance = prop_to_scatter.instantiate()
-			prop_container.add_child(prop_instance)
-			
-			var final_position = Vector3(random_x, ground_y, random_z)
-			# prop.call_deffered fixes race condition issue 
-			# Cant simply add_child. We must set it to call_defferred, its positioning, and position
-			prop_instance.call_deferred("set_global_position", final_position)
-			prop_instance.call_deferred("set_rotation", Vector3(0, randf_range(0, TAU), 0))
+			var random_prop_scene = props_to_scatter.pick_random()
+			if random_prop_scene:
+				var prop_instance = random_prop_scene.instantiate()
+				prop_container.add_child(prop_instance)
+				
+				var final_position = Vector3(random_x, ground_y, random_z)
+				# prop.call_deffered fixes race condition issue 
+				# Cant simply add_child. We must set it to call_defferred, its positioning, and position
+				prop_instance.call_deferred("set_global_position", final_position)
+				prop_instance.call_deferred("set_rotation", Vector3(0, randf_range(0, TAU), 0))

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://xb704jyr0smo"]
+
+[ext_resource type="Script" uid="uid://d3l48p68qc3lp" path="res://features/props/density_Test_Prop/test_prop.gd" id="1_xdvxe"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6ookr"]
+size = Vector3(1, 9, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xdvxe"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_p7g72"]
+size = Vector3(1, 9, 4)
+
+[node name="TestProp" type="Node3D"]
+script = ExtResource("1_xdvxe")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.45818, 0)
+shape = SubResource("BoxShape3D_6ookr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.43791, 0)
+material_override = SubResource("StandardMaterial3D_xdvxe")
+mesh = SubResource("BoxMesh_p7g72")
