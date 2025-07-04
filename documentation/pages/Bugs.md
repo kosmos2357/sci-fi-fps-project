@@ -7,4 +7,4 @@
     <Stack Trace> mesh_instance_3d.gd:60 @ _ready()
 	- On overworld Object Instance portion
 	- see [[Race Conditions]]
-	-
+- Fixed call_deffered()

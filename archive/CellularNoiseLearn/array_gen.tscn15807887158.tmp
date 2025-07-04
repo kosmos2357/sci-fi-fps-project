@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwsacgftgy3dp"]
+
+[ext_resource type="Script" uid="uid://ciec330n0nicy" path="res://archive/CellularNoiseLearn/array_gen.gd" id="1_slb1v"]
+
+[node name="ArrayGen" type="Node2D"]
+script = ExtResource("1_slb1v")
