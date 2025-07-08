@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bh17j4da45vh7"]
+[gd_scene load_steps=31 format=3 uid="uid://bh17j4da45vh7"]
 
 [ext_resource type="Texture2D" uid="uid://by3tarukwmc3j" path="res://Assets/Art/Nagarjuna_Conqueror_of_the_Serpent.jpg" id="1_4fc0e"]
 [ext_resource type="Texture2D" uid="uid://b7h6qf7hxsg42" path="res://Assets/Art/the-beginning-of-life.jpg!Large.jpg" id="2_21ko3"]
@@ -11,15 +11,13 @@
 [ext_resource type="PackedScene" uid="uid://cl7oelqly8nac" path="res://archive/node_3d.tscn" id="9_w23s1"]
 [ext_resource type="PackedScene" uid="uid://d4nx7kdj1121r" path="res://levels/demo level/demo_level.tscn" id="10_n1xy8"]
 [ext_resource type="PackedScene" uid="uid://he04th7btbcr" path="res://features/enemies/dummy target/target_dummy.tscn" id="11_3yxmn"]
-[ext_resource type="PackedScene" uid="uid://b1imeh2t3ycr6" path="res://features/enemies/drone/drone.tscn" id="11_73pej"]
 [ext_resource type="PackedScene" uid="uid://bc1qnhot6npv6" path="res://Assets/models/flashlight/flashlight.glb" id="12_iivgo"]
 [ext_resource type="PackedScene" uid="uid://qduamm4c076l" path="res://Assets/models/flashlight/FlashLight_2_Final.tscn" id="13_woytj"]
 [ext_resource type="PackedScene" uid="uid://bqtrsusyad12b" path="res://features/interactables/terminal/terminal.tscn" id="14_o6dmv"]
 [ext_resource type="PackedScene" uid="uid://vxhoiivdyixh" path="res://features/player/scenes/Player_ViewModel.tscn" id="15_wk3pi"]
 [ext_resource type="PackedScene" uid="uid://hj2d5lhp6jkk" path="res://features/enemies/Simple_Turret/simple_turret.tscn" id="16_hfl7v"]
+[ext_resource type="AudioStream" uid="uid://beaa7hmiw4wya" path="res://levels/demo level/biggun1.wav" id="17_cphc1"]
 [ext_resource type="Script" uid="uid://dt8lkxmu252du" path="res://levels/demo level/area_3d.gd" id="18_hl284"]
-[ext_resource type="AudioStream" uid="uid://dvnvsgx3qodmh" path="res://levels/demo level/c2a5_ba_sniped.wav" id="18_ms1ww"]
-[ext_resource type="PackedScene" uid="uid://s25vmj13t4cd" path="res://features/enemies/follower/follower.tscn" id="19_ms1ww"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7dm0k"]
 size = Vector3(61, 2, 60)
@@ -63,13 +61,6 @@ volumetric_fog_sky_affect = 0.39
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hl284"]
 size = Vector3(10.0647, 6.05237, 1)
-
-[sub_resource type="Curve3D" id="Curve3D_73pej"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.462295, -0.146275, 32.1788, 0, 0, 0, 0, 0, 0, -2.68669, -0.164116, 31.2624, 0, 0, 0, 0, 0, 0, -2.99035, -0.199902, 10.0898, 0, 0, 0, 0, 0, 0, -2.34102, -0.0156422, -0.48942, 0, 0, 0, 0, 0, 0, -0.780963, 0.267561, -0.49321, 0, 0, 0, 0, 0, 0, 0.0393596, -0.0206184, 0.965042),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
-}
-point_count = 7
 
 [node name="Main" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0053606, 1.90735e-06, -0.0230694)
@@ -371,7 +362,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.90735e-06, 2, -4)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 
 [node name="Demo_Level" parent="Node3D2" instance=ExtResource("10_n1xy8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.0668, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19, 0)
+
+[node name="entity_0_brush_25_collision_shape" parent="Node3D2/Demo_Level/FuncGodotMap/entity_0_worldspawn" index="27"]
+transform = Transform3D(1, 0.000208765, -1.49817e-05, -0.000208765, 1, 7.58586e-06, 1.49817e-05, -7.58586e-06, 1, 0, 0, 0)
+
+[node name="Node" type="Node" parent="Node3D2/Demo_Level/FuncGodotMap" index="4"]
 
 [node name="Node3D3" type="Node3D" parent="."]
 
@@ -399,36 +395,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24, 0)
 
 [node name="SimpleTurret" parent="." instance=ExtResource("16_hfl7v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.391091, 23.1715, 64.8367)
-visible = false
+
+[node name="SimpleTurret2" parent="." instance=ExtResource("16_hfl7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.997, 26.2128, 71.1078)
+
+[node name="SimpleTurret3" parent="." instance=ExtResource("16_hfl7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5487, 25.9797, 75.614)
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87054, 24.8569, 24.4172)
 script = ExtResource("18_hl284")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.453041, 0.195129, -11.3297)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.453041, 0.195129, -6.28618)
 shape = SubResource("BoxShape3D_hl284")
 
 [node name="Warning" type="AudioStreamPlayer" parent="Area3D"]
-stream = ExtResource("18_ms1ww")
-volume_db = -80.0
-
-[node name="Follower" parent="." node_paths=PackedStringArray("target") instance=ExtResource("19_ms1ww")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.860597, 23.8713, 15.6295)
-target = NodePath("../Player2")
-
-[node name="Path3D" type="Path3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.53475, 23.4484, 17.4291)
-curve = SubResource("Curve3D_73pej")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-0.99988, 6.52903e-05, -0.0143647, 0, 0.999981, 0.00454516, 0.0143646, 0.00454467, -0.999883, 0, 0, 0)
-
-[node name="CharacterBody3D" parent="Path3D/PathFollow3D" instance=ExtResource("11_73pej")]
-transform = Transform3D(-0.999897, 0, 0.0143649, 6.52906e-05, 0.99999, 0.0045447, -0.0143647, 0.00454517, -0.999887, 0, 0, 0)
-patrol_path = NodePath("../..")
+stream = ExtResource("17_cphc1")
 
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area3D" to="Area3D" method="_on_body_exited"]
 
 [editable path="Node3D"]
+[editable path="Node3D2/Demo_Level"]

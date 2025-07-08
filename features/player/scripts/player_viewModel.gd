@@ -12,6 +12,7 @@ const GRAVITY = -24.8
 @export var friction = 10
 @export var acceleration = 12
 @export var mouse_sensitivity = 0.002
+@export var health = 100
 
 @onready var flashlight_beam = $Camera3D/ViewModelContainer/flashlight/FlashLightBeam
 @onready var flashlight_click_sound = $FlashLightClickSound
@@ -120,7 +121,73 @@ func handle_sprint() -> int:
 		return 1
 
 
+func take_damage(amt :int):
+	health = health - amt
+	print("Player has taken: ", amt, " damage")
+	create_damage_flash()
+	if health <= 0:
+		die()
+		print("PLAYER HAS DIED!")
+		
+		
+func create_damage_flash():
+	# 1. Create the ColorRect node.
+	var flash_rect = ColorRect.new()
+	
+	# 2. Set its properties.
+	# We start with a semi-transparent red color.
+	flash_rect.color = Color(1.0, 0.0, 0.0, 0.4) 
+	# Make it fill the entire screen.
+	flash_rect.size = get_viewport().get_visible_rect().size
+	
+	# 3. Add it to a new CanvasLayer so it draws on top of everything.
+	var canvas = CanvasLayer.new()
+	canvas.add_child(flash_rect)
+	add_child(canvas)
+	
+	# 4. Create the fade-out animation.
+	# We will tween its 'modulate' property, which controls its overall color and transparency.
+	var tween = create_tween()
+	
+	# Animate the modulate property from its current color (red) to fully transparent red
+	# over a short duration (e.g., 0.4 seconds).
+	tween.tween_property(flash_rect, "modulate", Color(1.0, 0.0, 0.0, 0.0), 0.4)
+	
+	# 5. Clean up after the animation is finished.
+	# Once the tween is complete, we wait for its 'finished' signal.
+	await tween.finished
+	# After it finishes, we delete the entire CanvasLayer and its contents.
+	canvas.queue_free()
+
+func die():
+	print("PLAYER HAS DIED.")
+	
+	# To prevent the dead player from moving, we disable their physics.
+	set_physics_process(false) 
+	
+	# --- Create a Fade-to-Black Effect ---
+	# 1. Create a black rectangle.
+	var fade_rect = ColorRect.new()
+	fade_rect.color = Color(0, 0, 0, 0) # Start fully transparent.
+	fade_rect.size = get_viewport().get_visible_rect().size
+	
+	# 2. Add it to a CanvasLayer so it draws on top of everything.
+	var canvas = CanvasLayer.new()
+	canvas.add_child(fade_rect)
+	add_child(canvas)
+	
+	# 3. Animate its color from transparent to opaque black.
+	var tween = create_tween()
+	tween.tween_property(fade_rect, "color", Color.BLACK, 1.0) # Fade over 1 second
+	
+	# 4. Wait for the fade to finish.
+	await tween.finished
+	
+	# 5. Go to the Game Over screen.
+	get_tree().change_scene_to_file("res://levels/demo level/main.tscn")
 func _physics_process(delta):
+	
+	
 	# NOTE Y Axis Vector
 	# Add gravity every frame if we are not on the floor
 	if not is_on_floor():

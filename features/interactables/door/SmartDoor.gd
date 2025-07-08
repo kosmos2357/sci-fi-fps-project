@@ -7,6 +7,7 @@ extends AnimatableBody3D
 @export var speed: float = 1.0
 @export var starts_locked: bool = true 
 @export var name_id: String = ""
+
 # --- Internal state variables ---
 var is_open: bool = false
 var start_position: Vector3
@@ -19,6 +20,7 @@ func _func_godot_apply_properties(props: Dictionary):
 	move_offset = props.get("move_offset", Vector3.ZERO) 
 	name_id = props.get("name_id", "")
 	starts_locked = props.get("starts_locked", true) 
+	
 	
 # This runs when the game starts, using the SAVED @export variables.
 func _ready():
@@ -54,3 +56,5 @@ func use(activator):
 		# Create and run the smooth movement animation.
 		var tween = create_tween()
 		tween.tween_property(self, "global_position", destination, speed).set_trans(Tween.TRANS_SINE)
+		
+		

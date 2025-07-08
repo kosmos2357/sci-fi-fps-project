@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dvnvsgx3qodmh"
+path="res://.godot/imported/c2a5_ba_sniped.wav-f82f61e89955138da0c10616cfe79763.sample"
+
+[deps]
+
+source_file="res://levels/demo level/c2a5_ba_sniped.wav"
+dest_files=["res://.godot/imported/c2a5_ba_sniped.wav-f82f61e89955138da0c10616cfe79763.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
