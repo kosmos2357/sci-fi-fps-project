@@ -20,7 +20,7 @@ script = ExtResource("1_wb022")
 [node name="pivot" type="Node3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="pivot"]
-transform = Transform3D(0.0316201, -0.9995, 0, 0.9995, 0.0316201, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_wb022")
 mesh = SubResource("CylinderMesh_wb022")
 skeleton = NodePath("../..")
@@ -35,11 +35,11 @@ shape = SubResource("CylinderShape3D_wb022")
 
 [node name="Detector" type="RayCast3D" parent="pivot"]
 transform = Transform3D(3.55893, 0, 0, 0, 1.98564, 0, 0, 0, 2.31003, 0, 0, 0)
-target_position = Vector3(0, 0, 2)
+target_position = Vector3(0, 0, 10)
 debug_shape_custom_color = Color(1, 0, 0, 1)
 
 [node name="Barrel" type="RayCast3D" parent="pivot"]
-transform = Transform3D(0.102538, 0, 2.30907, 0, 1.98564, 0, -3.55745, 0, 0.066555, 0, 0, 0)
+transform = Transform3D(-3.55893, 0, 2.01949e-07, 0, 1.98564, 0, -3.11131e-07, 0, -2.31003, 0, 0, 0)
 target_position = Vector3(0, 0, 2)
 debug_shape_custom_color = Color(0, 0.614695, 0.598813, 1)
 

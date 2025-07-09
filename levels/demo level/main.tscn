@@ -66,10 +66,10 @@ size = Vector3(10.0647, 6.05237, 1)
 
 [sub_resource type="Curve3D" id="Curve3D_73pej"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.462295, -0.146275, 32.1788, 0, 0, 0, 0, 0, 0, -2.68669, -0.164116, 31.2624, 0, 0, 0, 0, 0, 0, -2.99035, -0.199902, 10.0898, 0, 0, 0, 0, 0, 0, -2.34102, -0.0156422, -0.48942, 0, 0, 0, 0, 0, 0, -0.780963, 0.267561, -0.49321, 0, 0, 0, 0, 0, 0, 0.0393596, -0.0206184, 0.965042),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.386452, -2.81867, 25.5454, 0, 0, 0, 0, 0, 0, -2.75666, -2.78207, 25.1419, 0, 0, 0, 0, 0, 0, -2.99306, -1.45594, 9.85301, 0, 0, 0, 0, 0, 0, -0.780963, 0.267561, -0.49321, 0, 0, 0, 0, 0, 0, 0.0393596, -0.0206184, 0.965042),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
 }
-point_count = 7
+point_count = 6
 
 [node name="Main" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0053606, 1.90735e-06, -0.0230694)
@@ -399,7 +399,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24, 0)
 
 [node name="SimpleTurret" parent="." instance=ExtResource("16_hfl7v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.391091, 23.1715, 64.8367)
-visible = false
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87054, 24.8569, 24.4172)
@@ -418,14 +417,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.860597, 23.8713, 15.6295)
 target = NodePath("../Player2")
 
 [node name="Path3D" type="Path3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.53475, 23.4484, 17.4291)
+transform = Transform3D(1, 0, 0, 0, 0.993027, 0.117884, 0, -0.117884, 0.993027, 5.53475, 23.4484, 17.4291)
 curve = SubResource("Curve3D_73pej")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-0.99988, 6.52903e-05, -0.0143647, 0, 0.999981, 0.00454516, 0.0143646, 0.00454467, -0.999883, 0, 0, 0)
+transform = Transform3D(-0.999861, 0.00165875, -0.0150349, 1.16412e-10, 0.993954, 0.109661, 0.0151259, 0.109648, -0.993845, 0, 0, 0)
 
 [node name="CharacterBody3D" parent="Path3D/PathFollow3D" instance=ExtResource("11_73pej")]
-transform = Transform3D(-0.999897, 0, 0.0143649, 6.52906e-05, 0.99999, 0.0045447, -0.0143647, 0.00454517, -0.999887, 0, 0, 0)
+transform = Transform3D(0.00129277, 3.51829e-08, 1, 0.0045452, 0.99999, -5.912e-06, -0.999989, 0.0045452, 0.00129281, 0, 0, 0)
 patrol_path = NodePath("../..")
 
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
