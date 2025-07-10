@@ -1,11 +1,8 @@
-[gd_scene load_steps=16 format=4 uid="uid://dh8l7lf471jhy"]
+[gd_scene load_steps=13 format=4 uid="uid://dh8l7lf471jhy"]
 
 [ext_resource type="Shader" uid="uid://b0gkdd8jxrdbi" path="res://archive/CellularNoiseLearn/learn_shader/terrain_shader.gdshader" id="1_iqghw"]
 [ext_resource type="Script" uid="uid://h44etc3qkktl" path="res://archive/CellularNoiseLearn/mesh.gd" id="1_kkndc"]
-[ext_resource type="Texture2D" uid="uid://wphy5u0fopaj" path="res://archive/CellularNoiseLearn/textures/YogeStylizedNatureTextures/Texture_6_Diffuse.png" id="2_iqghw"]
 [ext_resource type="PackedScene" uid="uid://vxhoiivdyixh" path="res://features/player/scenes/Player_ViewModel.tscn" id="2_ou57s"]
-[ext_resource type="Texture2D" uid="uid://cqxc6wgst00qo" path="res://archive/CellularNoiseLearn/textures/YogeStylizedNatureTextures/Texture_3_Diffuse.png" id="3_us1fd"]
-[ext_resource type="Texture2D" uid="uid://cs7mp6wqugiyh" path="res://archive/CellularNoiseLearn/textures/YogeStylizedNatureTextures/Texture_7_Diffuse.png" id="4_naaq6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kkndc"]
 energy_multiplier = 2.99
@@ -20,14 +17,11 @@ sky = SubResource("Sky_2pn7h")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8vc4v"]
 render_priority = 0
 shader = ExtResource("1_iqghw")
-shader_parameter/texture_low = ExtResource("3_us1fd")
-shader_parameter/texture_mid = ExtResource("4_naaq6")
-shader_parameter/texture_high = ExtResource("2_iqghw")
 shader_parameter/height_low = -10.0
 shader_parameter/height_mid = 4.0
 shader_parameter/blend_sharpness = 8.0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_iqghw"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_d1o2x"]
 _surfaces = [{
 "aabb": AABB(-1024, -177.365, -1024, 2048, 363.941, 2048),
 "format": 34359742471,
@@ -62,7 +56,7 @@ environment = SubResource("Environment_ou57s")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 material_override = SubResource("ShaderMaterial_8vc4v")
-mesh = SubResource("ArrayMesh_iqghw")
+mesh = SubResource("ArrayMesh_d1o2x")
 script = ExtResource("1_kkndc")
 terrain_size = Vector2(2048, 2048)
 biome_map = SubResource("FastNoiseLite_d1o2x")

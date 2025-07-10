@@ -13,15 +13,31 @@ const GRAVITY = -24.8
 @export var acceleration = 12
 @export var mouse_sensitivity = 0.002
 @export var health = 100
+@export var crouch_depth: float = -0.3 #Note: Anything higher results in head going through plane surface.Need to check racast height to match crouch depth.
+@export var crouch_speed: float = 0.2
 
+
+@onready var camera_y_position = get_viewport().get_camera_3d().global_position.y
 @onready var flashlight_beam = $Camera3D/ViewModelContainer/flashlight/FlashLightBeam
 @onready var flashlight_click_sound = $FlashLightClickSound
 @onready var use_key_sound = $UseKeySound
 @onready var camera = $Camera3D
 @onready var flash_light_model = $Camera3D/ViewModelContainer/flashlight
-
+@onready var collision_shape = $CollisionShape3D
+@onready var head_check = $CollisionShape3D/HeadCheck
 # This will hold our vertical velocity
 var gravity_vec = Vector3.ZERO
+var is_on_ladder: bool = false
+var is_crouching: bool = false
+var standing_camera_y: float
+var standing_collision_height: float
+var standing_collision_y: float
+
+# This flag is the player's INTENT. It's set by the input function.
+var wants_to_crouch: bool = false
+
+# This is the player's ACTUAL state. It's only ever changed by the physics function.
+var is_actually_crouching: bool = false
 
 """
 Procedures for Unhandled Input
@@ -70,12 +86,24 @@ func handle_mouse_button(event):
 		get_tree().get_root().add_child(new_bullet)
 		
 
+
 """
 READY
 """
 func _ready():
 	hide_cursor()
 	flash_light_beam_init(false)
+	standing_camera_y = camera.position.y
+	standing_collision_height = collision_shape.shape.height
+	standing_collision_y = collision_shape.position.y
+	
+
+func is_head_collding() -> bool:
+	if head_check.is_colliding():
+		print("COLLIDING")
+		return true
+	else:
+		return false
 """
 UNHANDLED INPUT
 """
@@ -90,6 +118,31 @@ func _unhandled_input(event):
 		toggle_flashlight()
 	elif event.is_action_pressed("interact"):
 		toggle_use_key()
+	if event.is_action("crouch"):
+			# If the crouch key is pressed or released, update our intent flag.
+			wants_to_crouch = event.is_pressed()
+			print("--- INPUT: Crouch key state changed! wants_to_crouch is now: ", wants_to_crouch)
+
+
+		
+func set_crouch_state(crouching: bool):
+	is_crouching = crouching
+	
+	# Determine our target heights based on the new state.
+	var target_cam_y = standing_camera_y + crouch_depth if is_crouching else standing_camera_y
+	var target_col_height = standing_collision_height / 2.0 if is_crouching else standing_collision_height
+	var target_col_y = standing_collision_y / 2.0 if is_crouching else standing_collision_y
+	
+	# Create a tween to smoothly animate everything at once.
+	var tween = create_tween()
+	tween.set_parallel(true) # Makes all animations run at the same time.
+	
+	# Animate the camera's Y position.
+	tween.tween_property(camera, "position:y", target_cam_y, crouch_speed).set_trans(Tween.TRANS_SINE)
+	# Animate the collision shape's height.
+	tween.tween_property(collision_shape.shape, "height", target_col_height, crouch_speed).set_trans(Tween.TRANS_SINE)
+	# Animate the collision shape's Y position to keep its base on the ground.
+	tween.tween_property(collision_shape, "position:y", target_col_y, crouch_speed).set_trans(Tween.TRANS_SINE)
 
 """
 PHYSICS PROCESS
@@ -102,6 +155,7 @@ Procedures for Physics Process
 func handle_jump() -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
+	
 
 # --- Camera Tilt Logic ---
 func handle_camera_tilt(delta) -> void:
@@ -185,9 +239,9 @@ func die():
 	
 	# 5. Go to the Game Over screen.
 	get_tree().change_scene_to_file("res://levels/demo level/main.tscn")
-func _physics_process(delta):
-	
-	
+
+
+func handle_normal_movement(delta) -> void:
 	# NOTE Y Axis Vector
 	# Add gravity every frame if we are not on the floor
 	if not is_on_floor():
@@ -210,3 +264,63 @@ func _physics_process(delta):
 	
 	handle_camera_tilt(delta)
 	move_and_slide()
+	
+func handle_ladder_movement(delta) -> void:
+		# When on a ladder, we have different physics.
+	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_down", "ui_up")
+	if Input.is_action_just_pressed("jump"):
+		exit_climbing_state()
+		velocity = -global_transform.basis.z * (speed * 0.75) + (Vector3.UP * (jump_velocity * 0.5))
+		return
+
+	# W/S keys now control vertical movement (Y-axis).
+	velocity.y = input_dir.y * speed * handle_sprint()
+
+	# A/D keys can still control horizontal movement.
+	var direction = transform.basis * Vector3(input_dir.x, 0, 0)
+	velocity.x = direction.x * speed
+	velocity.z = direction.z * speed
+
+	move_and_slide()
+
+"""
+PHYSICS PROCESS
+"""
+func _physics_process(delta):
+	
+	if is_on_ladder: 
+		handle_ladder_movement(delta)
+	else:
+		# Handle Normal Movement
+		handle_normal_movement(delta)
+		
+# This is the check for standing up.
+	# We check if the player WANTS to stand (wants_to_crouch is false)
+	# AND if they ARE currently crouching (is_actually_crouching is true).
+	if not wants_to_crouch and is_actually_crouching:
+		print("PHYSICS: Player wants to stand. Checking for obstacles...")
+		
+		# We check the raycast here, in the safety of the physics step.
+		if head_check.is_colliding():
+			print("PHYSICS: Obstacle detected! Cannot stand up. Staying crouched.")
+		else:
+			print("PHYSICS: Path is clear! Standing up now.")
+			is_actually_crouching = false
+			
+			set_crouch_state(false)
+
+	# This is the check for crouching down.
+	# We check if the player WANTS to crouch AND if they are NOT already crouching.
+	elif wants_to_crouch and not is_actually_crouching:
+		print("PHYSICS: Player wants to crouch. Crouching now.")
+		is_actually_crouching = true
+	
+		set_crouch_state(true)
+func enter_climbing_state():
+	is_on_ladder = true
+	print("I am on a ladder")
+	
+func exit_climbing_state():
+	is_on_ladder = false
+	print("I am on not on a ladder")
+	

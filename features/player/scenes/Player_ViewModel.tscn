@@ -226,6 +226,10 @@ script = ExtResource("1_21j6u")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_onrkg")
 
+[node name="HeadCheck" type="RayCast3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.168054, 0)
+target_position = Vector3(0, 1, 0)
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000560403, 0.734257, 7.23898e-05)
 
@@ -241,9 +245,11 @@ mesh = SubResource("ArrayMesh_wtjoh")
 transform = Transform3D(-2.08616e-07, 0, 5, 0, 5, 0, -5, 0, -2.08616e-07, -1.28087, 0.155445, 0.00016892)
 layers = 1048575
 light_color = Color(0.992157, 0.686275, 0, 1)
-light_energy = 7.655
-light_indirect_energy = 2.379
+light_energy = 0.865
+light_indirect_energy = 1.065
 light_volumetric_fog_energy = 1.736
+spot_range = 18.443
+spot_attenuation = 0.73
 spot_angle = 23.3225
 
 [node name="Muzzle" type="Marker3D" parent="Camera3D"]

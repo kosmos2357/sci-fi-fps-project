@@ -33,6 +33,10 @@
 	- First Level I (Abandoned Human Outpost) (Grey Box Protoype)
 		- Still need Functional AI And NPC to test level properly
 	- Link Level to Overworld
+	- Additional Movement
+		- Crouching
+		- Ladder Climb
+		- Better overall handleing
 - ## Phase 4 Advanced Gameplay
 - Enemy NPC (Generic Asset only concerned with logic)
 	- Turret

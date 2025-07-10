@@ -35,3 +35,9 @@
   						current_state = States.ACQUIRING
   ```
 -
+- Again had issue with player head going up during crouch
+	- simple collision check in physics proc and input handle in unhandled input was not sufficient
+		- Unhandled input can happen in between frames
+		- meanwhile phys proc is tied ot frames.
+		- Meaning any sort of ray check would get skipped over and simply process unhandled input first
+		- Input and physics timeline are separate.

@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://cnhjycv83bmda"
+path="res://.godot/imported/Prototype_Outpost_Alpha.map-6c9602fbb5c1bda060055737a744195b.tres"
+
+[deps]
+
+source_file="res://trenchbroom/maps/Prototype_Outpost_Alpha.map"
+dest_files=["res://.godot/imported/Prototype_Outpost_Alpha.map-6c9602fbb5c1bda060055737a744195b.tres"]
+
+[params]
+

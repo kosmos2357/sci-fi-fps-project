@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://cyle48eeuhop3"
+path="res://.godot/imported/Prototype_Outpost_Alpha.3.map-07730959dd2514bd2013f72ded28f5b8.tres"
+
+[deps]
+
+source_file="res://trenchbroom/maps/autosave/Prototype_Outpost_Alpha.3.map"
+dest_files=["res://.godot/imported/Prototype_Outpost_Alpha.3.map-07730959dd2514bd2013f72ded28f5b8.tres"]
+
+[params]
+
