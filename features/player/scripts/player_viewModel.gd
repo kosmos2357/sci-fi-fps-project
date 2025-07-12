@@ -6,7 +6,7 @@ const BULLET_SCENE = preload("res://features/player/scenes/bullet.tscn")
 
 const GRAVITY = -24.8
 
-@export var speed = 7.0
+@export var speed = 17.0
 @export var sprint_speed = 2
 @export var jump_velocity = 7.0
 @export var friction = 10
