@@ -1,6 +1,5 @@
-[gd_scene load_steps=19 format=4 uid="uid://dh8l7lf471jhy"]
+[gd_scene load_steps=18 format=4 uid="uid://dh8l7lf471jhy"]
 
-[ext_resource type="Texture2D" uid="uid://dgdrbbuxj2a4n" path="res://panorama_image_space.png" id="1_cpqbs"]
 [ext_resource type="Shader" uid="uid://b0gkdd8jxrdbi" path="res://archive/CellularNoiseLearn/learn_shader/terrain_shader.gdshader" id="1_iqghw"]
 [ext_resource type="Script" uid="uid://h44etc3qkktl" path="res://archive/CellularNoiseLearn/mesh.gd" id="1_kkndc"]
 [ext_resource type="PackedScene" uid="uid://vxhoiivdyixh" path="res://features/player/scenes/Player_ViewModel.tscn" id="2_ou57s"]
@@ -49,14 +48,14 @@ albedo_color = Color(0.868677, 0.803873, 0.899623, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_cpqbs"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v7n2k"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iqghw"]
 
-[sub_resource type="Sky" id="Sky_iqghw"]
-sky_material = SubResource("ProceduralSkyMaterial_v7n2k")
+[sub_resource type="Sky" id="Sky_2pn7h"]
+sky_material = SubResource("ProceduralSkyMaterial_iqghw")
 
-[sub_resource type="Environment" id="Environment_p6vlr"]
+[sub_resource type="Environment" id="Environment_ou57s"]
 background_mode = 2
-sky = SubResource("Sky_iqghw")
+sky = SubResource("Sky_2pn7h")
 
 [node name="Mesh" type="Node3D"]
 
@@ -87,10 +86,9 @@ mesh = SubResource("SphereMesh_cpqbs")
 
 [node name="DayNightCycle" type="Node3D" parent="."]
 script = ExtResource("4_v7n2k")
-night_sky_panorama = ExtResource("1_cpqbs")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="DayNightCycle"]
-environment = SubResource("Environment_p6vlr")
+environment = SubResource("Environment_ou57s")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="DayNightCycle"]
 
