@@ -93,6 +93,7 @@ night_sky_panorama = ExtResource("1_cpqbs")
 environment = SubResource("Environment_p6vlr")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="DayNightCycle"]
+transform = Transform3D(1, 0, 0, 0, 0.997441, 0.0714974, 0, -0.0714974, 0.997441, 0, 0, 0)
 
 [node name="DirectionalLight3D_2" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.965926, -0.258819, 0, 0.258819, -0.965926, 0, 2317, -502)
