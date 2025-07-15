@@ -15,6 +15,9 @@ const GRAVITY = -24.8
 @export var health = 100
 @export var crouch_depth: float = -0.3 #Note: Anything higher results in head going through plane surface.Need to check racast height to match crouch depth.
 @export var crouch_speed: float = 0.2
+@export_group("Viewmodel Animation")
+@export var sway_speed: float = 4.0
+@export var sway_amount: float = 0.05
 
 
 @onready var camera_y_position = get_viewport().get_camera_3d().global_position.y
@@ -25,6 +28,7 @@ const GRAVITY = -24.8
 @onready var flash_light_model = $Camera3D/ViewModelContainer/flashlight
 @onready var collision_shape = $CollisionShape3D
 @onready var head_check = $CollisionShape3D/HeadCheck
+@onready var viewmodel_container = $Camera3D/ViewModelContainer
 # This will hold our vertical velocity
 var gravity_vec = Vector3.ZERO
 var is_on_ladder: bool = false
@@ -39,6 +43,10 @@ var wants_to_crouch: bool = false
 # This is the player's ACTUAL state. It's only ever changed by the physics function.
 var is_actually_crouching: bool = false
 
+# Continuous timer for sway
+var sway_t: float = 0.0
+
+var viewmodel_origin: Vector3
 """
 Procedures for Unhandled Input
 """
@@ -96,6 +104,10 @@ func _ready():
 	standing_camera_y = camera.position.y
 	standing_collision_height = collision_shape.shape.height
 	standing_collision_y = collision_shape.position.y
+	
+	#Save viewmodel pos
+	if is_instance_valid(viewmodel_container):
+		viewmodel_origin = viewmodel_container.position
 	
 
 func is_head_collding() -> bool:
@@ -316,6 +328,30 @@ func _physics_process(delta):
 		is_actually_crouching = true
 	
 		set_crouch_state(true)
+	
+	# --- NEW, CORRECTED SWAY LOGIC ---
+	var horizontal_velocity = Vector3(velocity.x, 0, velocity.z)
+
+	# This will hold the sway offset for the current frame.
+	var sway_offset: Vector3 = Vector3.ZERO
+
+	# Check if the player is on the floor and moving.
+	if horizontal_velocity.length() > 0.1:
+		# If we are walking, increase our "sway timer".
+		sway_t += delta * sway_speed
+		
+		# Calculate the sway offset using sine and cosine waves.
+		sway_offset.z = cos(sway_t) * sway_amount
+		sway_offset.y = sin(sway_t * 2) * sway_amount
+	
+	# THE FIX: We calculate the final target position by adding the sway offset
+	# to the original resting position. When standing still, sway_offset is (0,0,0),
+	# so the target is just the original position.
+	var target_position = viewmodel_origin + sway_offset
+	
+	# Smoothly move the viewmodel container towards its final target position.
+	viewmodel_container.position = viewmodel_container.position.lerp(target_position, delta)
+		
 func enter_climbing_state():
 	is_on_ladder = true
 	print("I am on a ladder")

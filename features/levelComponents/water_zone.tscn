@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=3 uid="uid://c8grjrkrfl3lw"]
+
+[ext_resource type="Script" uid="uid://d3qdxi5ivpaac" path="res://archive/CellularNoiseLearn/water_zone.gd" id="1_mfgnh"]
+[ext_resource type="Shader" uid="uid://crpfik8ylvbfd" path="res://Assets/shaders/water_shader.gdshader" id="2_cqkvq"]
+[ext_resource type="Texture2D" uid="uid://wroc1gvjnanh" path="res://water1.png" id="3_oh3rp"]
+[ext_resource type="Texture2D" uid="uid://b8pcja5gnxhrx" path="res://caust_003.png" id="4_6614g"]
+[ext_resource type="Shader" uid="uid://dy7kch2acxowl" path="res://Assets/shaders/underwater_post_process.gdshader" id="5_x44lq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_us1fd"]
+size = Vector3(10, 10, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_us1fd"]
+size = Vector3(10, 10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p6vlr"]
+render_priority = 0
+shader = ExtResource("2_cqkvq")
+shader_parameter/albedo = Color(0, 0.499402, 0.504419, 1)
+shader_parameter/water_texture1 = ExtResource("3_oh3rp")
+shader_parameter/water_texture2 = ExtResource("4_6614g")
+shader_parameter/scroll_speed1 = Vector2(0.05, 0)
+shader_parameter/scroll_speed2 = Vector2(-0.03, 0)
+shader_parameter/blend_factor = 0.4
+shader_parameter/scale1 = Vector2(3, 5)
+shader_parameter/scale2 = Vector2(0.5, 1)
+shader_parameter/wave_strength = 0.2
+shader_parameter/wave_scale = 0.02
+shader_parameter/pixelation_level = 64
+shader_parameter/FoamSize = 0.5
+shader_parameter/WaterOpacity = 1.0
+shader_parameter/FoamGlowIntensity = 0.2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_slul1"]
+shader = ExtResource("5_x44lq")
+shader_parameter/overlay_color = Color(0.0431373, 0.32549, 0.411765, 0.839216)
+shader_parameter/distortion_strength = 0.1
+
+[node name="WaterZone" type="Area3D" node_paths=PackedStringArray("overlay_rect")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_mfgnh")
+overlay_rect = NodePath("CanvasLayer/UnderwaterOverlay")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_us1fd")
+
+[node name="Water" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_us1fd")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_p6vlr")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UnderwaterOverlay" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_slul1")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true

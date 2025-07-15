@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://vxhoiivdyixh"]
+[gd_scene load_steps=15 format=4 uid="uid://vxhoiivdyixh"]
 
 [ext_resource type="Script" uid="uid://uiteq6gahhhd" path="res://features/player/scripts/player_viewModel.gd" id="1_21j6u"]
 [ext_resource type="PackedScene" uid="uid://qduamm4c076l" path="res://Assets/models/flashlight/FlashLight_2_Final.tscn" id="2_24auq"]
@@ -220,6 +220,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_h84am")
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_me6m5"]
+
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_21j6u")
 
@@ -253,6 +255,14 @@ spot_attenuation = 0.73
 spot_angle = 23.3225
 
 [node name="Muzzle" type="Marker3D" parent="Camera3D"]
+
+[node name="CameraDetectionArea" type="Area3D" parent="Camera3D"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/CameraDetectionArea"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+shape = SubResource("SphereShape3D_me6m5")
 
 [node name="FlashLightClickSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_ar4uc")

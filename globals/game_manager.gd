@@ -1,6 +1,7 @@
 class_name GameManager
 extends Node
 
+
 # --- Properties ---
 
 # This dictionary is our "phonebook" for all named entities in a level.

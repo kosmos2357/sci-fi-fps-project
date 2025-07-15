@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3qfth6m3a7is"]
+[gd_scene load_steps=13 format=3 uid="uid://b3qfth6m3a7is"]
 
 [ext_resource type="PackedScene" uid="uid://b4mt130fmomid" path="res://levels/Prototypes/OutpostAlpha/Tb_Build/Outpost Alpha.tscn" id="1_be4k1"]
 [ext_resource type="PackedScene" uid="uid://vxhoiivdyixh" path="res://features/player/scenes/Player_ViewModel.tscn" id="2_1g5bs"]
+[ext_resource type="PackedScene" uid="uid://c8grjrkrfl3lw" path="res://features/levelComponents/water_zone.tscn" id="3_1g5bs"]
+[ext_resource type="Shader" uid="uid://crpfik8ylvbfd" path="res://Assets/shaders/water_shader.gdshader" id="4_lcdhk"]
+[ext_resource type="Texture2D" uid="uid://wroc1gvjnanh" path="res://water1.png" id="5_vyvrh"]
+[ext_resource type="Texture2D" uid="uid://b8pcja5gnxhrx" path="res://caust_003.png" id="6_46ab3"]
 
 [sub_resource type="Environment" id="Environment_be4k1"]
 background_mode = 1
+background_color = Color(0.201527, 0.201527, 0.201527, 1)
 background_energy_multiplier = 1.29
 ambient_light_color = Color(0.0745098, 0, 0, 1)
 ambient_light_energy = 0.01
@@ -20,12 +25,33 @@ emission_energy_multiplier = 4.52
 
 [sub_resource type="BoxMesh" id="BoxMesh_1g5bs"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_1g5bs"]
+size = Vector3(20, 10, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3iu8o"]
+size = Vector3(20, 10, 20)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gne8l"]
+render_priority = 0
+shader = ExtResource("4_lcdhk")
+shader_parameter/albedo = Color(0, 0.499402, 0.504419, 1)
+shader_parameter/water_texture1 = ExtResource("5_vyvrh")
+shader_parameter/water_texture2 = ExtResource("6_46ab3")
+shader_parameter/scroll_speed1 = Vector2(0.05, 0)
+shader_parameter/scroll_speed2 = Vector2(-0.03, 0)
+shader_parameter/blend_factor = 0.4
+shader_parameter/scale1 = Vector2(6, 10)
+shader_parameter/scale2 = Vector2(1, 2)
+shader_parameter/wave_strength = 0.2
+shader_parameter/wave_scale = 0.02
+shader_parameter/pixelation_level = 255
+shader_parameter/FoamSize = 0.5
+shader_parameter/WaterOpacity = 1.0
+shader_parameter/FoamGlowIntensity = 0.2
+
 [node name="OutpostAlphaLevelPrototype" type="Node3D"]
 
 [node name="OutpostAlpha" parent="." instance=ExtResource("1_be4k1")]
-
-[node name="Player" parent="OutpostAlpha" instance=ExtResource("2_1g5bs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.89095, 1.40723, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_be4k1")
@@ -46,7 +72,30 @@ light_volumetric_fog_energy = 1.057
 spot_range = 18.476
 spot_attenuation = 0.71
 
+[node name="SpotLight3D2" type="SpotLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -33.6981, 4.00763, -24.8704)
+light_energy = 0.943
+light_indirect_energy = 1.171
+light_volumetric_fog_energy = 1.057
+spot_range = 28.698
+spot_attenuation = 0.71
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.87088, 1.37606, -4.52034)
 material_override = SubResource("StandardMaterial3D_be4k1")
 mesh = SubResource("BoxMesh_1g5bs")
+
+[node name="Player" parent="." instance=ExtResource("2_1g5bs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.89095, 5.40723, 11)
+
+[node name="WaterZone" parent="." instance=ExtResource("3_1g5bs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.8354, -5, -38)
+
+[node name="CollisionShape3D" parent="WaterZone" index="0"]
+shape = SubResource("BoxShape3D_1g5bs")
+
+[node name="Water" parent="WaterZone" index="1"]
+mesh = SubResource("BoxMesh_3iu8o")
+surface_material_override/0 = SubResource("ShaderMaterial_gne8l")
+
+[editable path="WaterZone"]

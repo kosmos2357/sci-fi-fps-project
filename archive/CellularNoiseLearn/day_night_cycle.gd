@@ -93,7 +93,7 @@ func perform_night_logic() -> void:
 	else: # time_of_day is between 0.0 and 0.25
 		night_progress = ((0.25 - time_of_day) * 4.0) + progress_offset#1-0
 		
-	print(night_progress)
+	#wprint(night_progress)
 	# Use this for sky_contribution
 	var night_fade = smoothstep(0.5, -1.0, night_progress)
 	var night_fade_in = smoothstep(0.5, 1.0, night_progress + .5)
@@ -115,6 +115,10 @@ func exercise_1(delta) -> void:
 	# how high
 	var amplitude = 2
 	sun_light.light_energy = (abs(sin(total_time_elapsed * frequency)) * amplitude) * abs(cos(total_time_elapsed))# Pulse between 0 and 2 energy
+
+
+
+
 func _process(delta):
 	
 	if not day_sky_material:
@@ -140,7 +144,8 @@ func _process(delta):
 	# PI / 2.0 is 90 degrees
 	self.rotation.x = (time_of_day * TAU) + (PI / 2.0)
 	#print(time_of_day)
-
+	#print("Time of day ", time_of_day)
+	
 	#print(wrapf(self.rotation.x, 0, TAU))
 	
 	# _ Pattern guards
@@ -150,14 +155,14 @@ func _process(delta):
 	# 2. Act based on that state
 	match current_state:
 		States.MORNING:
-			print("It's morning! Do morning things.")
+			#print("It's morning! Do morning things.")
 			perform_day_logic()
 		States.NOON:
-			print("It's noon! Do noon things.")
+			#print("It's noon! Do noon things.")
 			perform_day_logic()
 		States.EVENING:
-			print("It's evening! Do evening things.")
+			#print("It's evening! Do evening things.")
 			perform_night_logic()
 		States.MIDNIGHT:
-			print("It's midnight! Do midnight things.")
+			#print("It's midnight! Do midnight things.")
 			perform_night_logic()
