@@ -9,7 +9,7 @@
 
 [sub_resource type="Environment" id="Environment_be4k1"]
 background_mode = 1
-background_color = Color(0.201527, 0.201527, 0.201527, 1)
+background_color = Color(0.0214346, 0.0214346, 0.0214346, 1)
 background_energy_multiplier = 1.29
 ambient_light_color = Color(0.0745098, 0, 0, 1)
 ambient_light_energy = 0.01
@@ -60,8 +60,13 @@ environment = SubResource("Environment_be4k1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2581, 3.34046, -0.258308)
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2581, 3.34046, -0.258308)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.2581, -4.65954, -36.2583)
+light_color = Color(0, 0.943033, 0, 1)
+light_energy = 3.629
+light_indirect_energy = 1.4
+light_volumetric_fog_energy = 3.457
 shadow_bias = 0.0
+omni_range = 9.255
 omni_attenuation = 0.0
 
 [node name="SpotLight3D" type="SpotLight3D" parent="WorldEnvironment"]

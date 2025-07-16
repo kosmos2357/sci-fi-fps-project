@@ -15,10 +15,26 @@ var path_follow: PathFollow3D
 # How fast the drone moves along the path
 var patrol_speed = 5.0
 var cooldown: float
-enum States {IDLE, PATROL, ALERT, PURSUE, FIRE}
+enum States {IDLE, PATROL, ALERT, PURSUE, FIRE, LURED}
 var current_state = States.IDLE
 var target = null
 var scan_speed = 2.0
+
+var lure_target_position: Vector3
+var lure_timeout = 5.0 # Drone will be lured for 5 seconds
+var current_lure_time = 0.0
+
+
+
+func lure_to_position(lure_pos: Vector3):
+	print(name, " has been lured to ", lure_pos)
+	lure_target_position = lure_pos
+	current_lure_time = lure_timeout # Reset the timer
+	current_state = States.LURED
+	# We set target to null so it stops chasing the player
+	target = null
+	
+
 func _ready():
 	# Get the PathFollow3D node from the path you assign in the Inspector
 	if not patrol_path.is_empty():
@@ -90,6 +106,28 @@ func _physics_process(delta):
 					current_state = States.PURSUE
 				else:
 					current_state = States.PURSUE
+		States.LURED:
+			# First, check if the lure has expired. This is our only exit condition.
+			current_lure_time -= delta
+			if current_lure_time <= 0:
+				print(name, " lure has expired. Returning to patrol.")
+				current_state = States.IDLE
+				return # Exit this state
+			
+			# If the timer is still active, figure out if we need to move or wait.
+			var distance_to_lure = global_position.distance_to(lure_target_position)
+			
+			if distance_to_lure > 1.5: # If we are far from the lure...
+				# ...move towards it.
+				nav_agent.target_position = lure_target_position
+				var next_point = nav_agent.get_next_path_position()
+				var direction = (next_point - global_position).normalized()
+				velocity = direction * movement_speed
+			else: # If we have arrived at the lure...
+				# ...stop moving and just wait here.
+				velocity = Vector3.ZERO
+			
+			move_and_slide()
 
 
 func follow_path(delta) -> void:
@@ -105,6 +143,9 @@ func follow_path(delta) -> void:
 	move_and_slide()
 # --- Signal Callbacks ---
 func _on_player_entered(body):
+		# ADD THIS LINE: If we are lured, ignore the player completely.
+	if current_state == States.LURED:
+		return
 	if body.is_in_group("player"):
 		print("Target entering range. Acquiring...")
 		target = body

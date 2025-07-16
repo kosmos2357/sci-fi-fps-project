@@ -2,6 +2,7 @@ extends CharacterBody3D
 """
 This script requires Bullet path to be preset here!
 """
+const LURE_SCENE = preload("res://lure.tscn") 
 const BULLET_SCENE = preload("res://features/player/scenes/bullet.tscn")
 
 const GRAVITY = -24.8
@@ -47,6 +48,8 @@ var is_actually_crouching: bool = false
 var sway_t: float = 0.0
 
 var viewmodel_origin: Vector3
+
+var is_underwater: bool
 """
 Procedures for Unhandled Input
 """
@@ -134,6 +137,24 @@ func _unhandled_input(event):
 			# If the crouch key is pressed or released, update our intent flag.
 			wants_to_crouch = event.is_pressed()
 			print("--- INPUT: Crouch key state changed! wants_to_crouch is now: ", wants_to_crouch)
+	# Check for a right mouse click to place the lure
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
+		# Get the raycast node
+		var raycast = $Camera3D/RayCast3D # Use the correct path to your raycast
+		
+		# Check if the raycast is hitting a surface
+		if raycast.is_colliding():
+			# Get the point where the ray hit
+			var collision_point = raycast.get_collision_point()
+			
+			# Create an instance of the Lure scene
+			var lure_instance = LURE_SCENE.instantiate()
+			
+			# Add the lure to the main world tree
+			get_tree().get_root().add_child(lure_instance)
+			
+			# Position the lure where the raycast hit
+			lure_instance.global_position = collision_point
 
 
 		
@@ -278,6 +299,8 @@ func handle_normal_movement(delta) -> void:
 	move_and_slide()
 	
 func handle_ladder_movement(delta) -> void:
+	
+	velocity.y -= water_gravity * delta
 		# When on a ladder, we have different physics.
 	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_down", "ui_up")
 	if Input.is_action_just_pressed("jump"):
@@ -298,6 +321,35 @@ func handle_ladder_movement(delta) -> void:
 """
 PHYSICS PROCESS
 """
+
+# Underwater movement properties
+@export var water_speed = 2.5
+@export var water_gravity = 5.0 # Lower gravity simulates buoyancy
+@export var swim_speed = 2.0   # How fast you move up/down
+
+func handle_underwater_movement(delta):
+	print("I AM IN SWIM STATE")
+	# Water gravity?
+	if not is_on_floor():
+		# NOTE: equation vel.y -= water_grav * delta seems to not do much here
+		# Simply setting vel.y = water_grav * delta does produce the sinking effect
+		# with the constant on the end creating a downwards pull or sinking effect 
+		velocity.y = water_gravity * delta - 1
+		print(velocity)
+	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	# Create a direction vector based on where the player is facing
+	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	# --- Underwater Movement ---
+	velocity.x = direction.x * water_speed
+	velocity.z = direction.z * water_speed
+
+	# Vertical swimming controls override gravity effects
+	if Input.is_action_pressed("jump"):
+		velocity.y = swim_speed # Swim up
+	elif Input.is_action_pressed("crouch"):
+		velocity.y = -swim_speed # Swim down
+	# If not swimming, buoyancy (low gravity) takes over
+
 func _physics_process(delta):
 	
 	if is_on_ladder: 
@@ -305,6 +357,11 @@ func _physics_process(delta):
 	else:
 		# Handle Normal Movement
 		handle_normal_movement(delta)
+	
+	
+	if is_underwater:
+		handle_underwater_movement(delta)
+
 		
 # This is the check for standing up.
 	# We check if the player WANTS to stand (wants_to_crouch is false)
@@ -359,4 +416,12 @@ func enter_climbing_state():
 func exit_climbing_state():
 	is_on_ladder = false
 	print("I am on not on a ladder")
+	
+func enter_swim_state():
+	is_underwater = true
+	print("I am swimming")
+	
+func exit_swim_state():
+	is_underwater = false
+	print("I am not swimming")
 	

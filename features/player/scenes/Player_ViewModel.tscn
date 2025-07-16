@@ -225,7 +225,7 @@ shadow_mesh = SubResource("ArrayMesh_h84am")
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_21j6u")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["player_body"]]
 shape = SubResource("CapsuleShape3D_onrkg")
 
 [node name="HeadCheck" type="RayCast3D" parent="CollisionShape3D"]
@@ -256,13 +256,17 @@ spot_angle = 23.3225
 
 [node name="Muzzle" type="Marker3D" parent="Camera3D"]
 
-[node name="CameraDetectionArea" type="Area3D" parent="Camera3D"]
+[node name="CameraDetectionArea" type="Area3D" parent="Camera3D" groups=["camera_detector"]]
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/CameraDetectionArea"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 shape = SubResource("SphereShape3D_me6m5")
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
+transform = Transform3D(0.048902, 0.998804, -4.36591e-08, 0, -4.37114e-08, -1, -0.998804, 0.048902, -2.13758e-09, 0, 0, 0)
+target_position = Vector3(20, -1, 0)
 
 [node name="FlashLightClickSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_ar4uc")
