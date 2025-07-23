@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://biidyiyv6j0cd"]
 
-[ext_resource type="Script" uid="uid://gohdwdysen1q" path="res://archive/player.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://gohdwdysen1q" path="res://archive/playerOLD.gd" id="1_4flbx"]
 [ext_resource type="PackedScene" uid="uid://qduamm4c076l" path="res://Assets/models/flashlight/FlashLight_2_Final.tscn" id="2_onrkg"]
 [ext_resource type="AudioStream" uid="uid://ogr03vwfao3w" path="res://Assets/Sound/flashlight1.wav" id="3_i3pqv"]
 [ext_resource type="AudioStream" uid="uid://6gn88h5yxunf" path="res://Assets/Sound/hlusekey.mp3" id="4_hqtel"]

@@ -3,10 +3,14 @@
 - # DevLog
 - [[Journal]]
 - # Roadmap
-- [[Roadmap]]
+- [[Roadmap DEPRACATED]]
+- [[Roadmap-Updated]]
 -
 - # Components
 - [[Components]]
 - # Known Issue
 - [[Bugs]]
+-
+- # Patterns
+- [[Reusability Patterns]]
 -

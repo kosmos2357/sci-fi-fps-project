@@ -91,7 +91,7 @@ material_override = SubResource("StandardMaterial3D_be4k1")
 mesh = SubResource("BoxMesh_1g5bs")
 
 [node name="Player" parent="." instance=ExtResource("2_1g5bs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.89095, 4.77497, 11)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.89095, 5.40723, 11)
 
 [node name="WaterZone" parent="." instance=ExtResource("3_1g5bs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.8354, -5, -38)

@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bc1qnhot6npv6" path="res://Assets/models/flashlight/flashlight.glb" id="12_iivgo"]
 [ext_resource type="PackedScene" uid="uid://qduamm4c076l" path="res://Assets/models/flashlight/FlashLight_2_Final.tscn" id="13_woytj"]
 [ext_resource type="PackedScene" uid="uid://bqtrsusyad12b" path="res://features/interactables/terminal/terminal.tscn" id="14_o6dmv"]
-[ext_resource type="PackedScene" uid="uid://vxhoiivdyixh" path="res://features/player/scenes/Player_ViewModel.tscn" id="15_wk3pi"]
+[ext_resource type="PackedScene" uid="uid://vxhoiivdyixh" path="res://features/player/scenes/player.tscn" id="15_wk3pi"]
 [ext_resource type="PackedScene" uid="uid://hj2d5lhp6jkk" path="res://features/enemies/Simple_Turret/simple_turret.tscn" id="16_hfl7v"]
 [ext_resource type="Script" uid="uid://dt8lkxmu252du" path="res://levels/demo level/area_3d.gd" id="18_hl284"]
 [ext_resource type="AudioStream" uid="uid://dvnvsgx3qodmh" path="res://levels/demo level/c2a5_ba_sniped.wav" id="18_ms1ww"]

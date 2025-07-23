@@ -36,7 +36,7 @@ void fragment() {
 	vec4 mid_tex_y = texture(texture_mid, world_pos.xz);
 	vec4 mid_tex_z = texture(texture_mid, world_pos.xy);
 	vec4 mid_tex_x = texture(texture_mid, world_pos.zy);
-	
+
 	vec4 high_tex_y = texture(texture_high, world_pos.xz);
 	vec4 high_tex_z = texture(texture_high, world_pos.xy);
 	vec4 high_tex_x = texture(texture_high, world_pos.zy);

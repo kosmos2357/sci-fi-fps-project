@@ -11,7 +11,7 @@ func _ready():
 		overlay_material = overlay_rect.material
 		overlay_material.set_shader_parameter("overlay_color", Color(0,0,0,0))
 		overlay_material.set_shader_parameter("distortion_strength", 0.0)
-	
+
 	# Connect signals for both Area3D (camera) and PhysicsBody3D (player)
 	area_entered.connect(_on_detector_entered)
 	area_exited.connect(_on_detector_exited)
@@ -24,7 +24,7 @@ func _on_detector_entered(detector):
 	if detector.is_in_group("player"):
 		print("Player body entered water!")
 		detector.enter_swim_state()
-		
+
 	# Check if it's the camera's detector for VISUALS
 	if detector.is_in_group("camera_detector"):
 		print("Camera detector entered water!")
@@ -36,7 +36,7 @@ func _on_detector_exited(detector):
 	if detector.is_in_group("player"):
 		print("Player body exited water!")
 		detector.exit_swim_state()
-		
+
 	# Handle camera detector exiting
 	if detector.is_in_group("camera_detector"):
 		print("Camera detector exited water!")
@@ -47,7 +47,7 @@ func animate_effect(target_color: Color, target_distortion: float):
 
 	if active_tween and active_tween.is_valid():
 		active_tween.kill()
-		
+
 	active_tween = create_tween()
 	active_tween.set_parallel(true)
 	active_tween.tween_property(overlay_material, "shader_parameter/overlay_color", target_color, 1.0)

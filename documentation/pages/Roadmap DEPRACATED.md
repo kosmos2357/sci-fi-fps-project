@@ -26,14 +26,17 @@
 - Git/Github
 - Logseq Documentation
 - ## Phase 3 Initial Content Creation
+-
+- ### Stopped here!
+	- Reupdate goals and adjust roadmap
 - Procedural Overworld fleshed out
-	- Terrain shaders
+	- Terrain shaders x
 	- Terrain assets
 	- Procedural Scattering and placement via perlin noise
 	- First Level I (Abandoned Human Outpost) (Grey Box Protoype)
 		- Still need Functional AI And NPC to test level properly
 	- Link Level to Overworld
-	- Additional Movement
+	- Additional Movement x
 		- Crouching
 		- Ladder Climb
 		- Better overall handleing
