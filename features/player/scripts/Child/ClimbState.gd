@@ -1,6 +1,12 @@
 class_name ClimbState
 extends SpecialState
 
+#NOTE
+"""
+Issues
+Push off feature has side effect of when on top acting as trampoline player cannot move in FALL state so continuously go
+up and down on top of ladder
+"""
 func process_physics(delta):
 	print("Entering CLIMB State")
 
