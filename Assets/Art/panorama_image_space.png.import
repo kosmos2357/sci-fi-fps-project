@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dgdrbbuxj2a4n"
-path.s3tc="res://.godot/imported/panorama_image_space.png-ab996956875e9d32fa56b36391bbfc0f.s3tc.ctex"
+path.s3tc="res://.godot/imported/panorama_image_space.png-e1240eb0a1261ae77a5ee1a36dab91fd.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://panorama_image_space.png"
-dest_files=["res://.godot/imported/panorama_image_space.png-ab996956875e9d32fa56b36391bbfc0f.s3tc.ctex"]
+source_file="res://Assets/Art/panorama_image_space.png"
+dest_files=["res://.godot/imported/panorama_image_space.png-e1240eb0a1261ae77a5ee1a36dab91fd.s3tc.ctex"]
 
 [params]
 

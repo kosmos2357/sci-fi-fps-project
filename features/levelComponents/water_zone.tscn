@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://d3qdxi5ivpaac" path="res://archive/CellularNoiseLearn/water_zone.gd" id="1_mfgnh"]
 [ext_resource type="Shader" uid="uid://crpfik8ylvbfd" path="res://Assets/shaders/water_shader.gdshader" id="2_cqkvq"]
-[ext_resource type="Texture2D" uid="uid://wroc1gvjnanh" path="res://water1.png" id="3_oh3rp"]
-[ext_resource type="Texture2D" uid="uid://b8pcja5gnxhrx" path="res://caust_003.png" id="4_6614g"]
+[ext_resource type="Texture2D" uid="uid://wroc1gvjnanh" path="res://Assets/Art/water1.png" id="3_oh3rp"]
+[ext_resource type="Texture2D" uid="uid://b8pcja5gnxhrx" path="res://Assets/Art/caust_003.png" id="4_6614g"]
 [ext_resource type="Shader" uid="uid://dy7kch2acxowl" path="res://Assets/shaders/underwater_post_process.gdshader" id="5_x44lq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_us1fd"]

@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://vxhoiivdyixh" path="res://features/player/scenes/player.tscn" id="2_1g5bs"]
 [ext_resource type="PackedScene" uid="uid://c8grjrkrfl3lw" path="res://features/levelComponents/water_zone.tscn" id="3_1g5bs"]
 [ext_resource type="Shader" uid="uid://crpfik8ylvbfd" path="res://Assets/shaders/water_shader.gdshader" id="4_lcdhk"]
-[ext_resource type="Texture2D" uid="uid://wroc1gvjnanh" path="res://water1.png" id="5_vyvrh"]
-[ext_resource type="Texture2D" uid="uid://b8pcja5gnxhrx" path="res://caust_003.png" id="6_46ab3"]
+[ext_resource type="Texture2D" uid="uid://wroc1gvjnanh" path="res://Assets/Art/water1.png" id="5_vyvrh"]
+[ext_resource type="Texture2D" uid="uid://b8pcja5gnxhrx" path="res://Assets/Art/caust_003.png" id="6_46ab3"]
 
 [sub_resource type="Environment" id="Environment_be4k1"]
 background_mode = 1

@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=4 uid="uid://dh8l7lf471jhy"]
 
-[ext_resource type="Texture2D" uid="uid://dgdrbbuxj2a4n" path="res://panorama_image_space.png" id="1_cpqbs"]
+[ext_resource type="Texture2D" uid="uid://dgdrbbuxj2a4n" path="res://Assets/Art/panorama_image_space.png" id="1_cpqbs"]
 [ext_resource type="Shader" uid="uid://b0gkdd8jxrdbi" path="res://archive/CellularNoiseLearn/learn_shader/terrain_shader.gdshader" id="1_iqghw"]
 [ext_resource type="Script" uid="uid://h44etc3qkktl" path="res://archive/CellularNoiseLearn/mesh.gd" id="1_kkndc"]
 [ext_resource type="PackedScene" uid="uid://vxhoiivdyixh" path="res://features/player/scenes/player.tscn" id="2_ou57s"]

@@ -10,7 +10,7 @@ MINOR COMP
 	Flashlight x
 	Lure x
 	Shoot x
-	ViewModel Movement
+	ViewModel Movement x
 	Interact x
 
 Better Movement Handle
@@ -43,9 +43,9 @@ const BULLET_SCENE = preload("res://features/player/scenes/bullet.tscn")
 
 # -- Onready Variables --
 @onready var camera = $Camera3D
-@onready var flashlight_click_sound = $FlashLightClickSound
+
 @onready var flashlight_beam = $Camera3D/ViewModelContainer/flashlight/FlashLightBeam
-@onready var use_key_sound = $UseKeySound
+
 # --- Crouching Properties ---
 @export var crouch_speed = 3.0
 var wants_to_crouch: bool = false
@@ -56,6 +56,15 @@ var crouch_height: float = 1.0
 
 @onready var collision_shape = $CollisionShape3D
 @onready var head_check_raycast = $CollisionShape3D/HeadCheck
+
+# NOTE
+# Create Reference to our SoundComponent Node since we
+# are working directly with the node itself this time.
+# As opposed to working with the OOP Hiearchy we are
+# Workign with the node Hiearchy.
+# Hence Node Composition
+@onready var sound_component = $SoundComponent
+@onready var animation_component = $AnimationComponent
 # --- Crouching Properties ---
 
 
@@ -82,15 +91,21 @@ var current_state
 INIT
 """
 func _ready():
+	# For each state
+	# Get our state object and access the .player var inside our state object
+	# and set it a reference to the player.gd (this) script
+	# obj.var = self
 	for state_name in states:
 		states[state_name].player = self
-
+		states[state_name].sound_component = sound_component
+		states[state_name].animation_component = animation_component
 	# Start in the Idle state
 	current_state = states["idle"]
 	current_state.enter()
 
 	# Hides and locks cursor for FPS Controls
 	hide_cursor()
+
 
 
 
@@ -232,6 +247,11 @@ func _handle_crouching():
 
 	# The camera's Y position should be near the top of the capsule.
 	# Let's say eye-level is at 80% of the character's height.
+	#NOTE
+	"""
+	The bug can be fixed by simply removing the manual movement of eye height
+	not sure why needed?
+	"""
 	var standing_cam_pos_y = stand_height * 0.734
 	var crouching_cam_pos_y = crouch_height # When crouching, camera might be closer to the top of the shape
 	var target_cam_pos_y = crouching_cam_pos_y if is_actually_crouching else standing_cam_pos_y
@@ -256,10 +276,11 @@ func handle_camera_tilt(delta) -> void:
 
 func toggle_flashlight() -> void:
 	flashlight_beam.visible = not flashlight_beam.visible
-	flashlight_click_sound.play()
+	sound_component.play_sound("flashlight_key")
 
 func toggle_use_key() -> void:
-	use_key_sound.play()
+	sound_component.play_sound("useKeySound")
+
 
 func handle_lure() -> void:
 	var raycast = $Camera3D/RayCast3D # Use the correct path to your raycast

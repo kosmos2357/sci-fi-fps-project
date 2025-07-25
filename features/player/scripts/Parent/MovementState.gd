@@ -1,0 +1,2 @@
+class_name MovementState
+extends BaseState

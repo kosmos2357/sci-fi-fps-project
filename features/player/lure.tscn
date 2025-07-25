@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dc2166v7s4b5b"]
 
-[ext_resource type="Script" uid="uid://dvwsg0ak7174q" path="res://lure.gd" id="1_nsrux"]
-[ext_resource type="Texture2D" uid="uid://c6g8q56kvgqeu" path="res://kalkachakra.png" id="2_nxbrx"]
+[ext_resource type="Script" uid="uid://dvwsg0ak7174q" path="res://features/player/lure.gd" id="1_nsrux"]
+[ext_resource type="Texture2D" uid="uid://c6g8q56kvgqeu" path="res://Assets/Art/kalkachakra.png" id="2_nxbrx"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hacdt"]
 
