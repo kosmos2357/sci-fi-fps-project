@@ -19,7 +19,7 @@ func process_physics(delta):
 	player.velocity.x = lerp(player.velocity.x, direction.x * current_speed, player.acceleration * delta)
 	player.velocity.z = lerp(player.velocity.z, direction.z * current_speed, player.acceleration * delta)
 
-	player.handle_camera_tilt(delta)
+	#player.handle_camera_tilt(delta)
 
 	if animation_component:
 		animation_component.play_animation("sway", delta)

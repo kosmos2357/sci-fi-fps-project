@@ -1,1 +1,10 @@
+- [[Broken Commit]]
+- ## On Refactor 3.5
+- [[Refactor_3.5_Shopping_List]]
+	- After completing the first half of the refactor. I've painstakingly learned some reusability patterns in Godot and also OOP. Some examples
+		- State Inheritance
+		- Node Composition
+		- Storing func reference with Callable(self, "func") as well as calling the actual function through func.call(param)
+		- Event Driven State management for player
+		-
 -

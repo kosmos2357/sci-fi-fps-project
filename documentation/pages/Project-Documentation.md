@@ -1,4 +1,6 @@
-# Pipeline
+## Project Link
+- https://github.com/kosmos2357/sci-fi-fps-project
+- # Pipeline
 - [[Pipeline]]
 - # DevLog
 - [[Journal]]

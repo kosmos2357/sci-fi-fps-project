@@ -42,9 +42,9 @@ const BULLET_SCENE = preload("res://features/player/scenes/bullet.tscn")
 
 
 # -- Onready Variables --
-@onready var camera = $Camera3D
+@onready var camera = $Head/Camera3D
 
-@onready var flashlight_beam = $Camera3D/ViewModelContainer/flashlight/FlashLightBeam
+@onready var flashlight_beam = $Head/Camera3D/ViewModelContainer/flashlight/FlashLightBeam
 
 # --- Crouching Properties ---
 @export var crouch_speed = 3.0
@@ -52,11 +52,14 @@ var wants_to_crouch: bool = false
 var is_actually_crouching: bool = false
 var stand_height: float = 2.0
 var crouch_height: float = 1.0
+# We will store the desired rotation here instead of reading from the node
+var camera_pitch: float = 0.0
+var camera_roll: float = 0.0
 
 
 @onready var collision_shape = $CollisionShape3D
 @onready var head_check_raycast = $CollisionShape3D/HeadCheck
-
+@onready var head = $Head
 # NOTE
 # Create Reference to our SoundComponent Node since we
 # are working directly with the node itself this time.
@@ -145,7 +148,7 @@ func _input(event):
 PHYSICS PROCESS LOOP
 """
 func _physics_process(delta):
-
+	handle_camera_tilt(delta)
 	#_handle_crouching()
 
 	if current_state:
@@ -183,18 +186,20 @@ func transition_to(state_name: String):
 	current_state.enter()
 
 ######################################## Handlers
-# WARNING BUG
-"""
-clamp isnt working when moving left and right
-"""
+
 func handle_mouse_movement(event) -> void:
-		if event is InputEventMouseMotion:
-			# Rotate the whole player body left and right
-			self.rotate_y(deg_to_rad(-event.relative.x * mouse_sensitivity))
-			# Rotate the camera up and down
-			camera.rotate_x(deg_to_rad(-event.relative.y * mouse_sensitivity))
-			# Clamp the camera's vertical rotation to prevent it from flipping over
-			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+	if event is InputEventMouseMotion:
+		# Use mouse X to rotate the player body left and right
+		self.rotate_y(deg_to_rad(-event.relative.x * mouse_sensitivity))
+
+		# Instead of rotating the head directly, we just update our pitch variable
+		camera_pitch += -event.relative.y * mouse_sensitivity
+
+		# Clamp the pitch variable
+		camera_pitch = clamp(camera_pitch, -90, 90)
+
+
+
 
 ######################################## HELPER FUNCTIONS
 func enter_climbing_state():
@@ -264,14 +269,19 @@ func _handle_crouching():
 
 # --- Camera Tilt Logic ---
 func handle_camera_tilt(delta) -> void:
+	# --- Camera Tilt Logic ---
 	var target_tilt = 0.0
-	var tilt_amount = 0.05 #camera tilt in Radians
-	var tilt_speed = 5.0   # How fast the camera tilts
-	# Get left/right input strength (-1 for left, 1 for right)
+	var tilt_amount = 3.0  # Increased for a more visible effect, in degrees
+	var tilt_speed = 5.0
+
 	var strafe_input = Input.get_axis("ui_left", "ui_right")
 	target_tilt = strafe_input * tilt_amount
-	# Smoothly interpolate the camera's tilt (z rotation) towards the target tilt
-	camera.rotation.z = lerp(camera.rotation.z, target_tilt, tilt_speed * delta)
+
+	# Smoothly interpolate our roll variable
+	camera_roll = lerp(camera_roll, target_tilt, tilt_speed * delta)
+
+	# Apply the final, combined rotation from our variables
+	head.rotation_degrees = Vector3(camera_pitch, 0, camera_roll)
 
 
 func toggle_flashlight() -> void:
