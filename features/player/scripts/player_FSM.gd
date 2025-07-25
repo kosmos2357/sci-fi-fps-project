@@ -22,7 +22,7 @@ Post Proc
 """
 
 # MOUSE BUtton Event SCENES
-const LURE_SCENE = preload("res://lure.tscn")
+const LURE_SCENE = preload("res://features/player/lure.tscn")
 const BULLET_SCENE = preload("res://features/player/scenes/bullet.tscn")
 # --- Player Properties ---
 @export var speed: float = 7.0
