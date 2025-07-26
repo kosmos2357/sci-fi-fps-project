@@ -18,7 +18,7 @@ var named_entities = {}
 func set_targetname(node_instance: Node, name_string: String):
 	if node_instance == null or name_string.is_empty():
 		return
-	
+
 	named_entities[name_string] = node_instance
 	print("GameManager: Registered '", name_string, "'")
 
@@ -29,16 +29,16 @@ func set_targetname(node_instance: Node, name_string: String):
 func use_targets(target_string: String, activator_node: Node):
 	if target_string.is_empty():
 		return
-	
+
 	# This allows for targeting multiple entities by separating names with a comma in TrenchBroom.
 	var target_names = target_string.split(",")
 	for t_name in target_names:
 		var clean_name = t_name.strip_edges() # Removes any accidental spaces
-		
+
 		# Check if the target name exists in our phonebook.
 		if named_entities.has(clean_name):
 			var target_node = named_entities[clean_name]
-			
+
 			# As a safety check, make sure the target has a "use" function before we call it.
 			if target_node.has_method("use"):
 				# This is the magic: call the "use" function on the target node.
@@ -60,7 +60,7 @@ func register_lock(door_name: String, is_locked: bool):
 		# This is a good place to print a warning for debugging.
 		print("GameManager Warning: A door named '", door_name, "' tried to register twice.")
 		return
-	
+
 	# Add the new door to our dictionary with its starting lock state.
 	door_locks[door_name] = not is_locked
 	print("GameManager: Registered new lock for '", door_name, "' with state: ", is_locked)
@@ -80,5 +80,3 @@ func is_door_unlocked(door_name: String) -> bool:
 	if door_locks.has(door_name):
 		return door_locks[door_name]
 	return false # If it's not in the list, it's considered locked.
-	
-	

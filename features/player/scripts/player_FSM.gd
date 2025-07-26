@@ -293,7 +293,7 @@ func toggle_use_key() -> void:
 
 
 func handle_lure() -> void:
-	var raycast = $Camera3D/RayCast3D # Use the correct path to your raycast
+	var raycast = $Head/Camera3D/RayCast3D # Use the correct path to your raycast
 
 	# Check if the raycast is hitting a surface
 	if raycast.is_colliding():
@@ -311,7 +311,7 @@ func handle_lure() -> void:
 
 func handle_mouse_button(event):
 	var new_bullet = BULLET_SCENE.instantiate()
-	var muzzle_transform = $Camera3D/Muzzle.global_transform
+	var muzzle_transform = $Head/Camera3D/Muzzle.global_transform
 	var speed = 30.0
 	new_bullet.global_transform = muzzle_transform
 	new_bullet.linear_velocity = -muzzle_transform.basis.z * speed
