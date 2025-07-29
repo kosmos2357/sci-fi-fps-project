@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="FuncGodotFGDFile" load_steps=11 format=3 uid="uid://lpt1cxhuwa2s"]
+[gd_resource type="Resource" script_class="FuncGodotFGDFile" load_steps=14 format=3 uid="uid://lpt1cxhuwa2s"]
 
 [ext_resource type="Script" uid="uid://dk5dap5fydos3" path="res://addons/func_godot/src/fgd/func_godot_fgd_file.gd" id="1_qkuc6"]
 [ext_resource type="Resource" uid="uid://crgpdahjaj" path="res://addons/func_godot/fgd/func_godot_fgd.tres" id="1_rcank"]
@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://bqtrsusyad12b" path="res://features/interactables/terminal/terminal.tscn" id="5_bl6wa"]
 [ext_resource type="Script" uid="uid://dbqjhcmki38jl" path="res://addons/func_godot/src/fgd/func_godot_fgd_point_class.gd" id="6_fg4e4"]
 [ext_resource type="Resource" uid="uid://d1lj61a5vfvpb" path="res://trenchbroom/fgd/brush entity/ladder.tres" id="7_fg4e4"]
+[ext_resource type="Resource" uid="uid://gtd08y1mpwe7" path="res://features/interactables/Base Entities/BaseElectrical.tres" id="8_wp551"]
+[ext_resource type="Resource" uid="uid://5dfaux8403aj" path="res://features/interactables/Base Entities/BaseClassEntity.tres" id="9_a3irs"]
+[ext_resource type="Resource" uid="uid://cfmcwa17g4app" path="res://features/interactables/Base Entities/BaseAudible.tres" id="10_bypds"]
 
 [sub_resource type="Resource" id="Resource_sc3eq"]
 script = ExtResource("4_bojjs")
@@ -78,5 +81,5 @@ export_file = false
 target_map_editor = 1
 fgd_name = "lo-fi-sci-fi"
 base_fgd_files = Array[Resource]([ExtResource("1_rcank")])
-entity_definitions = Array[Resource]([ExtResource("4_sc3eq"), SubResource("Resource_sc3eq"), SubResource("Resource_bl6wa"), ExtResource("7_fg4e4")])
+entity_definitions = Array[Resource]([ExtResource("4_sc3eq"), SubResource("Resource_sc3eq"), SubResource("Resource_bl6wa"), ExtResource("7_fg4e4"), ExtResource("8_wp551"), ExtResource("9_a3irs"), ExtResource("10_bypds")])
 metadata/_custom_type_script = "uid://dk5dap5fydos3"

@@ -1,4 +1,5 @@
 @tool
+class_name ButtonEntity
 extends Area3D
 """
 Button Entity

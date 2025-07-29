@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="FuncGodotFGDBaseClass" load_steps=3 format=3 uid="uid://cfmcwa17g4app"]
+
+[ext_resource type="Script" uid="uid://brh3qja6p3gbh" path="res://addons/func_godot/src/fgd/func_godot_fgd_base_class.gd" id="1_kcs46"]
+[ext_resource type="Resource" uid="uid://5dfaux8403aj" path="res://features/interactables/Base Entities/BaseClassEntity.tres" id="1_u30ya"]
+
+[resource]
+script = ExtResource("1_kcs46")
+classname = "BaseAudible"
+description = "A base class for audible entities."
+func_godot_internal = false
+base_classes = Array[Resource]([ExtResource("1_u30ya")])
+class_properties = {
+"press_sound_file": "",
+"press_sound_pitch": 0.0,
+"press_sound_vol": 0.0,
+"release_sound_file": "",
+"release_sound_pitch": 0.0,
+"release_sound_vol": 0.0
+}
+class_property_descriptions = {}
+auto_apply_to_matching_node_properties = false
+meta_properties = {
+"color": Color(0.8, 0.8, 0.8, 1),
+"size": AABB(-8, -8, -8, 8, 8, 8)
+}
+node_class = "press_sound"
+name_property = ""
+metadata/_custom_type_script = "uid://brh3qja6p3gbh"

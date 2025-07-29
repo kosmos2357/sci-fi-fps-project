@@ -124,7 +124,7 @@
 :block/properties 
 {:heading 1}
 :block/uuid #uuid "68635f7d-5a78-415f-b70d-56b09b36c154"} 
-{:block/created-at 1751343126582
+{:block/created-at 1753512024481
 :block/properties 
 {:ls-type :whiteboard-shape
 :logseq.tldraw.shape 
@@ -146,11 +146,11 @@
 :opacity 1
 :id "31392420-5631-11f0-90a6-ad65f78d8aa9"
 :noFill false
-:point [240 856]
+:point [248 856]
 :parentId "68635db6-c113-4229-8c54-9c2b7cf0bd1b"
 :collapsedHeight 0
-:nonce 1751342972803}}
-:block/updated-at 1751343126582} 
+:nonce 1751342972807}}
+:block/updated-at 1753512024481} 
 {:block/content "# Global Event Bus\nObserver Design Pattern\n\nRather than having one manager for all nodes. We have one single memo system that all managers use to communicate with, which propagate to nodes/scenes.\n\nAutoload: Signal Bus/Event Bus\n\nSay we have a script that detects whether a player dies. That script would say SignalBus.emit_signal(\"Player_died\")\n\nUiManager would connect to the signal and show death screen.\n\nAudioManager would connect to signal and play death sound.\n\nGamemanager would connect to handle reloading level.\n\nObserver"
 :block/format :markdown
 :block/left 
@@ -199,7 +199,7 @@
 :nonce 1
 :assets []
 :shapes-index ("2d8a4260-5630-11f0-90a6-ad65f78d8aa9" "4d757e50-5630-11f0-90a6-ad65f78d8aa9" "1be787b0-5631-11f0-90a6-ad65f78d8aa9" "31392420-5631-11f0-90a6-ad65f78d8aa9" "8dabfb10-5631-11f0-90a6-ad65f78d8aa9")}}
-:block/updated-at 1751343670396
+:block/updated-at 1753512024481
 :block/created-at 1751342518488
 :block/type "whiteboard"
 :block/name "godot projects"

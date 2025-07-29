@@ -6,5 +6,14 @@
 		- Node Composition
 		- Storing func reference with Callable(self, "func") as well as calling the actual function through func.call(param)
 		- Event Driven State management for player
-		-
--
+		- Dynamic Dispatch .call()
+		- Object Pool
+		- Strategy Pattern via player state
+- After going through and trying to get base entities to work with func godot
+	- I found out the key is that i need to actually insert into my_fgd the base class fgd itself. and not just have it be a base class in the property its going over.
+	- AFter that I had to about object pools for my entity sound system. As well as the difficulties with func_godot and property types. Func_godot doesnt accept resource object types to show up on the interface for tb and neither do dictionaries work all that well. Instead I have resorted to just entering the filename.type into a string and appending it to create a SoundEvent Object within the entity which is then sent to the sound manager.
+	- I have completley rewritten my sound manager again. Now it acts as an object pool of generic speakers that loads an SoundEvent and places the sound file into an audiostream to be loaded into the sound player. No longer do i simply use composition with a dicitonary that loads my sounds and call the key
+	- Now that most of it is done. The next step is to re-make my terminal and door scenes now that the button entity works.
+	- But i have noticed how the terminal and button entity share a very common proprty. door_name which is awfully similar to targetname but due to how my GameManager singleton class works it needs to separate the terminal from the button entity but i would rather prefer to have a generic GameManager that simply exchanges data with my entity so that will be the next step setting that up now that i have completed setting up commuinication between entity and TB. The next step is now with Entity and Gamemanager.
+		- So i will explore the gamemanager architecture in depth via blueprinting
+		- I will then cut out the old gamemanager which will break my entities for a bit until i figure out how to generalize the input and output of the manager rather than have entity specific data inside of it.

@@ -299,10 +299,20 @@ shape = SubResource("ConvexPolygonShape3D_xs16x")
 [node name="entity_1_my_button" parent="FuncGodotMap" instance=ExtResource("7_cq2aj")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.25, 2.25, 7.25)
 target = "door"
+is_powered = true
+press_sound_file = "test.mp3"
+press_sound_vol = 1.0
+press_sound_pitch = 1.0
+release_sound_file = "release_sound.wav"
+release_sound_vol = 1.0
+release_sound_pitch = 1.0
 
 [node name="entity_2_my_button" parent="FuncGodotMap" instance=ExtResource("7_cq2aj")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.75, 2.25, 11.25)
 target = "door_2"
+release_sound_file = "release_sound.wav"
+release_sound_vol = 0.5
+release_sound_pitch = 1.0
 
 [node name="entity_3_my_terminal" parent="FuncGodotMap" instance=ExtResource("8_m3f60")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.75, 2.25, 6.75)

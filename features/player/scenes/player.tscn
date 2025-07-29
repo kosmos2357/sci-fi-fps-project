@@ -1,13 +1,26 @@
-[gd_scene load_steps=17 format=4 uid="uid://vxhoiivdyixh"]
+[gd_scene load_steps=18 format=4 uid="uid://vxhoiivdyixh"]
 
 [ext_resource type="Script" uid="uid://b1cmugl67r8pg" path="res://features/player/scripts/player_FSM.gd" id="1_jmeet"]
 [ext_resource type="PackedScene" uid="uid://qduamm4c076l" path="res://Assets/models/flashlight/FlashLight_2_Final.tscn" id="2_24auq"]
+[ext_resource type="Script" uid="uid://bf8gs2vakp340" path="res://features/interactables/resources/SoundEvent.gd" id="2_osi8f"]
 [ext_resource type="Texture2D" uid="uid://beewg834s2cta" path="res://Assets/models/flashlight/flashlight2_Preview.png" id="3_24auq"]
-[ext_resource type="AudioStream" uid="uid://ogr03vwfao3w" path="res://Assets/Sound/flashlight1.wav" id="3_ar4uc"]
-[ext_resource type="AudioStream" uid="uid://6gn88h5yxunf" path="res://Assets/Sound/hlusekey.mp3" id="4_xyelf"]
-[ext_resource type="Script" uid="uid://dfrhhm101b6ak" path="res://features/player/scenes/sound_component.gd" id="5_wn8dh"]
-[ext_resource type="AudioStream" uid="uid://cjgh3avx28x04" path="res://features/player/sounds/pl_jump1.wav" id="8_7c20t"]
+[ext_resource type="AudioStream" uid="uid://5r6hpdxqu3v6" path="res://Assets/Sounds/flash_light.tres" id="3_jmeet"]
+[ext_resource type="AudioStream" uid="uid://ccpjdakb3tcv8" path="res://Assets/Sounds/use_sound.mp3" id="4_wn8dh"]
 [ext_resource type="Script" uid="uid://f5gopjhljst0" path="res://features/player/scenes/animation_component.gd" id="9_nn4fu"]
+
+[sub_resource type="Resource" id="Resource_jmeet"]
+script = ExtResource("2_osi8f")
+stream = ExtResource("3_jmeet")
+volume_db = 1.0
+pitch_scale = 1.0
+metadata/_custom_type_script = "uid://bf8gs2vakp340"
+
+[sub_resource type="Resource" id="Resource_7c20t"]
+script = ExtResource("2_osi8f")
+stream = ExtResource("4_wn8dh")
+volume_db = 1.0
+pitch_scale = 1.0
+metadata/_custom_type_script = "uid://bf8gs2vakp340"
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_onrkg"]
 
@@ -226,6 +239,8 @@ shadow_mesh = SubResource("ArrayMesh_h84am")
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_jmeet")
+flash_light_sound = SubResource("Resource_jmeet")
+use_key_sound = SubResource("Resource_7c20t")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_onrkg")
@@ -233,19 +248,6 @@ shape = SubResource("CapsuleShape3D_onrkg")
 [node name="HeadCheck" type="RayCast3D" parent="CollisionShape3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.168054, 0)
 target_position = Vector3(0, 1, 0)
-
-[node name="SoundComponent" type="Node" parent="."]
-script = ExtResource("5_wn8dh")
-
-[node name="FlashLightClickSound" type="AudioStreamPlayer" parent="SoundComponent"]
-stream = ExtResource("3_ar4uc")
-
-[node name="UseKeySound" type="AudioStreamPlayer" parent="SoundComponent"]
-stream = ExtResource("4_xyelf")
-
-[node name="JumpSound" type="AudioStreamPlayer" parent="SoundComponent"]
-stream = ExtResource("8_7c20t")
-volume_db = -6.961
 
 [node name="AnimationComponent" type="Node" parent="." node_paths=PackedStringArray("viewmodel")]
 script = ExtResource("9_nn4fu")

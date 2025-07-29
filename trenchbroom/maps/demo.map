@@ -267,12 +267,25 @@
 "classname" "my_button"
 "origin" "232 104 72"
 "target" "door"
+"is_powered" "1"
+"press_sound" "0.0"
+"press_sound_file" "test.mp3"
+"is_enabled" ""
+"press_sound_pitch" "1.0"
+"press_sound_vol" "1.0"
+"release_sound_file" "release_sound.wav"
+"release_sound_pitch" "1.0"
+"release_sound_vol" "1.0"
 }
 // entity 2
 {
 "classname" "my_button"
 "origin" "360 88 72"
 "target" "door_2"
+"release_sound_file" "release_sound.wav"
+"release_sound_pitch" "1.0"
+"release_sound_vol" "0.5"
+"is_powered" "0"
 }
 // entity 3
 {

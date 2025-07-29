@@ -33,7 +33,8 @@ const BULLET_SCENE = preload("res://features/player/scenes/bullet.tscn")
 @export var mouse_sensitivity: float = 0.2
 
 @export var sprint_speed: float = speed * 2.0
-
+@export var flash_light_sound: SoundEvent
+@export var use_key_sound: SoundEvent
 
 # Underwater movement properties
 @export var water_speed = 2.5
@@ -66,7 +67,7 @@ var camera_roll: float = 0.0
 # As opposed to working with the OOP Hiearchy we are
 # Workign with the node Hiearchy.
 # Hence Node Composition
-@onready var sound_component = $SoundComponent
+#@onready var sound_component = $SoundComponent
 @onready var animation_component = $AnimationComponent
 # --- Crouching Properties ---
 
@@ -100,7 +101,7 @@ func _ready():
 	# obj.var = self
 	for state_name in states:
 		states[state_name].player = self
-		states[state_name].sound_component = sound_component
+#		states[state_name].sound_component = sound_component
 		states[state_name].animation_component = animation_component
 	# Start in the Idle state
 	current_state = states["idle"]
@@ -286,10 +287,11 @@ func handle_camera_tilt(delta) -> void:
 
 func toggle_flashlight() -> void:
 	flashlight_beam.visible = not flashlight_beam.visible
-	sound_component.play_sound("flashlight_key")
+	SoundManager.play_sound_event(flash_light_sound, self.global_position)
 
 func toggle_use_key() -> void:
-	sound_component.play_sound("useKeySound")
+	SoundManager.play_sound_event(use_key_sound, self.global_position)
+	pass
 
 
 func handle_lure() -> void:

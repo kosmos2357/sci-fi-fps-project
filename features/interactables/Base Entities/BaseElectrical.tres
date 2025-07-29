@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="FuncGodotFGDBaseClass" load_steps=3 format=3 uid="uid://gtd08y1mpwe7"]
+
+[ext_resource type="Resource" uid="uid://cfmcwa17g4app" path="res://features/interactables/Base Entities/BaseAudible.tres" id="1_5by6a"]
+[ext_resource type="Script" uid="uid://brh3qja6p3gbh" path="res://addons/func_godot/src/fgd/func_godot_fgd_base_class.gd" id="1_tuf2c"]
+
+[resource]
+script = ExtResource("1_tuf2c")
+classname = "BaseElectrical"
+description = "A base class for any entity which uses electricity"
+func_godot_internal = false
+base_classes = Array[Resource]([ExtResource("1_5by6a")])
+class_properties = {
+"is_powered": false
+}
+class_property_descriptions = {}
+auto_apply_to_matching_node_properties = false
+meta_properties = {
+"color": Color(0.8, 0.8, 0.8, 1),
+"size": AABB(-8, -8, -8, 8, 8, 8)
+}
+node_class = ""
+name_property = ""
+metadata/_custom_type_script = "uid://brh3qja6p3gbh"

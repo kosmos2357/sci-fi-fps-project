@@ -1,0 +1,6 @@
+[gd_resource type="AudioStreamWAV" format=4 uid="uid://5r6hpdxqu3v6"]
+
+[resource]
+data = PackedByteArray("cW9hZgAAAuQBACsRAuQBQAAAAAAAAAAAAAAAAOAAQADQ05TLj95v9/Q++CP3u8w+/fEJBoW9lp3buXgEaRtGl9bomBRt/Qia0sYKIl8Gs4CsqDO0WlvUksDIZdleYSnKgBkJbbbAW/1/2QkAASyyEoDvqkf72lvLclKRF//9hLRtgK//60IpNGSbbt7pICSiWRpt22skBGJNCGS/bW04UkmILLDtLAQKObM0sv3plQg8ZizQ3x0w0DgiDRbJtVQnORBGdjcOpoqiAR0kQQCQgF2wDd9qmQNfctskgqE387Sb+NhbQQQEAHfv9ZSkkQYtbu0CCKRAti1e6yggsgmGzUf5JCjiwDZLTu0lOMKQNssz73U4QpMzQzD9qZSBzkLNIH/+VOHTIuM2WH4wl1imJ5IBIIIIIPCAk4usxJNthIBme0Ik6WEISQ==")
+format = 3
+mix_rate = 11025
