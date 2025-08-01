@@ -26,9 +26,11 @@ func play_sound_event(event: SoundEvent, position: Vector3):
 		print("ERROR: Tried to play a sound event with no AudioStream.")
 		return
 
+	print("Playing sound with Volume: ", event.volume_db, " and Pitch: ", event.pitch_scale)
+
 	print("Attempting to play sound. Pool size: ", world_sfx_pool.size())
 	for player in world_sfx_pool:
-		# ADD THIS: Check the status of each player in the pool.
+		# ADD THIS: Chweck the status of each player in the pool.
 		print("Checking player '", player.name, "'. Is playing: ", player.is_playing())
 
 		if not player.is_playing():

@@ -1,79 +1,16 @@
-[gd_resource type="Resource" script_class="FuncGodotFGDFile" load_steps=14 format=3 uid="uid://lpt1cxhuwa2s"]
+[gd_resource type="Resource" script_class="FuncGodotFGDFile" load_steps=12 format=3 uid="uid://lpt1cxhuwa2s"]
 
 [ext_resource type="Script" uid="uid://dk5dap5fydos3" path="res://addons/func_godot/src/fgd/func_godot_fgd_file.gd" id="1_qkuc6"]
 [ext_resource type="Resource" uid="uid://crgpdahjaj" path="res://addons/func_godot/fgd/func_godot_fgd.tres" id="1_rcank"]
-[ext_resource type="Script" uid="uid://cde2enuicpkwo" path="res://features/interactables/door/SmartDoor.gd" id="4_bl6wa"]
-[ext_resource type="Script" uid="uid://c1oyjq00bmbrs" path="res://addons/func_godot/src/fgd/func_godot_fgd_solid_class.gd" id="4_bojjs"]
-[ext_resource type="Resource" uid="uid://bkhmnt6xptfc5" path="res://trenchbroom/maps/entities/my_button.tres" id="4_sc3eq"]
-[ext_resource type="PackedScene" uid="uid://bqtrsusyad12b" path="res://features/interactables/terminal/terminal.tscn" id="5_bl6wa"]
-[ext_resource type="Script" uid="uid://dbqjhcmki38jl" path="res://addons/func_godot/src/fgd/func_godot_fgd_point_class.gd" id="6_fg4e4"]
 [ext_resource type="Resource" uid="uid://d1lj61a5vfvpb" path="res://trenchbroom/fgd/brush entity/ladder.tres" id="7_fg4e4"]
+[ext_resource type="Resource" uid="uid://cotq6df6kbe26" path="res://features/interactables/door/door.tres" id="8_a3irs"]
 [ext_resource type="Resource" uid="uid://gtd08y1mpwe7" path="res://features/interactables/Base Entities/BaseElectrical.tres" id="8_wp551"]
 [ext_resource type="Resource" uid="uid://5dfaux8403aj" path="res://features/interactables/Base Entities/BaseClassEntity.tres" id="9_a3irs"]
+[ext_resource type="Resource" uid="uid://dcpj7i0na34cc" path="res://features/interactables/terminal/terminal.tres" id="9_bypds"]
+[ext_resource type="Resource" uid="uid://b0c21l27x0m6r" path="res://features/interactables/triggerArea/one-shot/trigger_area.tres" id="9_i775o"]
 [ext_resource type="Resource" uid="uid://cfmcwa17g4app" path="res://features/interactables/Base Entities/BaseAudible.tres" id="10_bypds"]
-
-[sub_resource type="Resource" id="Resource_sc3eq"]
-script = ExtResource("4_bojjs")
-spawn_type = 2
-origin_type = 4
-build_visuals = true
-use_in_baked_light = true
-shadow_casting_setting = 1
-build_occlusion = false
-render_layers = 1
-collision_shape_type = 1
-collision_layer = 1
-collision_mask = 1
-collision_priority = 1.0
-collision_shape_margin = 0.04
-add_textures_metadata = false
-add_vertex_metadata = false
-add_face_position_metadata = false
-add_face_normal_metadata = false
-add_collision_shape_face_range_metadata = false
-script_class = ExtResource("4_bl6wa")
-classname = "func_my_door"
-description = ""
-func_godot_internal = false
-base_classes = Array[Resource]([])
-class_properties = {
-"move_offset": Vector3(0, 0, 0),
-"name_id": "",
-"speed": 0.0,
-"starts_locked": true,
-"targetname": ""
-}
-class_property_descriptions = {}
-auto_apply_to_matching_node_properties = false
-meta_properties = {
-"color": Color(0.8, 0.8, 0.8, 1),
-"size": AABB(-8, -8, -8, 8, 8, 8)
-}
-node_class = "AnimatableBody3D"
-name_property = ""
-metadata/_custom_type_script = "uid://c1oyjq00bmbrs"
-
-[sub_resource type="Resource" id="Resource_bl6wa"]
-script = ExtResource("6_fg4e4")
-scene_file = ExtResource("5_bl6wa")
-apply_rotation_on_map_build = true
-apply_scale_on_map_build = true
-classname = "my_terminal"
-description = ""
-func_godot_internal = false
-base_classes = Array[Resource]([])
-class_properties = {
-"door_name": ""
-}
-class_property_descriptions = {}
-auto_apply_to_matching_node_properties = false
-meta_properties = {
-"color": Color(0.8, 0.8, 0.8, 1),
-"size": AABB(-8, -8, -8, 8, 8, 8)
-}
-node_class = ""
-name_property = ""
-metadata/_custom_type_script = "uid://dbqjhcmki38jl"
+[ext_resource type="Resource" uid="uid://dxl6xhnth7jm0" path="res://features/interactables/triggerArea/repeat/trigger_area_repeat.tres" id="10_fklmn"]
+[ext_resource type="Resource" uid="uid://bdgf3sdpjlc6j" path="res://features/interactables/button/Button_Entity.tres" id="10_i775o"]
 
 [resource]
 script = ExtResource("1_qkuc6")
@@ -81,5 +18,5 @@ export_file = false
 target_map_editor = 1
 fgd_name = "lo-fi-sci-fi"
 base_fgd_files = Array[Resource]([ExtResource("1_rcank")])
-entity_definitions = Array[Resource]([ExtResource("4_sc3eq"), SubResource("Resource_sc3eq"), SubResource("Resource_bl6wa"), ExtResource("7_fg4e4"), ExtResource("8_wp551"), ExtResource("9_a3irs"), ExtResource("10_bypds")])
+entity_definitions = Array[Resource]([ExtResource("7_fg4e4"), ExtResource("8_wp551"), ExtResource("9_a3irs"), ExtResource("10_bypds"), ExtResource("10_i775o"), ExtResource("9_bypds"), ExtResource("8_a3irs"), ExtResource("9_i775o"), ExtResource("10_fklmn")])
 metadata/_custom_type_script = "uid://dk5dap5fydos3"

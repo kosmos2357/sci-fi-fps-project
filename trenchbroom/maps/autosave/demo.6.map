@@ -261,6 +261,15 @@
 ( 272 296 234 ) ( -62 296 234 ) ( 272 296 -16 ) world/Donut [ -1 0 0 0 ] [ 0 0 -1 0 ] 270 1 1
 ( 128 254 16 ) ( 128 254 128 ) ( 128 382 128 ) world/Donut [ 0 1 0 0 ] [ 0 0 -1 0 ] 180 1 1
 }
+// brush 27
+{
+( 128 80 52 ) ( 128 208 20 ) ( 128 208 52 ) special/clip [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 176 80 52 ) ( 128 80 20 ) ( 128 80 52 ) special/clip [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 176 208 20 ) ( 128 80 20 ) ( 176 80 20 ) special/clip [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 176 208 52 ) ( 128 80 52 ) ( 128 208 52 ) special/clip [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 176 208 52 ) ( 128 208 20 ) ( 176 208 20 ) special/clip [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 176 208 52 ) ( 176 80 20 ) ( 176 80 52 ) special/clip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
 }
 // entity 1
 {
@@ -277,29 +286,17 @@
 }
 // entity 2
 {
-"classname" "ButtonEntity"
-"origin" "232 88 72"
-"is_enabled" "1"
-"is_powered" "1"
-"press_sound_file" "use_sound.mp3"
-"target" "door_a"
-"targetname" "button_a"
-"press_sound_pitch" "1"
-"press_sound_vol" "1"
-}
-// entity 3
-{
 "classname" "TerminalEntity"
 "origin" "232 40 72"
 "is_enabled" "1"
 "is_powered" "1"
 "press_sound_pitch" "1"
 "target" "door_a"
-"press_sound_vol" "1"
-"press_sound_file" "test.mp3"
+"press_sound_vol" "-25"
+"press_sound_file" "button1.wav"
 "targetname" "terminal_a"
 }
-// entity 4
+// entity 3
 {
 "classname" "DoorEntity"
 "move_offset" "0.0 3.0 0.0"
@@ -309,8 +306,12 @@
 "targetname" "door_a"
 "press_sound_file" "doormove4.wav"
 "press_sound_pitch" "1"
-"press_sound_vol" "1"
+"press_sound_vol" "-20"
 "speed" "3"
+"is_locked" "1"
+"release_sound_file" "release_sound.wav"
+"release_sound_pitch" "1"
+"release_sound_vol" "-20"
 // brush 0
 {
 ( 240 112 132 ) ( 240 176 20 ) ( 240 176 132 ) __TB_empty [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -320,4 +321,19 @@
 ( 272 176 132 ) ( 240 176 20 ) ( 272 176 20 ) __TB_empty [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
 ( 272 176 132 ) ( 272 112 20 ) ( 272 112 132 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
+}
+// entity 4
+{
+"classname" "ButtonEntity"
+"origin" "232 88 72"
+"is_enabled" "1"
+"is_powered" "1"
+"press_sound_file" "test.mp3"
+"press_sound_pitch" "1"
+"press_sound_vol" "-30"
+"target" "door_a"
+"targetname" "button_a"
+"release_sound_file" "release_sound.wav"
+"release_sound_pitch" "1"
+"release_sound_vol" "-20"
 }

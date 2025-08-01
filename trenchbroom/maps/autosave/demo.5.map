@@ -261,28 +261,17 @@
 ( 272 296 234 ) ( -62 296 234 ) ( 272 296 -16 ) world/Donut [ -1 0 0 0 ] [ 0 0 -1 0 ] 270 1 1
 ( 128 254 16 ) ( 128 254 128 ) ( 128 382 128 ) world/Donut [ 0 1 0 0 ] [ 0 0 -1 0 ] 180 1 1
 }
+// brush 27
+{
+( 128 80 36 ) ( 128 208 20 ) ( 128 208 36 ) __TB_empty [ 0 -1 0 0 ] [ 0 0 -1 0 ] 270 1 1
+( 176 80 36 ) ( 144 80 20 ) ( 144 80 36 ) __TB_empty [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 176 208 20 ) ( 144 80 20 ) ( 176 80 20 ) __TB_empty [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 176 208 48 ) ( 144 80 48 ) ( 144 208 48 ) __TB_empty [ 1 0 0 0 ] [ 0 -1 0 0 ] 180 1 1
+( 176 208 36 ) ( 144 208 20 ) ( 176 208 20 ) __TB_empty [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 176 208 36 ) ( 176 80 20 ) ( 176 80 36 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
 }
 // entity 1
-{
-"classname" "my_button"
-"origin" "232 104 72"
-"target" "door"
-"is_powered" "1"
-"press_sound" "0.0"
-}
-// entity 2
-{
-"classname" "my_button"
-"origin" "360 88 72"
-"target" "door_2"
-}
-// entity 3
-{
-"classname" "my_terminal"
-"origin" "216 56 72"
-"door_name" "door_1"
-}
-// entity 4
 {
 "classname" "func_detail"
 // brush 0
@@ -295,39 +284,56 @@
 ( 2720 -62 -16 ) ( 2720 -62 -14 ) ( 2720 294 -16 ) world/buldiron3 [ 0 1 0 0 ] [ 0 0 -1 0 ] 180 1 1
 }
 }
-// entity 5
+// entity 2
 {
-"classname" "func_my_door"
-"name_id" "door_2"
-"move_offset" "0.0 5.0 0.0"
-"speed" "3"
+"classname" "TerminalEntity"
+"origin" "232 40 72"
+"is_enabled" "1"
+"is_powered" "1"
+"press_sound_pitch" "1"
+"target" "door_a"
+"press_sound_vol" "-25"
+"press_sound_file" "button1.wav"
+"targetname" "terminal_a"
+}
+// entity 3
+{
+"classname" "DoorEntity"
+"move_offset" "0.0 3.0 0.0"
+"is_enabled" "1"
+"is_powered" "1"
 "starts_locked" "0"
-"targetname" "door_2"
-// brush 0
-{
-( 368 112 132 ) ( 368 176 20 ) ( 368 176 132 ) __TB_empty [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 400 112 132 ) ( 368 112 20 ) ( 368 112 132 ) __TB_empty [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 400 176 20 ) ( 368 112 20 ) ( 400 112 20 ) __TB_empty [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 400 176 132 ) ( 368 112 132 ) ( 368 176 132 ) __TB_empty [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 400 176 132 ) ( 368 176 20 ) ( 400 176 20 ) __TB_empty [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 400 176 132 ) ( 400 112 20 ) ( 400 112 132 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 6
-{
-"classname" "func_my_door"
-"targetname" "door"
-"move_offset" "0.0 5.0 0.0"
-"name_id" "door_1"
+"targetname" "door_a"
+"press_sound_file" "doormove4.wav"
+"press_sound_pitch" "1"
+"press_sound_vol" "-20"
 "speed" "3"
-"starts_locked" "1"
+"is_locked" "1"
+"release_sound_file" "release_sound.wav"
+"release_sound_pitch" "1"
+"release_sound_vol" "-20"
 // brush 0
 {
-( 240 112 140 ) ( 240 176 20 ) ( 240 176 140 ) __TB_empty [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 272 112 140 ) ( 240 112 20 ) ( 240 112 140 ) __TB_empty [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 240 112 132 ) ( 240 176 20 ) ( 240 176 132 ) __TB_empty [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 272 112 132 ) ( 240 112 20 ) ( 240 112 132 ) __TB_empty [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
 ( 272 176 20 ) ( 240 112 20 ) ( 272 112 20 ) __TB_empty [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 272 176 140 ) ( 240 112 140 ) ( 240 176 140 ) __TB_empty [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 272 176 140 ) ( 240 176 20 ) ( 272 176 20 ) __TB_empty [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 272 176 140 ) ( 272 112 20 ) ( 272 112 140 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 272 176 132 ) ( 240 112 132 ) ( 240 176 132 ) __TB_empty [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 272 176 132 ) ( 240 176 20 ) ( 272 176 20 ) __TB_empty [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 272 176 132 ) ( 272 112 20 ) ( 272 112 132 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
+}
+// entity 4
+{
+"classname" "ButtonEntity"
+"origin" "232 88 72"
+"is_enabled" "1"
+"is_powered" "1"
+"press_sound_file" "test.mp3"
+"press_sound_pitch" "1"
+"press_sound_vol" "-30"
+"target" "door_a"
+"targetname" "button_a"
+"release_sound_file" "release_sound.wav"
+"release_sound_pitch" "1"
+"release_sound_vol" "-20"
 }

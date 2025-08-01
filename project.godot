@@ -35,6 +35,12 @@ version_control/autoload_on_startup=true
 
 enabled=PackedStringArray("res://addons/func_godot/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://globals/": "red"
+}
+
 [input]
 
 ui_left={

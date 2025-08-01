@@ -512,7 +512,7 @@
 :block/properties 
 {:heading 2}
 :block/uuid #uuid "68632654-1cf8-4774-8815-51d3a9713bcf"} 
-{:block/created-at 1753826928574
+{:block/created-at 1753510054152
 :block/properties 
 {:ls-type :whiteboard-shape
 :logseq.tldraw.shape 
@@ -534,11 +534,11 @@
 :opacity 1
 :id "1abeb790-560f-11f0-9bdb-01acb89edbfa"
 :noFill false
-:point [4264 1208]
+:point [4272 1360]
 :parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
 :collapsedHeight 0
-:nonce 1751328332963}}
-:block/updated-at 1753826928574} 
+:nonce 1751328332855}}
+:block/updated-at 1753510054152} 
 {:block/content "## Scene/Level Manager"
 :block/format :markdown
 :block/left 
@@ -548,7 +548,7 @@
 :block/properties 
 {:heading 2}
 :block/uuid #uuid "68632661-9c5e-4b8c-91d3-701822490a67"} 
-{:block/created-at 1753826927012
+{:block/created-at 1753510054151
 :block/properties 
 {:ls-type :whiteboard-shape
 :logseq.tldraw.shape 
@@ -570,11 +570,11 @@
 :opacity 1
 :id "23d47630-560f-11f0-9bdb-01acb89edbfa"
 :noFill false
-:point [4256 1120]
+:point [4264 1288]
 :parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
 :collapsedHeight 0
-:nonce 1751328348224}}
-:block/updated-at 1753826927012} 
+:nonce 1751328348126}}
+:block/updated-at 1753510054151} 
 {:block/content "### Player Movement I/O\nShooting and Movement\n[[Player]]"
 :block/format :markdown
 :block/left 
@@ -584,7 +584,7 @@
 :block/properties 
 {:heading 3}
 :block/uuid #uuid "686328bf-8ed0-4fd1-a700-b22793808503"} 
-{:block/created-at 1753826914544
+{:block/created-at 1753510054152
 :block/properties 
 {:ls-type :whiteboard-shape
 :logseq.tldraw.shape 
@@ -606,11 +606,11 @@
 :opacity 1
 :id "71b33200-5610-11f0-9bdb-01acb89edbfa"
 :noFill false
-:point [4760 520]
+:point [4256 1128]
 :parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
 :collapsedHeight 0
-:nonce 1751328907927}}
-:block/updated-at 1753826914544} 
+:nonce 1751328907739}}
+:block/updated-at 1753510054152} 
 {:block/content "## Door"
 :block/format :markdown
 :block/left 
@@ -656,7 +656,7 @@
 :collapsedHeight 0
 :nonce 1753509569811}}
 :block/updated-at 1753511466731} 
-{:block/content "Entity_Door  X\nmove_offset: Vector3\nis_locked: Bool\nOpen Sound\nClose Sound"
+{:block/content "Entity_Door\nmove_offset: Vector3\nstarts_locked: Bool\nOpen Sound\nClose Sound"
 :block/format :markdown
 :block/left 
 {:block/uuid #uuid "68846ec2-2cb3-4e6a-89e1-4d290f54b807"}
@@ -692,7 +692,7 @@
 :collapsedHeight 0
 :nonce 1753509824161}}
 :block/updated-at 1753691756069} 
-{:block/content "Entity_Button X\nPress Sound"
+{:block/content "Entity_Button\nPress Sound"
 :block/format :markdown
 :block/left 
 {:block/uuid #uuid "68846ec2-2cb3-4e6a-89e1-4d290f54b807"}
@@ -728,7 +728,7 @@
 :collapsedHeight 0
 :nonce 1753509922692}}
 :block/updated-at 1753691756069} 
-{:block/content "Entity_Terminal X\nPress Sound"
+{:block/content "Entity_Terminal\nPress Sound"
 :block/format :markdown
 :block/left 
 {:block/uuid #uuid "68847021-53c9-422c-9362-db4a83bdd3a6"}
@@ -845,7 +845,7 @@
 :block/properties 
 {}
 :block/uuid #uuid "688470bc-f83b-4c7f-a091-da46399e081c"} 
-{:block/content "## Electrical\n\nis_powered() Bool X"
+{:block/content "## Electrical\n\nis_powered() Bool"
 :block/format :markdown
 :block/left 
 {:block/uuid #uuid "688470bc-f83b-4c7f-a091-da46399e081c"}
@@ -854,7 +854,7 @@
 :block/properties 
 {:heading 2}
 :block/uuid #uuid "688470c9-81ec-4a0b-a997-37687a75109f"} 
-{:block/created-at 1754016329872
+{:block/created-at 1753691756069
 :block/properties 
 {:ls-type :whiteboard-shape
 :logseq.tldraw.shape 
@@ -870,7 +870,7 @@
 :compact true
 :isAutoResizing true
 :type "logseq-portal"
-:size [400 110.999990953185]
+:size [400 110.99994484846042]
 :strokeType "line"
 :strokeWidth 2
 :opacity 1
@@ -879,8 +879,8 @@
 :point [5496 1528]
 :parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
 :collapsedHeight 0
-:nonce 1753510088189}}
-:block/updated-at 1754016329872} 
+:nonce 1753510088183}}
+:block/updated-at 1753691756069} 
 {:block/content "## Non-Electrical"
 :block/format :markdown
 :block/left 
@@ -926,7 +926,7 @@
 :block/properties 
 {:heading 2}
 :block/uuid #uuid "688475c5-884f-4ab8-ab3f-fc7e8cf1a7f2"} 
-{:block/created-at 1753828133407
+{:block/created-at 1753691748023
 :block/properties 
 {:ls-type :whiteboard-shape
 :logseq.tldraw.shape 
@@ -942,17 +942,17 @@
 :compact true
 :isAutoResizing true
 :type "logseq-portal"
-:size [400 182.99999825426062]
+:size [400 183.00004942521608]
 :strokeType "line"
 :strokeWidth 2
 :opacity 1
 :id "df556f20-69e9-11f0-9008-f55c6be1ac82"
 :noFill false
-:point [5736 1136]
+:point [5720 1128]
 :parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
 :collapsedHeight 0
-:nonce 1753511365066}}
-:block/updated-at 1753828133407} 
+:nonce 1753511365052}}
+:block/updated-at 1753691748023} 
 {:block/content ""
 :block/format :markdown
 :block/left 
@@ -960,7 +960,7 @@
 :block/parent 
 {:block/uuid #uuid "686320ea-7a64-4bad-ad6f-71af2ec94478"}
 :block/uuid #uuid "688475e8-bc84-4462-a251-929ec79de51d"} 
-{:block/created-at 1754016329876
+{:block/created-at 1753691756069
 :block/properties 
 {:ls-type :whiteboard-shape
 :logseq.tldraw.shape 
@@ -992,9 +992,9 @@
 :decorations 
 {:end "arrow"}
 :parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
-:nonce 1753511405710
+:nonce 1753511405704
 :italic false}}
-:block/updated-at 1754016329876} 
+:block/updated-at 1753691756069} 
 {:block/created-at 1753691756069
 :block/properties 
 {:ls-type :whiteboard-shape
@@ -1030,7 +1030,7 @@
 :nonce 1753511410524
 :italic false}}
 :block/updated-at 1753691756069} 
-{:block/created-at 1753828133407
+{:block/created-at 1753691748027
 :block/properties 
 {:ls-type :whiteboard-shape
 :logseq.tldraw.shape 
@@ -1047,26 +1047,26 @@
 :id "2587dcd2-69ea-11f0-9008-f55c6be1ac82"
 :fontWeight 400
 :noFill true
-:point [5922.43 1056]
+:point [5915.18 1056]
 :fontSize 20
 :handles 
 {:start 
 {:id "start"
 :canBind true
-:point [0 0]
+:point [2.21 0]
 :bindingId "2587dcd0-69ea-11f0-9008-f55c6be1ac82"}
 :end 
 {:id "end"
 :canBind true
-:point [2.3 76]
+:point [0 68]
 :bindingId "2587dcd1-69ea-11f0-9008-f55c6be1ac82"}}
 :decorations 
 {:end "arrow"}
 :parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
-:nonce 1753511482211
+:nonce 1753511482207
 :italic false}}
-:block/updated-at 1753828133407} 
-{:block/content "Entity_Trigger_Area_3D X"
+:block/updated-at 1753691748027} 
+{:block/content "Entity_Trigger_Area_3D"
 :block/format :markdown
 :block/left 
 {:block/uuid #uuid "688475e8-bc84-4462-a251-929ec79de51d"}
@@ -1181,532 +1181,7 @@
 :parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
 :nonce 1753511673146
 :italic false}}
-:block/updated-at 1753691643803} 
-{:block/created-at 1753825008012
-:block/properties 
-{:ls-type :whiteboard-shape
-:logseq.tldraw.shape 
-{:stroke ""
-:borderRadius 2
-:index 34
-:scale [1 1]
-:scaleLevel "md"
-:fill ""
-:type "box"
-:size [536 392]
-:strokeType "line"
-:strokeWidth 2
-:opacity 1
-:label "Godot\nCreate generic copy of entity\nSTART\n"
-:id "cad46de0-6cc2-11f0-ae4b-e3914f032bab"
-:fontWeight 400
-:noFill false
-:point [8072 992]
-:fontSize 20
-:parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
-:nonce 1753824433325
-:italic false}}
-:block/updated-at 1753825008012} 
-{:block/created-at 1753824747230
-:block/properties 
-{:ls-type :whiteboard-shape
-:logseq.tldraw.shape 
-{:stroke ""
-:borderRadius 2
-:index 32
-:scale [1 1]
-:scaleLevel "md"
-:fill ""
-:type "box"
-:size [424 280]
-:strokeType "line"
-:strokeWidth 2
-:opacity 1
-:label "TrenchBroom\n\nReads fgd file\n\nApplies appropriate entities from fgd resources\nApplies properties fro each resource\n\nONTO interface\n"
-:id "b3f357d0-6cc2-11f0-ae4b-e3914f032bab"
-:fontWeight 400
-:noFill false
-:point [8128 -64]
-:fontSize 20
-:parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
-:nonce 1753824395366
-:italic false}}
-:block/updated-at 1753824747230} 
-{:block/created-at 1753824498254
-:block/properties 
-{:ls-type :whiteboard-shape
-:logseq.tldraw.shape 
-{:stroke ""
-:index 36
-:scale [1 1]
-:scaleLevel "md"
-:fill ""
-:type "line"
-:strokeType "line"
-:strokeWidth 1
-:opacity 1
-:label ""
-:id "e2414932-6cc2-11f0-ae4b-e3914f032bab"
-:fontWeight 400
-:noFill true
-:point [8344.36 220]
-:fontSize 20
-:handles 
-{:start 
-{:id "start"
-:canBind true
-:point [7.64 252]}
-:end 
-{:id "end"
-:canBind true
-:point [0 0]
-:bindingId "e2414931-6cc2-11f0-ae4b-e3914f032bab"}}
-:decorations 
-{:end "arrow"}
-:parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
-:nonce 1753824472467
-:italic false}}
-:block/updated-at 1753824498254} 
-{:block/created-at 1753849825654
-:block/properties 
-{:ls-type :whiteboard-shape
-:logseq.tldraw.shape 
-{:stroke ""
-:borderRadius 2
-:index 47
-:scale [1 1]
-:refs []
-:scaleLevel "md"
-:fill ""
-:type "box"
-:size [456 216]
-:strokeType "line"
-:strokeWidth 2
-:opacity 1
-:label "Game Manager"
-:id "dc01b330-6cfd-11f0-ae4b-e3914f032bab"
-:fontWeight 400
-:noFill false
-:point [9000 2272]
-:fontSize 20
-:parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
-:nonce 1753849802329
-:italic false}}
-:block/updated-at 1753849825654} 
-{:block/created-at 1753849845075
-:block/properties 
-{:ls-type :whiteboard-shape
-:logseq.tldraw.shape 
-{:stroke ""
-:borderRadius 2
-:index 46
-:scale [1 1]
-:scaleLevel "md"
-:fill ""
-:type "box"
-:size [456 216]
-:strokeType "line"
-:strokeWidth 2
-:opacity 1
-:label "Entity \nSends: Registers Self\nRecieves:  "
-:id "9cca3a70-6cfd-11f0-ae4b-e3914f032bab"
-:fontWeight 400
-:noFill false
-:point [8448 2272]
-:fontSize 20
-:parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
-:nonce 1753849696542
-:italic false}}
-:block/updated-at 1753849845075} 
-{:block/created-at 1753825068014
-:block/properties 
-{:ls-type :whiteboard-shape
-:logseq.tldraw.shape 
-{:stroke ""
-:rotation 0
-:borderRadius 2
-:index 41
-:scale [1 1]
-:refs []
-:scaleLevel "md"
-:fill ""
-:type "box"
-:size [656 304]
-:strokeType "line"
-:strokeWidth 2
-:opacity 1
-:label "Godot\nOur entity is then applied with the appropriate data via the data \nstored in the property \nAnd now a unique copy of our entity is created filled with the \nappropriate properties in variables for that entity. \nEND"
-:id "b8570aa0-6cc3-11f0-ae4b-e3914f032bab"
-:fontWeight 400
-:noFill false
-:point [9072 1032]
-:fontSize 20
-:parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
-:nonce 1753824832096
-:italic false}}
-:block/updated-at 1753825068014} 
-{:block/content "# Game Manager"
-:block/format :markdown
-:block/left 
-{:block/uuid #uuid "68893fa1-33cd-46a7-8bdc-c5ec7bdd3f3f"}
-:block/parent 
-{:block/uuid #uuid "686320ea-7a64-4bad-ad6f-71af2ec94478"}
-:block/properties 
-{:heading 1}
-:block/uuid #uuid "68899f51-69be-436f-86c3-9e479dfe1380"} 
-{:block/created-at 1753824829030
-:block/properties 
-{:ls-type :whiteboard-shape
-:logseq.tldraw.shape 
-{:stroke ""
-:index 40
-:scale [1 1]
-:fill ""
-:type "line"
-:strokeType "line"
-:strokeWidth 1
-:opacity 1
-:label ""
-:id "6b02bf10-6cc3-11f0-ae4b-e3914f032bab"
-:fontWeight 400
-:noFill true
-:point [9389.11 225]
-:fontSize 20
-:handles 
-{:start 
-{:id "start"
-:canBind true
-:point [0 0]
-:bindingId "6b02bf11-6cc3-11f0-ae4b-e3914f032bab"}
-:end 
-{:id "end"
-:canBind true
-:point [1.66 211]
-:bindingId "6b02bf12-6cc3-11f0-ae4b-e3914f032bab"}}
-:decorations 
-{:end "arrow"}
-:parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
-:nonce 1753824702001
-:italic false}}
-:block/updated-at 1753824829030} 
-{:block/created-at 1753824834735
-:block/properties 
-{:ls-type :whiteboard-shape
-:logseq.tldraw.shape 
-{:stroke ""
-:index 42
-:scale [1 1]
-:fill ""
-:type "line"
-:strokeType "line"
-:strokeWidth 1
-:opacity 1
-:label ""
-:id "b8570aa1-6cc3-11f0-ae4b-e3914f032bab"
-:fontWeight 400
-:noFill true
-:point [9394.07 745]
-:fontSize 20
-:handles 
-{:start 
-{:id "start"
-:canBind true
-:point [0 0]
-:bindingId "b8570aa2-6cc3-11f0-ae4b-e3914f032bab"}
-:end 
-{:id "end"
-:canBind true
-:point [3.82 283]
-:bindingId "b8570aa3-6cc3-11f0-ae4b-e3914f032bab"}}
-:decorations 
-{:end "arrow"}
-:parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
-:nonce 1753824831586
-:italic false}}
-:block/updated-at 1753824834735} 
-{:block/created-at 1753824546605
-:block/properties 
-{:ls-type :whiteboard-shape
-:logseq.tldraw.shape 
-{:stroke ""
-:borderRadius 2
-:index 33
-:scale [1 1]
-:scaleLevel "md"
-:fill ""
-:type "box"
-:size [480 280]
-:strokeType "line"
-:strokeWidth 2
-:opacity 1
-:label "Func_Godot_API\n\nReads FGD Resources\nReads Properties\n\nOUT: final fgd file"
-:id "c25215a0-6cc2-11f0-ae4b-e3914f032bab"
-:fontWeight 400
-:noFill false
-:point [8104 472]
-:fontSize 20
-:parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
-:nonce 1753824419172
-:italic false}}
-:block/updated-at 1753824546605} 
-{:block/created-at 1753824725218
-:block/properties 
-{:ls-type :whiteboard-shape
-:logseq.tldraw.shape 
-{:stroke ""
-:borderRadius 2
-:index 37
-:scale [1 1]
-:refs []
-:scaleLevel "md"
-:fill ""
-:type "box"
-:size [424 280]
-:strokeType "line"
-:strokeWidth 2
-:opacity 1
-:label "TrenchBroom\nOutputs .map\nwith applied entities and properties"
-:id "56474820-6cc3-11f0-ae4b-e3914f032bab"
-:fontWeight 400
-:noFill false
-:point [9176 -56]
-:fontSize 20
-:parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
-:nonce 1753824667297
-:italic false}}
-:block/updated-at 1753824725218} 
-{:block/content "# Entity Creation Cycle"
-:block/format :markdown
-:block/left 
-{:block/uuid #uuid "688476e5-8136-4310-b3b8-26a3f3e1b279"}
-:block/parent 
-{:block/uuid #uuid "686320ea-7a64-4bad-ad6f-71af2ec94478"}
-:block/properties 
-{:heading 1}
-:block/uuid #uuid "68893fa1-33cd-46a7-8bdc-c5ec7bdd3f3f"} 
-{:block/created-at 1753824725219
-:block/properties 
-{:ls-type :whiteboard-shape
-:logseq.tldraw.shape 
-{:stroke ""
-:index 38
-:scale [1 1]
-:fill ""
-:type "line"
-:strokeType "line"
-:strokeWidth 1
-:opacity 1
-:label ""
-:id "56476f30-6cc3-11f0-ae4b-e3914f032bab"
-:fontWeight 400
-:noFill true
-:point [8553 77.63]
-:fontSize 20
-:handles 
-{:start 
-{:id "start"
-:canBind true
-:point [0 0]
-:bindingId "56476f31-6cc3-11f0-ae4b-e3914f032bab"}
-:end 
-{:id "end"
-:canBind true
-:point [619 4.72]
-:bindingId "56476f32-6cc3-11f0-ae4b-e3914f032bab"}}
-:decorations 
-{:end "arrow"}
-:parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
-:nonce 1753824667099
-:italic false}}
-:block/updated-at 1753824725219} 
-{:block/created-at 1753849688980
-:block/properties 
-{:ls-type :whiteboard-shape
-:logseq.tldraw.shape 
-{:blockType "B"
-:stroke ""
-:collapsed false
-:borderRadius 8
-:index 45
-:scale [1 1]
-:pageId "68899f51-69be-436f-86c3-9e479dfe1380"
-:scaleLevel "md"
-:fill ""
-:compact true
-:isAutoResizing true
-:type "logseq-portal"
-:size [400 78.00000927638865]
-:strokeType "line"
-:strokeWidth 2
-:opacity 1
-:id "934b59c0-6cfd-11f0-ae4b-e3914f032bab"
-:noFill false
-:point [8784 2056]
-:parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
-:collapsedHeight 0
-:nonce 1753849680253}}
-:block/updated-at 1753849688980} 
-{:block/created-at 1753849825654
-:block/properties 
-{:ls-type :whiteboard-shape
-:logseq.tldraw.shape 
-{:stroke ""
-:index 48
-:scale [1 1]
-:fill ""
-:type "line"
-:strokeType "line"
-:strokeWidth 1
-:opacity 1
-:label ""
-:id "dc01da40-6cfd-11f0-ae4b-e3914f032bab"
-:fontWeight 400
-:noFill true
-:point [8905 2380]
-:fontSize 20
-:handles 
-{:start 
-{:id "start"
-:canBind true
-:point [0 0]
-:bindingId "dc01da41-6cfd-11f0-ae4b-e3914f032bab"}
-:end 
-{:id "end"
-:canBind true
-:point [91 0]
-:bindingId "dc020150-6cfd-11f0-ae4b-e3914f032bab"}}
-:decorations 
-{:end "arrow"}
-:parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
-:nonce 1753849802347
-:italic false}}
-:block/updated-at 1753849825654} 
-{:block/created-at 1753824473812
-:block/properties 
-{:ls-type :whiteboard-shape
-:logseq.tldraw.shape 
-{:stroke ""
-:index 35
-:scale [1 1]
-:scaleLevel "md"
-:fill ""
-:type "line"
-:strokeType "line"
-:strokeWidth 1
-:opacity 1
-:label ""
-:id "de34e8b2-6cc2-11f0-ae4b-e3914f032bab"
-:fontWeight 400
-:noFill true
-:point [8341.88 768]
-:fontSize 20
-:handles 
-{:start 
-{:id "start"
-:canBind true
-:point [0 223]
-:bindingId "de34e8b0-6cc2-11f0-ae4b-e3914f032bab"}
-:end 
-{:id "end"
-:canBind true
-:point [2.12 0]
-:bindingId nil}}
-:decorations 
-{:end "arrow"}
-:parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
-:nonce 1753824465715
-:italic false}}
-:block/updated-at 1753824473812} 
-{:block/created-at 1753998958721
-:block/properties 
-{:ls-type :whiteboard-shape
-:logseq.tldraw.shape 
-{:blockType "B"
-:stroke ""
-:collapsed false
-:borderRadius 8
-:index 43
-:scale [1 1]
-:pageId "68893fa1-33cd-46a7-8bdc-c5ec7bdd3f3f"
-:scaleLevel "md"
-:fill ""
-:compact true
-:isAutoResizing true
-:type "logseq-portal"
-:size [400 77.99988088620663]
-:strokeType "line"
-:strokeWidth 2
-:opacity 1
-:id "8a362740-6cc4-11f0-ae4b-e3914f032bab"
-:noFill false
-:point [8624 576]
-:parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
-:collapsedHeight 0
-:nonce 1753825183850}}
-:block/updated-at 1753998958721} 
-{:block/created-at 1753824866801
-:block/properties 
-{:ls-type :whiteboard-shape
-:logseq.tldraw.shape 
-{:stroke ""
-:rotation 0
-:borderRadius 2
-:index 39
-:scale [1 1]
-:refs []
-:scaleLevel "md"
-:fill ""
-:type "box"
-:size [656 304]
-:strokeType "line"
-:strokeWidth 2
-:opacity 1
-:label "Func_godot\nReads properties applied from .map\n\n\n\nvar is_powered : bool\n\nfunc _func_godot_apply_properties(props: Dictionary):\n\t\n\nex: is_powered = props.get(\"is_powered\", false)"
-:id "6b029800-6cc3-11f0-ae4b-e3914f032bab"
-:fontWeight 400
-:noFill false
-:point [9064 440]
-:fontSize 20
-:parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
-:nonce 1753824702413
-:italic false}}
-:block/updated-at 1753824866801} 
-{:block/created-at 1753826921918
-:block/properties 
-{:ls-type :whiteboard-shape
-:logseq.tldraw.shape 
-{:stroke ""
-:index 44
-:scale [1 1]
-:scaleLevel "md"
-:fill ""
-:type "line"
-:strokeType "line"
-:strokeWidth 1
-:opacity 1
-:label ""
-:id "95144d02-6cc8-11f0-ae4b-e3914f032bab"
-:fontWeight 400
-:noFill true
-:point [4657 574.55]
-:fontSize 20
-:handles 
-{:start 
-{:id "start"
-:canBind true
-:point [0 0]
-:bindingId "9617b341-6cc8-11f0-ae4b-e3914f032bab"}
-:end 
-{:id "end"
-:canBind true
-:point [99 4.75]
-:bindingId "95144d01-6cc8-11f0-ae4b-e3914f032bab"}}
-:decorations 
-{:end "arrow"}
-:parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
-:nonce 1753826919959
-:italic false}}
-:block/updated-at 1753826921918})
+:block/updated-at 1753691643803})
 :pages (
 {:block/uuid #uuid "686320ea-7a64-4bad-ad6f-71af2ec94478"
 :block/properties 
@@ -1715,21 +1190,13 @@
 {:id "686320ea-7a64-4bad-ad6f-71af2ec94478"
 :name "game structure"
 :bindings 
-{:56476f32-6cc3-11f0-ae4b-e3914f032bab 
-{:id "56476f32-6cc3-11f0-ae4b-e3914f032bab"
+{:f7de68d1-69e9-11f0-9008-f55c6be1ac82 
+{:id "f7de68d1-69e9-11f0-9008-f55c6be1ac82"
 :type "line"
-:fromId "56476f30-6cc3-11f0-ae4b-e3914f032bab"
-:toId "56474820-6cc3-11f0-ae4b-e3914f032bab"
+:fromId "f7de8fe0-69e9-11f0-9008-f55c6be1ac82"
+:toId "e6679cf0-69e6-11f0-9008-f55c6be1ac82"
 :handleId "end"
-:point [0.5 0.5]
-:distance 4}
-:de34e8b0-6cc2-11f0-ae4b-e3914f032bab 
-{:id "de34e8b0-6cc2-11f0-ae4b-e3914f032bab"
-:type "line"
-:fromId "de34e8b2-6cc2-11f0-ae4b-e3914f032bab"
-:toId "cad46de0-6cc2-11f0-ae4b-e3914f032bab"
-:handleId "start"
-:point [0.5 0.5]
+:point [0.58 0.52]
 :distance 4}
 :fac50e01-69e9-11f0-9008-f55c6be1ac82 
 {:id "fac50e01-69e9-11f0-9008-f55c6be1ac82"
@@ -1739,10 +1206,10 @@
 :handleId "end"
 :point [0.17 0.64]
 :distance 4}
-:974b3ec0-69ea-11f0-9008-f55c6be1ac82 
-{:id "974b3ec0-69ea-11f0-9008-f55c6be1ac82"
+:2587dcd0-69ea-11f0-9008-f55c6be1ac82 
+{:id "2587dcd0-69ea-11f0-9008-f55c6be1ac82"
 :type "line"
-:fromId "974b3ec2-69ea-11f0-9008-f55c6be1ac82"
+:fromId "2587dcd2-69ea-11f0-9008-f55c6be1ac82"
 :toId "b146cd80-69e5-11f0-9008-f55c6be1ac82"
 :handleId "start"
 :point [0.5 0.5]
@@ -1755,84 +1222,12 @@
 :handleId "end"
 :point [0.48 0.54]
 :distance 4}
-:f7de68d1-69e9-11f0-9008-f55c6be1ac82 
-{:id "f7de68d1-69e9-11f0-9008-f55c6be1ac82"
+:974b3ec0-69ea-11f0-9008-f55c6be1ac82 
+{:id "974b3ec0-69ea-11f0-9008-f55c6be1ac82"
 :type "line"
-:fromId "f7de8fe0-69e9-11f0-9008-f55c6be1ac82"
-:toId "e6679cf0-69e6-11f0-9008-f55c6be1ac82"
-:handleId "end"
-:point [0.58 0.52]
-:distance 4}
-:2587dcd0-69ea-11f0-9008-f55c6be1ac82 
-{:id "2587dcd0-69ea-11f0-9008-f55c6be1ac82"
-:type "line"
-:fromId "2587dcd2-69ea-11f0-9008-f55c6be1ac82"
+:fromId "974b3ec2-69ea-11f0-9008-f55c6be1ac82"
 :toId "b146cd80-69e5-11f0-9008-f55c6be1ac82"
 :handleId "start"
-:point [0.5 0.5]
-:distance 4}
-:6b02bf11-6cc3-11f0-ae4b-e3914f032bab 
-{:id "6b02bf11-6cc3-11f0-ae4b-e3914f032bab"
-:type "line"
-:fromId "6b02bf10-6cc3-11f0-ae4b-e3914f032bab"
-:toId "56474820-6cc3-11f0-ae4b-e3914f032bab"
-:handleId "start"
-:point [0.5 0.5]
-:distance 4}
-:dc020150-6cfd-11f0-ae4b-e3914f032bab 
-{:id "dc020150-6cfd-11f0-ae4b-e3914f032bab"
-:type "line"
-:fromId "dc01da40-6cfd-11f0-ae4b-e3914f032bab"
-:toId "dc01b330-6cfd-11f0-ae4b-e3914f032bab"
-:handleId "end"
-:point [0.5 0.5]
-:distance 4}
-:e2414931-6cc2-11f0-ae4b-e3914f032bab 
-{:id "e2414931-6cc2-11f0-ae4b-e3914f032bab"
-:type "line"
-:fromId "e2414932-6cc2-11f0-ae4b-e3914f032bab"
-:toId "b3f357d0-6cc2-11f0-ae4b-e3914f032bab"
-:handleId "end"
-:point [0.5 0.5]
-:distance 4}
-:dc01da41-6cfd-11f0-ae4b-e3914f032bab 
-{:id "dc01da41-6cfd-11f0-ae4b-e3914f032bab"
-:type "line"
-:fromId "dc01da40-6cfd-11f0-ae4b-e3914f032bab"
-:toId "9cca3a70-6cfd-11f0-ae4b-e3914f032bab"
-:handleId "start"
-:point [0.5 0.5]
-:distance 4}
-:9617b341-6cc8-11f0-ae4b-e3914f032bab 
-{:id "9617b341-6cc8-11f0-ae4b-e3914f032bab"
-:type "line"
-:fromId "95144d02-6cc8-11f0-ae4b-e3914f032bab"
-:toId "93a98790-560d-11f0-9bdb-01acb89edbfa"
-:handleId "start"
-:point [0.48 0.53]
-:distance 4}
-:b8570aa2-6cc3-11f0-ae4b-e3914f032bab 
-{:id "b8570aa2-6cc3-11f0-ae4b-e3914f032bab"
-:type "line"
-:fromId "b8570aa1-6cc3-11f0-ae4b-e3914f032bab"
-:toId "6b029800-6cc3-11f0-ae4b-e3914f032bab"
-:handleId "start"
-:point [0.5 0.5]
-:distance 4}
-:95144d01-6cc8-11f0-ae4b-e3914f032bab 
-{:id "95144d01-6cc8-11f0-ae4b-e3914f032bab"
-:type "line"
-:fromId "95144d02-6cc8-11f0-ae4b-e3914f032bab"
-:toId "71b33200-5610-11f0-9bdb-01acb89edbfa"
-:handleId "end"
-:point [0.51 0.72]
-:distance 4}
-:6b02bf12-6cc3-11f0-ae4b-e3914f032bab 
-{:id "6b02bf12-6cc3-11f0-ae4b-e3914f032bab"
-:type "line"
-:fromId "6b02bf10-6cc3-11f0-ae4b-e3914f032bab"
-:toId "6b029800-6cc3-11f0-ae4b-e3914f032bab"
-:handleId "end"
 :point [0.5 0.5]
 :distance 4}
 :974b3ec1-69ea-11f0-9008-f55c6be1ac82 
@@ -1842,28 +1237,12 @@
 :toId "8acb04f0-69ea-11f0-9008-f55c6be1ac82"
 :handleId "end"
 :point [0.12 0.58]
-:distance 4}
-:56476f31-6cc3-11f0-ae4b-e3914f032bab 
-{:id "56476f31-6cc3-11f0-ae4b-e3914f032bab"
-:type "line"
-:fromId "56476f30-6cc3-11f0-ae4b-e3914f032bab"
-:toId "b3f357d0-6cc2-11f0-ae4b-e3914f032bab"
-:handleId "start"
-:point [0.5 0.5]
-:distance 4}
-:b8570aa3-6cc3-11f0-ae4b-e3914f032bab 
-{:id "b8570aa3-6cc3-11f0-ae4b-e3914f032bab"
-:type "line"
-:fromId "b8570aa1-6cc3-11f0-ae4b-e3914f032bab"
-:toId "b8570aa0-6cc3-11f0-ae4b-e3914f032bab"
-:handleId "end"
-:point [0.5 0.5]
 :distance 4}}
 :nonce 1
 :assets []
-:shapes-index ("edccb410-560b-11f0-9bdb-01acb89edbfa" "f8a50a40-560b-11f0-9bdb-01acb89edbfa" "005a0060-560c-11f0-9bdb-01acb89edbfa" "067cbdc0-560c-11f0-9bdb-01acb89edbfa" "1a4214e0-560c-11f0-9bdb-01acb89edbfa" "2e33fa40-560c-11f0-9bdb-01acb89edbfa" "48b9fc70-560c-11f0-9bdb-01acb89edbfa" "68e85be0-560c-11f0-9bdb-01acb89edbfa" "3c2b0020-560d-11f0-9bdb-01acb89edbfa" "4df23d50-560d-11f0-9bdb-01acb89edbfa" "6fb01660-560d-11f0-9bdb-01acb89edbfa" "93a98790-560d-11f0-9bdb-01acb89edbfa" "c3e406b0-560d-11f0-9bdb-01acb89edbfa" "0c8b2870-560f-11f0-9bdb-01acb89edbfa" "1abeb790-560f-11f0-9bdb-01acb89edbfa" "23d47630-560f-11f0-9bdb-01acb89edbfa" "71b33200-5610-11f0-9bdb-01acb89edbfa" "b146cd80-69e5-11f0-9008-f55c6be1ac82" "4864de50-69e6-11f0-9008-f55c6be1ac82" "830569d0-69e6-11f0-9008-f55c6be1ac82" "8d0a4360-69e6-11f0-9008-f55c6be1ac82" "8fddd5c0-69e6-11f0-9008-f55c6be1ac82" "a0be0e50-69e6-11f0-9008-f55c6be1ac82" "e6679cf0-69e6-11f0-9008-f55c6be1ac82" "edd9bdb0-69e6-11f0-9008-f55c6be1ac82" "df556f20-69e9-11f0-9008-f55c6be1ac82" "f7de8fe0-69e9-11f0-9008-f55c6be1ac82" "fac50e02-69e9-11f0-9008-f55c6be1ac82" "2587dcd2-69ea-11f0-9008-f55c6be1ac82" "2af8af50-69ea-11f0-9008-f55c6be1ac82" "8acb04f0-69ea-11f0-9008-f55c6be1ac82" "974b3ec2-69ea-11f0-9008-f55c6be1ac82" "b3f357d0-6cc2-11f0-ae4b-e3914f032bab" "c25215a0-6cc2-11f0-ae4b-e3914f032bab" "cad46de0-6cc2-11f0-ae4b-e3914f032bab" "de34e8b2-6cc2-11f0-ae4b-e3914f032bab" "e2414932-6cc2-11f0-ae4b-e3914f032bab" "56474820-6cc3-11f0-ae4b-e3914f032bab" "56476f30-6cc3-11f0-ae4b-e3914f032bab" "6b029800-6cc3-11f0-ae4b-e3914f032bab" "6b02bf10-6cc3-11f0-ae4b-e3914f032bab" "b8570aa0-6cc3-11f0-ae4b-e3914f032bab" "b8570aa1-6cc3-11f0-ae4b-e3914f032bab" "8a362740-6cc4-11f0-ae4b-e3914f032bab" "95144d02-6cc8-11f0-ae4b-e3914f032bab" "934b59c0-6cfd-11f0-ae4b-e3914f032bab" "9cca3a70-6cfd-11f0-ae4b-e3914f032bab" "dc01b330-6cfd-11f0-ae4b-e3914f032bab" "dc01da40-6cfd-11f0-ae4b-e3914f032bab")}}
+:shapes-index ("edccb410-560b-11f0-9bdb-01acb89edbfa" "f8a50a40-560b-11f0-9bdb-01acb89edbfa" "005a0060-560c-11f0-9bdb-01acb89edbfa" "067cbdc0-560c-11f0-9bdb-01acb89edbfa" "1a4214e0-560c-11f0-9bdb-01acb89edbfa" "2e33fa40-560c-11f0-9bdb-01acb89edbfa" "48b9fc70-560c-11f0-9bdb-01acb89edbfa" "68e85be0-560c-11f0-9bdb-01acb89edbfa" "3c2b0020-560d-11f0-9bdb-01acb89edbfa" "4df23d50-560d-11f0-9bdb-01acb89edbfa" "6fb01660-560d-11f0-9bdb-01acb89edbfa" "93a98790-560d-11f0-9bdb-01acb89edbfa" "c3e406b0-560d-11f0-9bdb-01acb89edbfa" "0c8b2870-560f-11f0-9bdb-01acb89edbfa" "1abeb790-560f-11f0-9bdb-01acb89edbfa" "23d47630-560f-11f0-9bdb-01acb89edbfa" "71b33200-5610-11f0-9bdb-01acb89edbfa" "b146cd80-69e5-11f0-9008-f55c6be1ac82" "4864de50-69e6-11f0-9008-f55c6be1ac82" "830569d0-69e6-11f0-9008-f55c6be1ac82" "8d0a4360-69e6-11f0-9008-f55c6be1ac82" "8fddd5c0-69e6-11f0-9008-f55c6be1ac82" "a0be0e50-69e6-11f0-9008-f55c6be1ac82" "e6679cf0-69e6-11f0-9008-f55c6be1ac82" "edd9bdb0-69e6-11f0-9008-f55c6be1ac82" "df556f20-69e9-11f0-9008-f55c6be1ac82" "f7de8fe0-69e9-11f0-9008-f55c6be1ac82" "fac50e02-69e9-11f0-9008-f55c6be1ac82" "2587dcd2-69ea-11f0-9008-f55c6be1ac82" "2af8af50-69ea-11f0-9008-f55c6be1ac82" "8acb04f0-69ea-11f0-9008-f55c6be1ac82" "974b3ec2-69ea-11f0-9008-f55c6be1ac82")}}
 :block/journal? false
-:block/updated-at 1754016338270
+:block/updated-at 1753691756069
 :block/created-at 1751326954881
 :block/type "whiteboard"
 :block/name "game structure"

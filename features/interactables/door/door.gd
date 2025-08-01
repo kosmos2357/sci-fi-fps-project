@@ -1,8 +1,11 @@
+# door.gd
 @tool
-extends Area3D
-"""
-Terminal Entity
-"""
+class_name FuncDoor
+extends AnimatableBody3D
+
+
+
+
 
 """
 Entity properties for func_godot
@@ -27,12 +30,23 @@ Entity properties for func_godot
 @export var release_sound_pitch: float
 var file_tail = "res://Assets/Sounds/"
 
-# -- Entity Specific
-var player_is_near = false
+
+# --- Door-Specific Properties ---
+@export var move_offset: Vector3
+@export var speed: float = 3.0
+@export var is_locked: bool
 
 
+var is_open: bool = false
 
+var start_position: Vector3
+var end_position: Vector3
+
+# This function is called by the func_godot importer
 func _func_godot_apply_properties(props: Dictionary):
+	# Func_Godot DEBUG
+	# Look in terminal Output after building to see actual state of props recievedww
+	#print("Raw properties for ", self.name, ": ", props)
 	# Base Class Props
 	target = props.get("target", "")
 	targetname  = props.get("targetname", "")
@@ -49,37 +63,58 @@ func _func_godot_apply_properties(props: Dictionary):
 	release_sound_vol = props.get("release_sound_vol", 1.0)
 	release_sound_pitch = props.get("release_sound_pitch", 1.0)
 
+	# Entity Specific
+	move_offset = props.get("move_offset", Vector3.ZERO)
+	speed = props.get("speed", 3.0)
+	is_locked = props.get("is_locked", false)
 
-func _ready() -> void:
-	# Init Entity only in game
+
+func _ready():
+	# Register with the GameManager's "phone book"
 	if not Engine.is_editor_hint() and GAME:
-		GAME.register_entity(self, self.targetname)
-	#debug_sound_files()
+		GAME.register_entity(self, targetname)
+
 	create_sound()
+	# Setup positions
+	start_position = global_position
+	end_position = start_position + move_offset
 
-func _on_body_entered(body):
-	if body.is_in_group("player"):
-		player_is_near = true
-
-func _on_body_exited(body):
-	if body.is_in_group("player"):
-		player_is_near = false
-
-func _input(event):
-	if player_is_near and event.is_action_pressed("interact"):
-		get_viewport().set_input_as_handled()
-		use()
+# --- Public API (The messages other entities can send) ---
+	# Debug
+	print("is_powered: ", is_powered, "  is_locked:: ", is_locked)
 
 
-# -- Public API Methods
+func use():
+	# The door checks its OWN internal state
+	if is_locked or not is_powered:
+		print("Door '", targetname, "' cannot be used.")
+		# Play a 'deny' sound here
+		SoundManager.play_sound_event(release_sound, self.global_position)
+		return
+
+	is_open = not is_open
+	var destination = end_position if is_open else start_position
+
+	var tween = create_tween()
+	tween.tween_property(self, "global_position", destination, speed)
+	# Play 'open' or 'close' sound here
+	SoundManager.play_sound_event(press_sound, self.global_position)
+
+func unlock():
+	is_locked = false
+	print("Door '", targetname, "' unlocked.")
+
+func lock():
+	is_locked = true
+	print("Door '", targetname, "' locked.")
 
 func power_on():
 	is_powered = true
-	print(self.targetname, " is now powered ON.")
+	print("Door '", targetname, "' powered ON.")
 
 func power_off():
 	is_powered = false
-	print(self.targetname, " is now powered OFF.")
+	print("Door '", targetname, "' powered OFF.")
 
 func enable():
 	is_enabled = true
@@ -87,16 +122,6 @@ func enable():
 func disable():
 	is_enabled = false
 
-func use():
-		if is_powered and is_enabled:
-			if not target.is_empty():
-				print("TERMINAL ONww")
-				SoundManager.play_sound_event(press_sound, self.global_position)
-				GAME.send_message(self.target, "unlock")
-		else:
-
-			print("NOT POWERED")
-# --- Helper Functions ---
 
 func create_sound() -> void:
 # Only try to create and load the sound if a file was provided
@@ -117,9 +142,3 @@ func create_sound() -> void:
 		release_sound.pitch_scale = release_sound_pitch
 	else:
 		release_sound = null
-
-func debug_sound_files() -> void:
-	print("--- Data from TrenchBroom for ", self.name, " ---")
-	print("Press Sound File: '", press_sound_file, "'")
-	print("Release Sound File: '", release_sound_file, "'")
-	print("-----------------------------------------")

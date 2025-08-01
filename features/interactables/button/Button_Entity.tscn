@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cq8fn2fi7qbc7"]
+[gd_scene load_steps=5 format=3 uid="uid://cq8fn2fi7qbc7"]
 
 [ext_resource type="Script" uid="uid://u8dj8ark6ghf" path="res://features/interactables/button/Entity_Button.gd" id="1_0sipq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0sipq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vtjv2"]
 size = Vector3(0.2, 0.2, 0.2)
@@ -10,14 +12,13 @@ size = Vector3(0.2, 0.2, 0.2)
 
 [node name="Button" type="Area3D"]
 script = ExtResource("1_0sipq")
-press_sound_file = null
-press_sound_vol = null
-press_sound_pitch = null
-release_sound_file = null
-release_sound_vol = null
-release_sound_pitch = null
+targetname = null
+room_id = null
+is_enabled = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+shape = SubResource("BoxShape3D_0sipq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
@@ -26,3 +27,6 @@ shape = SubResource("BoxShape3D_vtjv2")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("BoxMesh_vtjv2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

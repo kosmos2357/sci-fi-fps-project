@@ -363,6 +363,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 4, -14)
 
 [node name="entity_1_prop_my_button" parent="Node3D/FuncGodotMap" index="1"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.25, 0.75, 0.25)
+is_powered = true
 
 [node name="Node3D" parent="Node3D/FuncGodotMap/entity_1_prop_my_button" index="2" instance=ExtResource("9_w23s1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.90735e-06, 2, -4)
@@ -393,6 +394,11 @@ mesh = null
 
 [node name="Terminal" parent="." instance=ExtResource("14_o6dmv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 24, -2)
+room_id = ""
+is_enabled = false
+release_sound_file = ""
+release_sound_vol = 0.0
+release_sound_pitch = 0.0
 
 [node name="Player2" parent="." instance=ExtResource("15_wk3pi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24, 0)
