@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://d4nx7kdj1121r"]
+[gd_scene load_steps=58 format=4 uid="uid://d4nx7kdj1121r"]
 
 [ext_resource type="Script" uid="uid://bsbsnggmnqrtl" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_ok5di"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_b6b4t"]
@@ -7,9 +7,14 @@
 [ext_resource type="Material" uid="uid://he14vpfhlpm" path="res://textures/world/XpjecL6.tres" id="5_ansda"]
 [ext_resource type="PackedScene" uid="uid://cq8fn2fi7qbc7" path="res://features/interactables/button/Button_Entity.tscn" id="6_yifly"]
 [ext_resource type="Script" uid="uid://cde2enuicpkwo" path="res://features/interactables/door/door.gd" id="7_m3f60"]
+[ext_resource type="Script" uid="uid://bf8gs2vakp340" path="res://features/interactables/resources/SoundEvent.gd" id="7_ydc8k"]
+[ext_resource type="AudioStream" uid="uid://kfsmc58bo0jq" path="res://Assets/Sounds/button1.wav" id="8_3icem"]
 [ext_resource type="PackedScene" uid="uid://bqtrsusyad12b" path="res://features/interactables/terminal/terminal.tscn" id="8_m3f60"]
 [ext_resource type="Texture2D" uid="uid://cyg2snr1w5xw5" path="res://addons/func_godot/textures/default_texture.png" id="9_yifly"]
 [ext_resource type="Script" uid="uid://dcm14ynad7ctn" path="res://features/interactables/triggerArea/repeat/trigger_area_repeat.gd" id="10_4msts"]
+[ext_resource type="AudioStream" uid="uid://do0ek33q733xe" path="res://Assets/Sounds/doormove4.wav" id="10_al05j"]
+[ext_resource type="AudioStream" uid="uid://mbxa8aqn01ue" path="res://Assets/Sounds/release_sound.wav" id="11_osp4i"]
+[ext_resource type="AudioStream" uid="uid://hwglwhgg6v6t" path="res://Assets/Sounds/test.mp3" id="14_56y8x"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_ue3pb"]
 vertices = PackedVector3Array(-1.5, 7.75, -1.5, -1.5, 7.75, 51.75, 8.75, 7.75, 51.75, 8.75, 7.75, -1.5, 4.25, 1, 11, 4.25, 1, 12, 4.75, 1, 12, 5, 1, 10.75, 1.25, 1, 6, 2.5, 1, 6, 7.25, 1, 2.5, 7.25, 1, -1.25, 0, 1, -1.25, 0, 1, 6.75, 1, 1, 6.75, 3.25, 1, 10.5, 5, 1, 9, 4, 1, 9, 7.25, 1, 3.75, 8.75, 1, 3.5, 8.75, 1, 2.75, 4.25, 1, 7, 4.75, 1, 7, 7.25, 1, 10.75, 7.25, 1, 9, 7.25, 1, 6.75, 0, 1, 9, 0, 1, 10.75, 5, 1, 13, 4, 1, 13, 0, 1, 53.25, 7.25, 1, 53.5, 7.25, 1, 13, 0, 1, 13, -1.5, 15.5, 52.75, -1.5, 15.5, 54, 8.25, 15.5, 54.25, 8.75, 15.5, 52.75, -24, 15.5, 84.5, 8.75, 15.5, 84.5, 8, 15.5, 84.25, -23.75, 15.5, 84.25, -1.25, 7.75, 53, -1.25, 7.75, 53.75, 8.75, 7.75, 53.75, 8.75, 7.75, 53, 0, 1, 54.75, -1.25, 1, 55, -1.5, 1, 56.25, 5.25, 1, 71.5, 7.25, 1, 73.25, -1.25, 1, 73.25, -0.25, 1, 73.5, 0, 1, 71.5, -1.5, 1, 71.25, -3.5, 1, 56.25, -3.75, 1, 71.25, 5.5, 1, 73.5, -25.75, 15.5, 84.5, -23.5, 15.5, 79.25, -25.25, 15.5, 77.25, -25.75, 15.5, 54.75, -25.25, 15.5, 55.5, -2.25, 15.5, 55.25, -2.25, 15.5, 54.75, -24.25, 1, 66, -14.75, 1, 66, -15, 1, 56.25, -24.25, 1, 56.25, -12, 2, 56.25, -24.25, 3.5, 56.25, -24.25, 3.5, 66, -12, 2, 66.25, -17.4444, 3.5, 56.25, -17.4444, 3.5, 66.1389, -8.75, 1, 71.25, -8.5, 1, 73.5, -7, 1, 73.5, -6.75, 1, 71.25, -10, 1.25, 66.25, -10, 1, 67.25, -12, 1, 67.25, -12, 1, 71.25, -9.16667, 1, 56.25, -24.25, 4.25, 76.75, -22.5, 4.25, 79.25, -17, 4.25, 79.25, -17, 4.25, 67, -24.25, 4.25, 67, -24.25, 1, 76.75, -22.5, 1, 79, -17.25, 1, 79, -17.25, 1, 67.25, -24.25, 1, 67.25, -10.75, 1, 83.25, -10.75, 1, 80.75, -14.25, 1, 80.5, -14.25, 1, 71.5, -15.75, 1, 67.25, -15.75, 1, 80, -22.5, 1, 80.25, -22.5, 1, 83.25, -13.25, 4.25, 72.25, -13.25, 4.25, 79.5, -9.5, 4.25, 79.5, -9.5, 4.25, 72.25, -6, 4.25, 72.25, -6, 4.25, 79.5, -2.25, 4.25, 79.5, -2.25, 4.25, 72.25, -13, 1, 72.5, -13, 1, 79.25, -9.75, 1, 79.25, -9.75, 1, 72.5, -5.75, 1, 72.5, -5.75, 1, 79.25, -2.5, 1, 79.25, -2.5, 1, 72.5, 0.75, 4.25, 72.5, 0.75, 4.25, 79.75, 4.5, 4.25, 79.75, 4.5, 4.25, 72.5, 1, 1, 72.75, 1, 1, 79.5, 4.25, 1, 79.5, 4.25, 1, 72.75, -6, 1, 83.25, -5.75, 1, 84.5, -4.5, 1, 84.5, -4.25, 1, 83.25, -7, 1, 80.25, -8.5, 1, 80.5, -1.5, 1, 80.5, 0.25, 1, 83.25, 0.25, 1, 80.75, -0.25, 1, 80.5, 5.5, 1, 80.5, 7.25, 1, 83.25, -25.5, 1, 84.25, -25, 1, 84.25, -25, 1, 83.5, -25.5, 1, 80, -23.75, 1, 82.5, -23.75, 1, 80.25)
@@ -157,6 +162,24 @@ _surfaces = [{
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ugded"]
 data = PackedVector3Array(-5.5625, 0.5625, -43.4688, -5.5625, -0.5625, -43.4688, 5.5625, -0.5625, -43.4688, -5.5625, 0.5625, -43.4688, 5.5625, -0.5625, -43.4688, 5.5625, 0.5625, -43.4688, -5.5625, 0.5625, -43.4688, -5.5625, 0.5625, 43.4688, -5.5625, -0.5625, 43.4688, -5.5625, 0.5625, -43.4688, -5.5625, -0.5625, 43.4688, -5.5625, -0.5625, -43.4688, 5.5625, -0.5625, -43.4688, -5.5625, -0.5625, -43.4688, -5.5625, -0.5625, 43.4688, 5.5625, -0.5625, -43.4688, -5.5625, -0.5625, 43.4688, 5.5625, -0.5625, 43.4688, 5.5625, 0.5625, -43.4688, 5.5625, 0.5625, 43.4688, -5.5625, 0.5625, 43.4688, 5.5625, 0.5625, -43.4688, -5.5625, 0.5625, 43.4688, -5.5625, 0.5625, -43.4688, 5.5625, 0.5625, -43.4688, 5.5625, -0.5625, -43.4688, 5.5625, -0.5625, 43.4688, 5.5625, 0.5625, -43.4688, 5.5625, -0.5625, 43.4688, 5.5625, 0.5625, 43.4688, -5.5625, 0.5625, 43.4688, 5.5625, 0.5625, 43.4688, 5.5625, -0.5625, 43.4688, -5.5625, 0.5625, 43.4688, 5.5625, -0.5625, 43.4688, -5.5625, -0.5625, 43.4688)
 
+[sub_resource type="Resource" id="Resource_ydc8k"]
+script = ExtResource("7_ydc8k")
+stream = ExtResource("8_3icem")
+volume_db = -25.0
+pitch_scale = 1.0
+
+[sub_resource type="Resource" id="Resource_3icem"]
+script = ExtResource("7_ydc8k")
+stream = ExtResource("10_al05j")
+volume_db = -20.0
+pitch_scale = 1.0
+
+[sub_resource type="Resource" id="Resource_al05j"]
+script = ExtResource("7_ydc8k")
+stream = ExtResource("11_osp4i")
+volume_db = -20.0
+pitch_scale = 1.0
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1cbo0"]
 albedo_texture = ExtResource("9_yifly")
 metallic_specular = 0.0
@@ -179,6 +202,18 @@ _surfaces = [{
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_yqigl"]
 points = PackedVector3Array(-1, 1.75, -0.5, -1, -1.75, -0.5, 1, -1.75, -0.5, 1, 1.75, -0.5, -1, 1.75, 0.5, -1, -1.75, 0.5, 1, -1.75, 0.5, 1, 1.75, 0.5)
+
+[sub_resource type="Resource" id="Resource_osp4i"]
+script = ExtResource("7_ydc8k")
+stream = ExtResource("14_56y8x")
+volume_db = -30.0
+pitch_scale = 1.0
+
+[sub_resource type="Resource" id="Resource_56y8x"]
+script = ExtResource("7_ydc8k")
+stream = ExtResource("11_osp4i")
+volume_db = -20.0
+pitch_scale = 1.0
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_x7qin"]
 points = PackedVector3Array(-1.75, 0.5, -0.5, -1.75, -0.5, -0.5, 1.75, -0.5, -0.5, 1.75, 0.5, -0.5, -1.75, 0.5, 0.5, -1.75, -0.5, 0.5, 1.75, -0.5, 0.5, 1.75, 0.5, 0.5)
@@ -299,15 +334,12 @@ shape = SubResource("ConcavePolygonShape3D_ugded")
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.25, 2.25, 7.25)
 target = "door_a"
 targetname = "terminal_a"
-room_id = ""
 is_enabled = true
 is_powered = true
+press_sound = SubResource("Resource_ydc8k")
 press_sound_file = "button1.wav"
 press_sound_vol = -25.0
 press_sound_pitch = 1.0
-release_sound_file = ""
-release_sound_vol = 0.0
-release_sound_pitch = 0.0
 
 [node name="entity_3_DoorEntity" type="AnimatableBody3D" parent="FuncGodotMap"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2.375, 8)
@@ -315,9 +347,11 @@ script = ExtResource("7_m3f60")
 targetname = "door_a"
 is_enabled = true
 is_powered = true
+press_sound = SubResource("Resource_3icem")
 press_sound_file = "doormove4.wav"
 press_sound_vol = -20.0
 press_sound_pitch = 1.0
+release_sound = SubResource("Resource_al05j")
 release_sound_file = "release_sound.wav"
 release_sound_vol = -20.0
 release_sound_pitch = 1.0
@@ -334,12 +368,13 @@ shape = SubResource("ConvexPolygonShape3D_yqigl")
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.75, 2.25, 7.25)
 target = "door_a"
 targetname = "button_a"
-room_id = ""
 is_enabled = true
 is_powered = true
+press_sound = SubResource("Resource_osp4i")
 press_sound_file = "test.mp3"
 press_sound_vol = -30.0
 press_sound_pitch = 1.0
+release_sound = SubResource("Resource_56y8x")
 release_sound_file = "release_sound.wav"
 release_sound_vol = -20.0
 release_sound_pitch = 1.0

@@ -1433,3 +1433,30 @@
 ( -928 -1024 16 ) ( -928 -1088 -160 ) ( -928 -1088 16 ) world/Donut [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
+// entity 3
+{
+"classname" "PressurePlateEntity"
+"origin" "-72 -88 24"
+"is_enabled" "1"
+"target" "door_a"
+"targetname" "press_plate_a"
+}
+// entity 4
+{
+"classname" "DoorEntity"
+"is_enabled" "1"
+"is_locked" "0"
+"is_powered" "1"
+"move_offset" "0.0 3.0 0.0"
+"speed" "3"
+"targetname" "door_a"
+// brush 0
+{
+( -112 64 112 ) ( -112 80 32 ) ( -112 80 112 ) __TB_empty [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -16 64 112 ) ( -112 64 32 ) ( -112 64 112 ) __TB_empty [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -16 80 32 ) ( -112 64 32 ) ( -16 64 32 ) __TB_empty [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -16 80 128 ) ( -112 64 128 ) ( -112 80 128 ) __TB_empty [ 1 0 0 0 ] [ 0 -1 0 0 ] 270 1 1
+( -16 80 112 ) ( -112 80 32 ) ( -16 80 32 ) __TB_empty [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -16 80 112 ) ( -16 64 32 ) ( -16 64 112 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}

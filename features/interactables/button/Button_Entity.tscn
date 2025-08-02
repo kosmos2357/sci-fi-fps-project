@@ -12,9 +12,6 @@ size = Vector3(0.2, 0.2, 0.2)
 
 [node name="Button" type="Area3D"]
 script = ExtResource("1_0sipq")
-targetname = null
-room_id = null
-is_enabled = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)

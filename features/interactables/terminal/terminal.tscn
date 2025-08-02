@@ -13,11 +13,6 @@ albedo_color = Color(0, 0, 0.898039, 1)
 
 [node name="Terminal" type="Area3D"]
 script = ExtResource("1_8c15x")
-room_id = null
-is_enabled = null
-release_sound_file = null
-release_sound_vol = null
-release_sound_pitch = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_sxuvd")

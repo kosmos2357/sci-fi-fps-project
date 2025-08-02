@@ -764,7 +764,7 @@
 :collapsedHeight 0
 :nonce 1753509939535}}
 :block/updated-at 1753691756069} 
-{:block/content "Entity_Pressure_Plate\nPress Sound"
+{:block/content "Entity_Pressure_Plate X\nPress Sound"
 :block/format :markdown
 :block/left 
 {:block/uuid #uuid "68847035-e471-46b2-8a80-934a10cb079c"}
@@ -1706,7 +1706,79 @@
 :parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
 :nonce 1753826919959
 :italic false}}
-:block/updated-at 1753826921918})
+:block/updated-at 1753826921918} 
+{:block/content "## Before Wrapping up Refactor 3.5\n\nWork on Grab/Drop object system\nfor pressure plate\n\n[[Wrapping Up Refactor 3.5]]"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "68899f51-69be-436f-86c3-9e479dfe1380"}
+:block/parent 
+{:block/uuid #uuid "686320ea-7a64-4bad-ad6f-71af2ec94478"}
+:block/properties 
+{:heading 2}
+:block/uuid #uuid "688c6597-f29f-4d53-b18a-775e3edde7ef"} 
+{:block/created-at 1754031820391
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:blockType "B"
+:stroke ""
+:collapsed false
+:borderRadius 8
+:index 49
+:scale [1 1]
+:pageId "688c6597-f29f-4d53-b18a-775e3edde7ef"
+:scaleLevel "md"
+:fill ""
+:compact true
+:isAutoResizing true
+:type "logseq-portal"
+:size [400 160.99994654804325]
+:strokeType "line"
+:strokeWidth 2
+:opacity 1
+:id "ee2ace40-6ea4-11f0-89f4-fda7aca23b46"
+:noFill false
+:point [6128 2040]
+:parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
+:collapsedHeight 0
+:nonce 1754031510020}}
+:block/updated-at 1754031820391} 
+{:block/created-at 1754031820396
+:block/properties 
+{:ls-type :whiteboard-shape
+:logseq.tldraw.shape 
+{:stroke ""
+:index 50
+:scale [1 1]
+:scaleLevel "md"
+:fill ""
+:type "line"
+:strokeType "line"
+:strokeWidth 1
+:opacity 1
+:label ""
+:id "5a84b0b2-6ea5-11f0-89f4-fda7aca23b46"
+:fontWeight 400
+:noFill true
+:point [5897 2111.21]
+:fontSize 20
+:handles 
+{:start 
+{:id "start"
+:canBind true
+:point [0 0]
+:bindingId "5a84b0b0-6ea5-11f0-89f4-fda7aca23b46"}
+:end 
+{:id "end"
+:canBind true
+:point [227 34.69]
+:bindingId "5a84b0b1-6ea5-11f0-89f4-fda7aca23b46"}}
+:decorations 
+{:end "arrow"}
+:parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
+:nonce 1754031691719
+:italic false}}
+:block/updated-at 1754031820396})
 :pages (
 {:block/uuid #uuid "686320ea-7a64-4bad-ad6f-71af2ec94478"
 :block/properties 
@@ -1715,7 +1787,15 @@
 {:id "686320ea-7a64-4bad-ad6f-71af2ec94478"
 :name "game structure"
 :bindings 
-{:56476f32-6cc3-11f0-ae4b-e3914f032bab 
+{:5a84b0b0-6ea5-11f0-89f4-fda7aca23b46 
+{:id "5a84b0b0-6ea5-11f0-89f4-fda7aca23b46"
+:type "line"
+:fromId "5a84b0b2-6ea5-11f0-89f4-fda7aca23b46"
+:toId "a0be0e50-69e6-11f0-9008-f55c6be1ac82"
+:handleId "start"
+:point [0.5 0.5]
+:distance 4}
+:56476f32-6cc3-11f0-ae4b-e3914f032bab 
 {:id "56476f32-6cc3-11f0-ae4b-e3914f032bab"
 :type "line"
 :fromId "56476f30-6cc3-11f0-ae4b-e3914f032bab"
@@ -1738,6 +1818,14 @@
 :toId "edd9bdb0-69e6-11f0-9008-f55c6be1ac82"
 :handleId "end"
 :point [0.17 0.64]
+:distance 4}
+:5a84b0b1-6ea5-11f0-89f4-fda7aca23b46 
+{:id "5a84b0b1-6ea5-11f0-89f4-fda7aca23b46"
+:type "line"
+:fromId "5a84b0b2-6ea5-11f0-89f4-fda7aca23b46"
+:toId "ee2ace40-6ea4-11f0-89f4-fda7aca23b46"
+:handleId "end"
+:point [0.46 0.82]
 :distance 4}
 :974b3ec0-69ea-11f0-9008-f55c6be1ac82 
 {:id "974b3ec0-69ea-11f0-9008-f55c6be1ac82"
@@ -1861,9 +1949,9 @@
 :distance 4}}
 :nonce 1
 :assets []
-:shapes-index ("edccb410-560b-11f0-9bdb-01acb89edbfa" "f8a50a40-560b-11f0-9bdb-01acb89edbfa" "005a0060-560c-11f0-9bdb-01acb89edbfa" "067cbdc0-560c-11f0-9bdb-01acb89edbfa" "1a4214e0-560c-11f0-9bdb-01acb89edbfa" "2e33fa40-560c-11f0-9bdb-01acb89edbfa" "48b9fc70-560c-11f0-9bdb-01acb89edbfa" "68e85be0-560c-11f0-9bdb-01acb89edbfa" "3c2b0020-560d-11f0-9bdb-01acb89edbfa" "4df23d50-560d-11f0-9bdb-01acb89edbfa" "6fb01660-560d-11f0-9bdb-01acb89edbfa" "93a98790-560d-11f0-9bdb-01acb89edbfa" "c3e406b0-560d-11f0-9bdb-01acb89edbfa" "0c8b2870-560f-11f0-9bdb-01acb89edbfa" "1abeb790-560f-11f0-9bdb-01acb89edbfa" "23d47630-560f-11f0-9bdb-01acb89edbfa" "71b33200-5610-11f0-9bdb-01acb89edbfa" "b146cd80-69e5-11f0-9008-f55c6be1ac82" "4864de50-69e6-11f0-9008-f55c6be1ac82" "830569d0-69e6-11f0-9008-f55c6be1ac82" "8d0a4360-69e6-11f0-9008-f55c6be1ac82" "8fddd5c0-69e6-11f0-9008-f55c6be1ac82" "a0be0e50-69e6-11f0-9008-f55c6be1ac82" "e6679cf0-69e6-11f0-9008-f55c6be1ac82" "edd9bdb0-69e6-11f0-9008-f55c6be1ac82" "df556f20-69e9-11f0-9008-f55c6be1ac82" "f7de8fe0-69e9-11f0-9008-f55c6be1ac82" "fac50e02-69e9-11f0-9008-f55c6be1ac82" "2587dcd2-69ea-11f0-9008-f55c6be1ac82" "2af8af50-69ea-11f0-9008-f55c6be1ac82" "8acb04f0-69ea-11f0-9008-f55c6be1ac82" "974b3ec2-69ea-11f0-9008-f55c6be1ac82" "b3f357d0-6cc2-11f0-ae4b-e3914f032bab" "c25215a0-6cc2-11f0-ae4b-e3914f032bab" "cad46de0-6cc2-11f0-ae4b-e3914f032bab" "de34e8b2-6cc2-11f0-ae4b-e3914f032bab" "e2414932-6cc2-11f0-ae4b-e3914f032bab" "56474820-6cc3-11f0-ae4b-e3914f032bab" "56476f30-6cc3-11f0-ae4b-e3914f032bab" "6b029800-6cc3-11f0-ae4b-e3914f032bab" "6b02bf10-6cc3-11f0-ae4b-e3914f032bab" "b8570aa0-6cc3-11f0-ae4b-e3914f032bab" "b8570aa1-6cc3-11f0-ae4b-e3914f032bab" "8a362740-6cc4-11f0-ae4b-e3914f032bab" "95144d02-6cc8-11f0-ae4b-e3914f032bab" "934b59c0-6cfd-11f0-ae4b-e3914f032bab" "9cca3a70-6cfd-11f0-ae4b-e3914f032bab" "dc01b330-6cfd-11f0-ae4b-e3914f032bab" "dc01da40-6cfd-11f0-ae4b-e3914f032bab")}}
+:shapes-index ("edccb410-560b-11f0-9bdb-01acb89edbfa" "f8a50a40-560b-11f0-9bdb-01acb89edbfa" "005a0060-560c-11f0-9bdb-01acb89edbfa" "067cbdc0-560c-11f0-9bdb-01acb89edbfa" "1a4214e0-560c-11f0-9bdb-01acb89edbfa" "2e33fa40-560c-11f0-9bdb-01acb89edbfa" "48b9fc70-560c-11f0-9bdb-01acb89edbfa" "68e85be0-560c-11f0-9bdb-01acb89edbfa" "3c2b0020-560d-11f0-9bdb-01acb89edbfa" "4df23d50-560d-11f0-9bdb-01acb89edbfa" "6fb01660-560d-11f0-9bdb-01acb89edbfa" "93a98790-560d-11f0-9bdb-01acb89edbfa" "c3e406b0-560d-11f0-9bdb-01acb89edbfa" "0c8b2870-560f-11f0-9bdb-01acb89edbfa" "1abeb790-560f-11f0-9bdb-01acb89edbfa" "23d47630-560f-11f0-9bdb-01acb89edbfa" "71b33200-5610-11f0-9bdb-01acb89edbfa" "b146cd80-69e5-11f0-9008-f55c6be1ac82" "4864de50-69e6-11f0-9008-f55c6be1ac82" "830569d0-69e6-11f0-9008-f55c6be1ac82" "8d0a4360-69e6-11f0-9008-f55c6be1ac82" "8fddd5c0-69e6-11f0-9008-f55c6be1ac82" "a0be0e50-69e6-11f0-9008-f55c6be1ac82" "e6679cf0-69e6-11f0-9008-f55c6be1ac82" "edd9bdb0-69e6-11f0-9008-f55c6be1ac82" "df556f20-69e9-11f0-9008-f55c6be1ac82" "f7de8fe0-69e9-11f0-9008-f55c6be1ac82" "fac50e02-69e9-11f0-9008-f55c6be1ac82" "2587dcd2-69ea-11f0-9008-f55c6be1ac82" "2af8af50-69ea-11f0-9008-f55c6be1ac82" "8acb04f0-69ea-11f0-9008-f55c6be1ac82" "974b3ec2-69ea-11f0-9008-f55c6be1ac82" "b3f357d0-6cc2-11f0-ae4b-e3914f032bab" "c25215a0-6cc2-11f0-ae4b-e3914f032bab" "cad46de0-6cc2-11f0-ae4b-e3914f032bab" "de34e8b2-6cc2-11f0-ae4b-e3914f032bab" "e2414932-6cc2-11f0-ae4b-e3914f032bab" "56474820-6cc3-11f0-ae4b-e3914f032bab" "56476f30-6cc3-11f0-ae4b-e3914f032bab" "6b029800-6cc3-11f0-ae4b-e3914f032bab" "6b02bf10-6cc3-11f0-ae4b-e3914f032bab" "b8570aa0-6cc3-11f0-ae4b-e3914f032bab" "b8570aa1-6cc3-11f0-ae4b-e3914f032bab" "8a362740-6cc4-11f0-ae4b-e3914f032bab" "95144d02-6cc8-11f0-ae4b-e3914f032bab" "934b59c0-6cfd-11f0-ae4b-e3914f032bab" "9cca3a70-6cfd-11f0-ae4b-e3914f032bab" "dc01b330-6cfd-11f0-ae4b-e3914f032bab" "dc01da40-6cfd-11f0-ae4b-e3914f032bab" "ee2ace40-6ea4-11f0-89f4-fda7aca23b46" "5a84b0b2-6ea5-11f0-89f4-fda7aca23b46")}}
 :block/journal? false
-:block/updated-at 1754016338270
+:block/updated-at 1754031827080
 :block/created-at 1751326954881
 :block/type "whiteboard"
 :block/name "game structure"

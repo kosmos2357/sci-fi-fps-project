@@ -8,4 +8,4 @@
 	  └─ (Sub-state) FallState
 - OOP class Dictionary state for reusable Components
 - Standardized entity Properties
--
+- See [[Wrapping Up Refactor 3.5]]

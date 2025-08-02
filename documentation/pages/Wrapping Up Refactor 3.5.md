@@ -1,0 +1,18 @@
+- Finished implementing player state driven inheritance driven system
+- Finished Composition and object pool based sound manager
+- Finished animation player component for player char
+- Finished implementing base classes with func_godot objects, base entity structure, and refactored all entities.
+- Added Trigger Areas both one shot and repeat
+- Added pressure plate
+-
+- Now that all has been almost completed with the refactor there remains only 3 more tasks.
+	- Light Entity system
+	- Grab/Drop/Carry Entity system
+	- Fix bugs implemented from refactor particular to player controller
+		- NOTE: Both bugs involve changes in logic tied to player nodes. Sol may be to rework entire node structure for player char in regards to crouch logic atleast.
+			- Crouch logic
+			- Player camera
+			- https://github.com/kosmos2357/sci-fi-fps-project/issues/6
+			- Ladder trampoline bug
+			-
+-

@@ -38,14 +38,19 @@ const BULLET_SCENE = preload("res://features/player/scenes/bullet.tscn")
 
 # Underwater movement properties
 @export var water_speed = 2.5
-@export var water_gravity = 5.0 # Lower gravity simulates buoyancy
+@export var water_gravity = 5.0 # Lowwer gravity simulates buoyancy
 @export var swim_speed = 2.0   # How fast you move up/down
 
+	# Grab Features -----
+# The maximum distance the object can be from the hold position before being dropped
+@export var drop_distance: float = 3.0
 
-# -- Onready Variables --
+# -- Onready Variables --ww
 @onready var camera = $Head/Camera3D
-
 @onready var flashlight_beam = $Head/Camera3D/ViewModelContainer/flashlight/FlashLightBeam
+	# Grab Features ---
+@onready var grab_raycast = $Head/Camera3D/GrabCast
+@onready var hold_position = $Head/Camera3D/GrabPlacement
 
 # --- Crouching Properties ---
 @export var crouch_speed = 3.0
@@ -77,6 +82,9 @@ var is_on_ladder
 var is_underwater
 var just_jumped_off_ladder: bool = false
 var is_sprinting: bool = false
+
+	# Grab Feature reference
+var held_object = null
 
 
 # --- State Machine Setup ---
@@ -140,6 +148,14 @@ func _input(event):
 
 	if event.is_action_pressed("crouch"):
 		wants_to_crouch = true
+	# Grab Feature
+	elif event.is_action_pressed("interact"):
+		if held_object:
+			print("Drop Object")
+			_drop_object()
+		else:
+			print("Grab Object")
+			_grab_object()
 	elif event.is_action_released("crouch"):
 		wants_to_crouch = false
 
@@ -149,6 +165,20 @@ func _input(event):
 PHYSICS PROCESS LOOP
 """
 func _physics_process(delta):
+
+	if is_instance_valid(held_object):
+		# Grab Feature
+		# Check the distance between the object and its ideal hold position
+		var distance = held_object.global_position.distance_to(hold_position.global_position)
+
+		# If it's too far (stuck on a wall), drop it.
+		if distance > drop_distance:
+			_drop_object()
+		else:
+			# If it's close enough, continue carrying it.
+			var move_direction = hold_position.global_position - held_object.global_position
+			held_object.move_and_collide(move_direction * 20.0 * delta)
+
 	handle_camera_tilt(delta)
 	#_handle_crouching()
 
@@ -318,6 +348,38 @@ func handle_mouse_button(event):
 	new_bullet.global_transform = muzzle_transform
 	new_bullet.linear_velocity = -muzzle_transform.basis.z * speed
 	get_tree().get_root().add_child(new_bullet)
+
+
+# -- Grab Feature Helpers --
+
+func _check_grab_valid():
+	pass
+
+func _grab_object():
+	_check_grab_valid()
+	# Check if the raycast is hitting a physics body
+	if grab_raycast.is_colliding():
+		var collider = grab_raycast.get_collider()
+		# Check if the object is in the "grabbable" group
+		if collider and collider.is_in_group("grabbable"):
+			held_object = collider
+			held_object.gravity_scale = 0
+
+func _drop_object():
+	if not is_instance_valid(held_object):
+		return
+
+	# Re-enable the object's physics
+	held_object.gravity_scale = 1.0
+
+	# Give it a little push forward based on the camera's direction
+	var push_direction = -head.global_transform.basis.z
+	held_object.apply_central_impulse(push_direction * 1.0)
+
+	# Clear our reference to the object
+	held_object = null
+# -- Grab Feature Helpers --
+
 ######################## Auxillary
 # This hides the mouse cursor and keeps it centered in the window
 # so you can look around freely. Press Esc to show it again.

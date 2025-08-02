@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="FuncGodotFGDFile" load_steps=12 format=3 uid="uid://lpt1cxhuwa2s"]
+[gd_resource type="Resource" script_class="FuncGodotFGDFile" load_steps=13 format=3 uid="uid://lpt1cxhuwa2s"]
 
 [ext_resource type="Script" uid="uid://dk5dap5fydos3" path="res://addons/func_godot/src/fgd/func_godot_fgd_file.gd" id="1_qkuc6"]
 [ext_resource type="Resource" uid="uid://crgpdahjaj" path="res://addons/func_godot/fgd/func_godot_fgd.tres" id="1_rcank"]
@@ -9,8 +9,9 @@
 [ext_resource type="Resource" uid="uid://dcpj7i0na34cc" path="res://features/interactables/terminal/terminal.tres" id="9_bypds"]
 [ext_resource type="Resource" uid="uid://b0c21l27x0m6r" path="res://features/interactables/triggerArea/one-shot/trigger_area.tres" id="9_i775o"]
 [ext_resource type="Resource" uid="uid://cfmcwa17g4app" path="res://features/interactables/Base Entities/BaseAudible.tres" id="10_bypds"]
-[ext_resource type="Resource" uid="uid://dxl6xhnth7jm0" path="res://features/interactables/triggerArea/repeat/trigger_area_repeat.tres" id="10_fklmn"]
+[ext_resource type="Resource" uid="uid://dfvlt10rwpw0q" path="res://features/interactables/triggerArea/repeat/trigger_area_repeat.tres" id="10_fklmn"]
 [ext_resource type="Resource" uid="uid://bdgf3sdpjlc6j" path="res://features/interactables/button/Button_Entity.tres" id="10_i775o"]
+[ext_resource type="Resource" uid="uid://8ncir1n7q1q7" path="res://features/interactables/pressure plate/Entity_pressure_plate.tres" id="11_i775o"]
 
 [resource]
 script = ExtResource("1_qkuc6")
@@ -18,5 +19,5 @@ export_file = false
 target_map_editor = 1
 fgd_name = "lo-fi-sci-fi"
 base_fgd_files = Array[Resource]([ExtResource("1_rcank")])
-entity_definitions = Array[Resource]([ExtResource("7_fg4e4"), ExtResource("8_wp551"), ExtResource("9_a3irs"), ExtResource("10_bypds"), ExtResource("10_i775o"), ExtResource("9_bypds"), ExtResource("8_a3irs"), ExtResource("9_i775o"), ExtResource("10_fklmn")])
+entity_definitions = Array[Resource]([ExtResource("7_fg4e4"), ExtResource("8_wp551"), ExtResource("9_a3irs"), ExtResource("10_bypds"), ExtResource("10_i775o"), ExtResource("9_bypds"), ExtResource("8_a3irs"), ExtResource("9_i775o"), ExtResource("10_fklmn"), ExtResource("11_i775o")])
 metadata/_custom_type_script = "uid://dk5dap5fydos3"

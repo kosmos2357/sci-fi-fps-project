@@ -1,11 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://8fypswcewayv"]
+[gd_scene load_steps=6 format=3 uid="uid://8fypswcewayv"]
 
 [ext_resource type="Script" uid="uid://bli2e082383rq" path="res://features/interactables/pressure plate/Entity_pressure_plate.gd" id="1_uguhd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uguhd"]
+size = Vector3(1, 0.4, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uguhd"]
+albedo_color = Color(1, 0.564706, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uguhd"]
+size = Vector3(1, 0.1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4r3ob"]
+size = Vector3(1, 0.1, 1)
 
 [node name="EntityPressurePlate" type="Area3D"]
 script = ExtResource("1_uguhd")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="DetectionArea" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.251484, 0)
 shape = SubResource("BoxShape3D_uguhd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+material_override = SubResource("StandardMaterial3D_uguhd")
+mesh = SubResource("BoxMesh_uguhd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_4r3ob")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
