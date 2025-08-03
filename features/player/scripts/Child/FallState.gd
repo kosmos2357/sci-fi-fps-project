@@ -1,5 +1,7 @@
 class_name FallState
-extends AirborneState
+extends BaseState
+
+
 
 func process_physics(delta: float) -> void:
 	super.process_physics(delta)

@@ -6,19 +6,11 @@ MAJOR COMP
 	Swim State x
 	Crouch State x
 	# SECTION finished with issues see beloww
-MINOR COMP
-	Flashlight x
-	Lure x
-	Shoot x
-	ViewModel Movement x
-	Interact x
-
-Better Movement Handle
-	Screen Tilt x
-
 Post Proc
 	Death State
 	Injure State (take damage)
+
+
 """
 
 # MOUSE BUtton Event SCENES
@@ -45,13 +37,16 @@ const BULLET_SCENE = preload("res://features/player/scenes/bullet.tscn")
 # The maximum distance the object can be from the hold position before being dropped
 @export var drop_distance: float = 3.0
 
-# -- Onready Variables --ww
+# -- Onready Variables --
 @onready var camera = $Head/Camera3D
 @onready var flashlight_beam = $Head/Camera3D/ViewModelContainer/flashlight/FlashLightBeam
 	# Grab Features ---
 @onready var grab_raycast = $Head/Camera3D/GrabCast
 @onready var hold_position = $Head/Camera3D/GrabPlacement
+	#Push Feature
+@onready var push_raycast = $Head/Camera3D/pushCast
 
+@export var push_strength: float = 8.0 # Force needs to be a larger number
 # --- Crouching Properties ---
 @export var crouch_speed = 3.0
 var wants_to_crouch: bool = false
@@ -119,15 +114,39 @@ func _ready():
 	hide_cursor()
 
 
+func handle_normal_movement(delta) -> void:
+	# NOTE Y Axis Vector
+	# Add gravity every frame if we are not on the flwoor
+
+	#handle_jump()
+	# NOTE X and Z Axis Vectors
+	# Get input from WASD keys
+	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	# Create a direction vector based on where the player is facing
+	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var current_speed = speed
+	# Apply movement
+	if direction:
+		velocity.x = lerp(velocity.x, direction.x * current_speed , acceleration * delta)
+		velocity.z = lerp(velocity.z, direction.z * current_speed , acceleration * delta)
+
+	else:
+		# If no input, slow down (friction)
+		velocity.x = lerp(velocity.x, 0.0, friction * delta)
+		velocity.z = lerp(velocity.z, 0.0, friction * delta)
+
+	handle_camera_tilt(delta)
+	move_and_slide()
 
 
 """
 INPUT HANDLE
 """
 func _unhandled_input(event: InputEvent) -> void:
-	# To jump one must press and be on the floor
+	# To jump one must press and be on the floorw
 	if event.is_action_pressed("jump") and is_on_floor():
-		transition_to("jump")
+		#transition_to("jump")
+		velocity.y = jump_velocity
 	if event.is_action_pressed("ui_cancel"):
 		make_cursor_visible()
 	elif event.is_action_pressed("toggle_flashlight"):
@@ -165,6 +184,13 @@ func _input(event):
 PHYSICS PROCESS LOOP
 """
 func _physics_process(delta):
+	var input_vec = Input.get_vector("ui_left", "ui_right", "ui_down", "ui_up")
+	# --- PUSHING LOGIC ---
+	if push_raycast.is_colliding():
+		var collider = push_raycast.get_collider()
+		if collider and collider.has_method("push"):
+			# Use our velocity to determine the direction and strength of the push
+			collider.push(self.velocity * push_strength)
 
 	if is_instance_valid(held_object):
 		# Grab Feature
@@ -182,8 +208,8 @@ func _physics_process(delta):
 	handle_camera_tilt(delta)
 	#_handle_crouching()
 
-	if current_state:
-		current_state.process_physics(delta)
+	#if current_state:
+		#current_state.process_physics(delta)
 
 	# --- Check for state transitions in order of priority ---
 
@@ -197,15 +223,24 @@ func _physics_process(delta):
 
 	# Priority 3: Airborne. This only runs if we are NOT on a ladder and NOT in water.
 	elif not is_on_floor():
-		transition_to("fall")
+		#transition_to("fall")
+		velocity.y -= gravity * delta
+
 
 	# Priority 4: Grounded. This is the default case if none of the above are true.
 	else:
-		var input_vec = Input.get_vector("ui_left", "ui_right", "ui_down", "ui_up")
+		#var input_vec = Input.get_vector("ui_left", "ui_right", "ui_down", "ui_up")
 		if input_vec == Vector2.ZERO:
 			transition_to("idle")
+			pass
 		else:
 			transition_to("run")
+			#handle_normal_movement(delta)
+
+	if current_state:
+		current_state.process_physics(delta)
+
+
 """
 STATE TRANSITION METHOD
 """
@@ -214,6 +249,8 @@ func transition_to(state_name: String):
 		return
 
 	current_state = states[state_name]
+
+
 	current_state.enter()
 
 ######################################## Handlers
@@ -321,7 +358,7 @@ func toggle_flashlight() -> void:
 
 func toggle_use_key() -> void:
 	SoundManager.play_sound_event(use_key_sound, self.global_position)
-	pass
+
 
 
 func handle_lure() -> void:
@@ -363,7 +400,7 @@ func _grab_object():
 		# Check if the object is in the "grabbable" group
 		if collider and collider.is_in_group("grabbable"):
 			held_object = collider
-			held_object.gravity_scale = 0
+			held_object.gravity_scale = 0.0
 
 func _drop_object():
 	if not is_instance_valid(held_object):

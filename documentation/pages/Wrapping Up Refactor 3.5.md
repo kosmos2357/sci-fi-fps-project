@@ -11,8 +11,8 @@
 	- Fix bugs implemented from refactor particular to player controller
 		- NOTE: Both bugs involve changes in logic tied to player nodes. Sol may be to rework entire node structure for player char in regards to crouch logic atleast.
 			- Crouch logic
-			- Player camera
+			- Player camera x SOLUTION: spring arm3D then camera3D
 			- https://github.com/kosmos2357/sci-fi-fps-project/issues/6
-			- Ladder trampoline bug
+			- Ladder trampoline bug X store previous current state
 			-
 -

@@ -14,7 +14,8 @@ func process_physics(delta):
 
 	# Check for jumping OFF the ladder
 	if Input.is_action_just_pressed("jump"):
-		player.transition_to("fall")
+
+
 				# --- ADD THIS LOGIC ---
 		# 1. Set the flag on the player
 		player.just_jumped_off_ladder = true
@@ -33,11 +34,12 @@ func process_physics(delta):
 
 	# Handle movement ON the ladder
 	# Vertical movement (W/S)
-	var vertical_velocity = Vector3.UP * input_dir.y * player.speed
+	var vertical_velocity = Vector3.UP * input_dir.y * player.climb_speed
 
 	# Horizontal (strafe) movement (A/D)
 	var horizontal_velocity = player.transform.basis * Vector3(input_dir.x, 0, 0) * player.speed
 
 	# Combine and apply velocities
 	player.velocity = vertical_velocity + horizontal_velocity
-	player.move_and_slide()
+
+	player.previous_state = player.current_state

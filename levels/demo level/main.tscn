@@ -422,7 +422,7 @@ transform = Transform3D(1, 0, 0, 0, 0.993027, 0.117884, 0, -0.117884, 0.993027, 
 curve = SubResource("Curve3D_73pej")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-0.999861, 0.00165875, -0.0150349, 5.82062e-11, 0.993954, 0.10966, 0.0151259, 0.109647, -0.993845, 0, 0, 0)
+transform = Transform3D(-0.999861, 0.00165875, -0.0150349, 5.82062e-11, 0.993954, 0.109661, 0.0151259, 0.109647, -0.993845, 0, 0, 0)
 
 [node name="CharacterBody3D" parent="Path3D/PathFollow3D" instance=ExtResource("11_73pej")]
 transform = Transform3D(0.00129277, 3.51829e-08, 1, 0.0045452, 0.99999, -5.912e-06, -0.999989, 0.0045452, 0.00129281, 0, 0, 0)

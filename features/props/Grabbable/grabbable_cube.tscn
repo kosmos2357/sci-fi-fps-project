@@ -1,13 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://cki2wdhaepxrx"]
+[gd_scene load_steps=5 format=3 uid="uid://cki2wdhaepxrx"]
+
+[ext_resource type="Script" uid="uid://b60b00q1da0qu" path="res://features/props/Grabbable/grabbable_cube.gd" id="1_yolso"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yolso"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_kpmxc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yolso"]
 
-[node name="GrabbableCube" type="RigidBody3D" groups=["grabbable"]]
+[node name="GrabbableCube" type="RigidBody3D" groups=["grabbable", "pushable"]]
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+physics_material_override = SubResource("PhysicsMaterial_yolso")
+linear_damp_mode = 1
+linear_damp = 2.5
+script = ExtResource("1_yolso")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_kpmxc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_yolso")
+
+[node name="ground_check_raycast" type="RayCast3D" parent="."]

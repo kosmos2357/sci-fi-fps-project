@@ -22,4 +22,4 @@ func process_physics(delta):
 	elif Input.is_action_pressed("crouch"):
 		player.velocity.y = -player.swim_speed # Swim down
 	# If not swimming, buoyancy (low gravity) takes over
-	player.move_and_slide()
+	#player.move_and_slide()

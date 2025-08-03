@@ -105,6 +105,6 @@ mesh = SubResource("BoxMesh_3iu8o")
 surface_material_override/0 = SubResource("ShaderMaterial_gne8l")
 
 [node name="GrabbableCube" parent="." instance=ExtResource("7_vyvrh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.86501, 1.56344, -2.12448)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.86175, 1.55707, -2.12272)
 
 [editable path="WaterZone"]
