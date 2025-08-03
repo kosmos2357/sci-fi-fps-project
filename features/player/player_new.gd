@@ -328,9 +328,6 @@ func toggle_flashlight() -> void:
 func toggle_use_key() -> void:
 	SoundManager.play_sound_event(use_key_sound, self.global_position)
 
-
-
-
 #=============================================================================
 # 6. STATE FUNCTIONS
 #=============================================================================
