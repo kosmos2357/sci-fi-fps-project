@@ -5,7 +5,7 @@
 [ext_resource type="Shader" uid="uid://crpfik8ylvbfd" path="res://Assets/shaders/water_shader.gdshader" id="4_lcdhk"]
 [ext_resource type="Texture2D" uid="uid://wroc1gvjnanh" path="res://Assets/Art/water1.png" id="5_vyvrh"]
 [ext_resource type="Texture2D" uid="uid://b8pcja5gnxhrx" path="res://Assets/Art/caust_003.png" id="6_46ab3"]
-[ext_resource type="PackedScene" uid="uid://ddknxuyo7g3ya" path="res://features/player/scenes/player_new.tscn" id="7_46ab3"]
+[ext_resource type="PackedScene" uid="uid://ddknxuyo7g3ya" path="res://features/player/scenes/player.tscn" id="7_46ab3"]
 [ext_resource type="PackedScene" uid="uid://cki2wdhaepxrx" path="res://features/props/Grabbable/grabbable_cube.tscn" id="7_vyvrh"]
 
 [sub_resource type="Environment" id="Environment_be4k1"]
