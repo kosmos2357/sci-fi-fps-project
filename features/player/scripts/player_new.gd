@@ -28,28 +28,36 @@ var complex_states = {
 @export var water_speed: float = 4.0
 @export var swim_speed = 2.0   # How fast you move up/down
 @export var water_gravity: float = 4.0
+@export_group("Sound")
 @export var flash_light_sound: SoundEvent
 @export var use_key_sound: SoundEvent
+
+
 # --- Crouching Properties ---
-@onready var head_check_raycast = $CollisionShape3D/HeadCheck
-@onready var collision_shape = $CollisionShape3D
+@export_group("Crouching")
+@onready var head_check_raycast = $StandingCollisionShape/HeadCheckRaycast
+@onready var collision_shape = $StandingCollisionShape
 @onready var camera = $Head/SpringArm3D/Camera3D
-@export var crouch_speed = 3.0
+@export var crouch_speed = 4.5
 var wants_to_crouch: bool = false
 var is_actually_crouching: bool = false
-var stand_height: float = 2.0
-var crouch_height: float = 1.0
+var stand_height: float = 1.8 # The height of the collision capsule when standing
+var crouch_height: float = 1.0 # The height when crouching
+# Set your camera's Y-positions for standing and crouching
+var stand_cam_y: float = 1.6
+var crouch_cam_y: float = 0.8
+
 
 	# Grab Features -----
 # The maximum distance the object can be from the hold position before being dropped
 @export var drop_distance: float = 3.0
 	# Grab Features ---
-@onready var grab_raycast = $Head/SpringArm3D/Camera3D/GrabCast
-@onready var hold_position = $Head/SpringArm3D/Camera3D/GrabPlacement
+@onready var grab_raycast = $Head/Grab_Push_Container/GrabCast
+@onready var hold_position = $Head/Grab_Push_Container/GrabPlacement
 	# Grab Feature reference
 var held_object = null
 	#Push Feature
-@onready var push_raycast = $Head/SpringArm3D/Camera3D/pushCast
+@onready var push_raycast = $Head/Grab_Push_Container/PushCast
 @export var push_strength: float = 8.0 # Force needs to be a larger number
 
 
@@ -74,7 +82,7 @@ var is_sprinting: bool = false
 # Component references
 @onready var head = $Head
 @onready var flashlight_beam = $Head/SpringArm3D/Camera3D/ViewModelContainer/flashlight/FlashLightBeam
-# ... (add other components like SoundManager, etc.)
+@onready var animation_component = $Animation_Component
 
 #=============================================================================
 # 4. ENGINE CALLBACKS
@@ -85,16 +93,21 @@ func _ready():
 	for state_name in complex_states:
 		complex_states[state_name].player = self
 
+	# This is still the best way to prevent the raycast from hitting the player
+	if is_instance_valid(head_check_raycast):
+		head_check_raycast.add_exception(self)
+		head_check_raycast.enabled = true
+	grab_raycast.add_exception(self)
+	push_raycast.add_exception(self)
 
-
-	# ... (your other ready logic like capturing the mouse)
 
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_cancel"):
 		make_cursor_visible()
-	# Handle one-shot actions that trigger a state change
+	# Handle one-shot actions that trigger a state changew
 	if event.is_action_pressed("jump") and is_on_floor():
-		velocity.y = jump_velocity
+		self.velocity.y = jump_velocity + 1
+		print("Velocity_y", self.velocity.y)
 		current_state = States.FALL # Immediately enter the falling state after a jump
 	elif event.is_action_pressed("toggle_flashlight"):
 		toggle_flashlight()
@@ -116,14 +129,14 @@ func _input(event: InputEvent) -> void:
 		else:
 			print("Grab Object")
 			_grab_object()
+
+
 func _physics_process(delta):
-	print("CURRENT_STATE ", current_state)
-	print("PREVIOUS_STATE", previous_state)
 	# --- "THINK" PHASE: Determine the correct state for this frame ---
 	var input_vec = Input.get_vector("ui_left", "ui_right", "ui_down", "ui_up")
 
 	_handle_push_grab(delta)
-	_handle_crouching()
+	_handle_crouching(delta)
 	if is_on_ladder and not just_jumped_off_ladder:
 
 		current_state = States.CLIMB
@@ -137,9 +150,6 @@ func _physics_process(delta):
 			current_state = States.IDLE
 		else:
 			current_state = States.RUN
-
-
-
 		# --- THIS IS WHERE THE FORWARD HOP LOGIC GOES ---
 		if current_state == States.FALL and previous_state == States.CLIMB:
 			# Apply the special forward hop velocity
@@ -159,6 +169,9 @@ func _physics_process(delta):
 		States.SWIM:
 			complex_states["swim"].process_physics(delta)
 	handle_camera_tilt(delta)
+
+	if is_instance_valid(animation_component):
+		animation_component.update_viewmodel_sway(delta)
 	move_and_slide()
 
 #=============================================================================
@@ -184,20 +197,15 @@ func _state_run(delta):
 	# Use our is_Sprinting flag to trigger whicwh to use for current_speed
 	var current_speed = sprint_speed if is_sprinting else speed
 
-	#if is_actually_crouching:
-	#	current_speed = crouch_speed
+	if is_actually_crouching:
+		current_speed = crouch_speed
 
 	# DEBUG
 	if is_sprinting:
 		print("Flag Sprint in RUN State")
-	# DEBUG
+
 	velocity.x = lerp(velocity.x, direction.x * current_speed, acceleration * delta)
 	velocity.z = lerp(velocity.z, direction.z * current_speed, acceleration * delta)
-
-
-
-	#if animation_component:
-	#	animation_component.play_animation("sway", delta)
 
 
 #=============================================================================
@@ -230,48 +238,31 @@ func handle_camera_tilt(delta) -> void:
 	# Apply the final, combined rotation from our variables
 	head.rotation_degrees = Vector3(camera_pitch, 0, camera_roll)
 
+func _handle_crouching(delta):
+	var is_head_blocked = null
+	if is_instance_valid(head_check_raycast):
+		is_head_blocked = head_check_raycast.is_colliding()
+	print("is_head BLocked",is_head_blocked)
+# Determine if we should be crouching
+	if is_actually_crouching:
+		if not wants_to_crouch and not is_head_blocked:
+			is_actually_crouching = false
+	else: # Is standing
+		if wants_to_crouch:
+			is_actually_crouching = true
+	# --- Apply the physical changes to the single shape ---
+	var target_shape_height = crouch_height if is_actually_crouching else stand_height
+	var target_cam_pos_y = crouch_cam_y if is_actually_crouching else stand_cam_y
 
+	var interp_speed = delta * 10.0
 
-func _handle_crouching():
-	## --- This part is the same ---
-	#var can_stand_up = not head_check_raycast.is_colliding()
-#
-	#if wants_to_crouch:
-		#is_actually_crouching = true
-	#else:
-		#if can_stand_up:
-			#is_actually_crouching = false
-		#else:
-			#is_actually_crouching = true
-#
-	## --- This is the new part ---
-	## Define our target heights and positions
-	#var target_shape_height = crouch_height if is_actually_crouching else stand_height
-#
-	## The shape's Y position should always be half its current height.
-	## This keeps its "feet" on the ground (at y=0).
-	#var target_shape_pos_y = target_shape_height / 2.0
-#
-	## The camera's Y position should be near the top of the capsule.
-	## Let's say eye-level is at 80% of the character's height.
-	##NOTE
-	#"""
-	#The bug can be fixed by simply removing the manual movement of eye height
-	#not sure why needed?
-	#"""
-	#var standing_cam_pos_y = stand_height * 0.734
-	#var crouching_cam_pos_y = crouch_height # When crouching, camera might be closer to the top of the shape
-	#var target_cam_pos_y = crouching_cam_pos_y if is_actually_crouching else standing_cam_pos_y
+	# Animate the shape's height
+	collision_shape.shape.height = lerp(collision_shape.shape.height, target_shape_height, interp_speed)
+	# Animate the shape's vertical position to keep its feet on the ground
+	collision_shape.position.y = lerp(collision_shape.position.y, target_shape_height / 2.0, interp_speed)
 
-	## Smoothly interpolate to the target values
-	#var interp_speed = 10.0 * get_physics_process_delta_time()
-	#collision_shape.shape.height = lerp(collision_shape.shape.height, target_shape_height, interp_speed)
-	#collision_shape.position.y = lerp(collision_shape.position.y, target_shape_pos_y, interp_speed)
-	#camera.position.y = lerp(camera.position.y, target_cam_pos_y, interp_speed)
-
-	pass
-
-
+	# Animate the head/camera rig's height
+	head.position.y = lerp(head.position.y, target_cam_pos_y, interp_speed)
 
 func _handle_push_grab(delta):
 	# --- PUSHING LOGIC ---
@@ -318,7 +309,7 @@ func _drop_object():
 	held_object = null
 
 #=============================================================================
-# 6. TOGGLE FUNCTIONS
+# 7. TOGGLE FUNCTIONS
 #=============================================================================
 
 func toggle_flashlight() -> void:
@@ -329,7 +320,7 @@ func toggle_use_key() -> void:
 	SoundManager.play_sound_event(use_key_sound, self.global_position)
 
 #=============================================================================
-# 6. STATE FUNCTIONS
+# 8. AREA 3D FLAGS
 #=============================================================================
 func enter_climbing_state():
 	is_on_ladder = true
@@ -348,7 +339,7 @@ func exit_swim_state():
 	print("I am not swimming")
 
 #=============================================================================
-# 7. AUX FUNCTIONS
+# 9. AUX FUNCTIONS
 #=============================================================================
 func hide_cursor() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

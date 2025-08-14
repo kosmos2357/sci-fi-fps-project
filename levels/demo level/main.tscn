@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bc1qnhot6npv6" path="res://Assets/models/flashlight/flashlight.glb" id="12_iivgo"]
 [ext_resource type="PackedScene" uid="uid://qduamm4c076l" path="res://Assets/models/flashlight/FlashLight_2_Final.tscn" id="13_woytj"]
 [ext_resource type="PackedScene" uid="uid://bqtrsusyad12b" path="res://features/interactables/terminal/terminal.tscn" id="14_o6dmv"]
-[ext_resource type="PackedScene" uid="uid://vxhoiivdyixh" path="res://features/player/scenes/player.tscn" id="15_wk3pi"]
+[ext_resource type="PackedScene" uid="uid://vxhoiivdyixh" path="res://archive/player_OLD_hybrid_fsm_Pre_node_refactor.tscn" id="15_wk3pi"]
 [ext_resource type="PackedScene" uid="uid://hj2d5lhp6jkk" path="res://features/enemies/Simple_Turret/simple_turret.tscn" id="16_hfl7v"]
 [ext_resource type="Script" uid="uid://dt8lkxmu252du" path="res://levels/demo level/area_3d.gd" id="18_hl284"]
 [ext_resource type="AudioStream" uid="uid://dvnvsgx3qodmh" path="res://levels/demo level/c2a5_ba_sniped.wav" id="18_ms1ww"]
@@ -422,7 +422,7 @@ transform = Transform3D(1, 0, 0, 0, 0.993027, 0.117884, 0, -0.117884, 0.993027, 
 curve = SubResource("Curve3D_73pej")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-0.999861, 0.00165875, -0.0150349, 5.82062e-11, 0.993954, 0.109661, 0.0151259, 0.109647, -0.993845, 0, 0, 0)
+transform = Transform3D(-0.999861, 0.00165875, -0.0150349, 5.82062e-11, 0.993954, 0.10966, 0.0151259, 0.109647, -0.993845, 0, 0, 0)
 
 [node name="CharacterBody3D" parent="Path3D/PathFollow3D" instance=ExtResource("11_73pej")]
 transform = Transform3D(0.00129277, 3.51829e-08, 1, 0.0045452, 0.99999, -5.912e-06, -0.999989, 0.0045452, 0.00129281, 0, 0, 0)

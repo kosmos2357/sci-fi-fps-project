@@ -420,4 +420,4 @@
  ;;      ;use Percent-encoding for other invalid characters
  :file/name-format :triple-lowbar
  :graph/settings {:journal? false
- :builtin-pages? false}}
+ :builtin-pages? true}}

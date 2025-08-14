@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=4 uid="uid://dkxup1weerve3"]
 
 [ext_resource type="Shader" uid="uid://cpvwbogi1fkfq" path="res://features/overworld/terrain.gdshader" id="2_3n60v"]
-[ext_resource type="PackedScene" uid="uid://vxhoiivdyixh" path="res://features/player/scenes/player.tscn" id="3_2pn7h"]
+[ext_resource type="PackedScene" uid="uid://vxhoiivdyixh" path="res://archive/player_OLD_hybrid_fsm_Pre_node_refactor.tscn" id="3_2pn7h"]
 [ext_resource type="Script" uid="uid://dpo8ha2mocg7s" path="res://features/overworld/mesh_instance_3d.gd" id="3_a51mj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6jwp1"]

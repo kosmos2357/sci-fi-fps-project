@@ -34,7 +34,7 @@ func _ready():
 			body.lure_to_position(self.global_position)
 
 	body_entered.connect(_on_body_entered)
-	
+
 	# Set the lure to delete itself after its lifetime
 	await get_tree().create_timer(lifetime).timeout
 	queue_free()

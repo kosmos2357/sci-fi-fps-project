@@ -12,7 +12,9 @@
 		- NOTE: Both bugs involve changes in logic tied to player nodes. Sol may be to rework entire node structure for player char in regards to crouch logic atleast.
 			- Crouch logic
 			- Player camera x SOLUTION: spring arm3D then camera3D
-			- https://github.com/kosmos2357/sci-fi-fps-project/issues/6
+			- https://github.com/kosmos2357/sci-fi-fps-project/issues/6 X See commit
 			- Ladder trampoline bug X store previous current state
 			-
--
+- ## Update
+- All that remains is crouching logic
+	- But before i do crouching i need to refactor the player node hiearchy to implememnt whatever the easiest layout is for: Goldsrc style movement specifically crouch jumping and crouching

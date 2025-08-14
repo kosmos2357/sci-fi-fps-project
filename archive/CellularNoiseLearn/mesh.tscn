@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dgdrbbuxj2a4n" path="res://Assets/Art/panorama_image_space.png" id="1_cpqbs"]
 [ext_resource type="Shader" uid="uid://b0gkdd8jxrdbi" path="res://archive/CellularNoiseLearn/learn_shader/terrain_shader.gdshader" id="1_iqghw"]
 [ext_resource type="Script" uid="uid://h44etc3qkktl" path="res://archive/CellularNoiseLearn/mesh.gd" id="1_kkndc"]
-[ext_resource type="PackedScene" uid="uid://vxhoiivdyixh" path="res://features/player/scenes/player.tscn" id="2_ou57s"]
+[ext_resource type="PackedScene" uid="uid://vxhoiivdyixh" path="res://archive/player_OLD_hybrid_fsm_Pre_node_refactor.tscn" id="2_ou57s"]
 [ext_resource type="Script" uid="uid://8e14eris5eak" path="res://archive/CellularNoiseLearn/day_night_cycle.gd" id="4_v7n2k"]
 [ext_resource type="PackedScene" uid="uid://c8grjrkrfl3lw" path="res://features/levelComponents/water_zone.tscn" id="6_iqghw"]
 

@@ -35,6 +35,7 @@ func play_sound_event(event: SoundEvent, position: Vector3):
 
 		if not player.is_playing():
 			print("Found available player: '", player.name, "'. Playing sound.")
+
 			player.stream = event.stream
 			player.global_position = position
 			player.volume_db = event.volume_db

@@ -6,7 +6,7 @@ extends StaticBody3D
 @onready var vision_raycast = $Pivot/VisionRayCast
 @onready var cheat_ray = $Pivot/CheatRay
 @export var rotation_speed: float = 5.0
-@export var fire_rate: float = 1.0 
+@export var fire_rate: float = 1.0
 # --- The new State Machine ---
 enum States { IDLE, ACQUIRING, LOCKED_ON, FIRING }
 var current_state = States.IDLE
@@ -24,7 +24,7 @@ func _physics_process(delta):
 		cooldown = cooldown - delta
 	# Our state machine checks which state we are in and acts accordingly.
 	match current_state:
-		
+
 		States.IDLE:
 			# Do nothing while idle.
 			pass
@@ -40,18 +40,18 @@ func _physics_process(delta):
 					current_state = States.ACQUIRING
 			else:
 				current_state = States.ACQUIRING
-					
-		States.LOCKED_ON: 
+
+		States.LOCKED_ON:
 			# If we have a target, keep tracking it.
-			
+
 			if is_instance_valid(target):
 				last_known = target.global_position
 				turn_towards(last_known,delta)
-				
+
 				if vision_raycast.is_colliding():
-					
+
 					var what_i_hit = vision_raycast.get_collider()
-					
+
 					if cooldown <= 0:
 						if is_instance_valid(what_i_hit) and what_i_hit.has_method("take_damage"):
 							cooldown = 1/fire_rate
@@ -61,9 +61,9 @@ func _physics_process(delta):
 							current_state = States.ACQUIRING
 				else:
 					current_state = States.ACQUIRING
-				
-					
-				
+
+
+
 func is_in_open(target_global):
 	cheat_ray.look_at(target_global)
 	if cheat_ray.is_colliding() and cheat_ray.get_collider() == target:
@@ -71,11 +71,11 @@ func is_in_open(target_global):
 	else:
 		return false
 func turn_towards(target_pos: Vector3, delta: float):
-	
+
 	var direction = (target_pos - pivot.global_position)
 
 	var target_basis = Basis.looking_at(direction)
-	
+
 	pivot.global_basis = pivot.global_basis.slerp(target_basis, rotation_speed * delta)
 
 # --- Signal Callbacks ---
@@ -91,6 +91,3 @@ func _on_player_exited(body):
 		print("Target left range. Returning to Idle.")
 		target = null
 		current_state = States.IDLE
-		
-		
-		
