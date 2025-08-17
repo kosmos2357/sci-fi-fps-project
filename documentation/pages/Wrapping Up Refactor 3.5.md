@@ -18,3 +18,6 @@
 - ## Update
 - All that remains is crouching logic
 	- But before i do crouching i need to refactor the player node hiearchy to implememnt whatever the easiest layout is for: Goldsrc style movement specifically crouch jumping and crouching
+- Done!
+- [[Reflection on Refactor 3.5]]
+-

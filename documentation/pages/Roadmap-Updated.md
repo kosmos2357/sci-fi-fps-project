@@ -1,13 +1,16 @@
 ## Part 3 DONE
 - Finish water shaders, and implement first ability Lure
 - Next step to refactor
-- ## Part 3.5 Refactor <-
+- ## Part 3.5 Refactor
 - Refactor entire code to account for reusability in both
 	- Scripts
 	- TB Entities
 - Implement TB Entity Standards
 - Clean up code
 - [[Refactor_3.5_Shopping_List]]
-- ## Part 4
+- ## Part 4 <-
+- Merge Entity rework -> master
 - Entities: Pressure plate, Electrical
 - Implement first level
+-
+-
