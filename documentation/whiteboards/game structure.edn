@@ -800,7 +800,7 @@
 :collapsedHeight 0
 :nonce 1753509943829}}
 :block/updated-at 1753691756069} 
-{:block/content "Entity_Light\nSwitch Sound"
+{:block/content "Entity_Light\nlight_color: color1\nlight_energy: float\nstarts_on: boolean"
 :block/format :markdown
 :block/left 
 {:block/uuid #uuid "6884703b-2c5b-43c6-8a09-a5daea62422f"}
@@ -809,7 +809,7 @@
 :block/properties 
 {}
 :block/uuid #uuid "6884705d-c598-4105-8bd0-3df677a92c4e"} 
-{:block/created-at 1753691756069
+{:block/created-at 1755460363115
 :block/properties 
 {:ls-type :whiteboard-shape
 :logseq.tldraw.shape 
@@ -825,7 +825,7 @@
 :compact true
 :isAutoResizing true
 :type "logseq-portal"
-:size [400 64.99991985358945]
+:size [400 112.99997000983198]
 :strokeType "line"
 :strokeWidth 2
 :opacity 1
@@ -834,8 +834,8 @@
 :point [5496 2048]
 :parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
 :collapsedHeight 0
-:nonce 1753509972514}}
-:block/updated-at 1753691756069} 
+:nonce 1753509972518}}
+:block/updated-at 1755460363115} 
 {:block/content ""
 :block/format :markdown
 :block/left 
@@ -1716,7 +1716,7 @@
 :block/properties 
 {:heading 2}
 :block/uuid #uuid "688c6597-f29f-4d53-b18a-775e3edde7ef"} 
-{:block/created-at 1754031820391
+{:block/created-at 1755460270436
 :block/properties 
 {:ls-type :whiteboard-shape
 :logseq.tldraw.shape 
@@ -1732,7 +1732,7 @@
 :compact true
 :isAutoResizing true
 :type "logseq-portal"
-:size [400 160.99994654804325]
+:size [400 199.09091474974477]
 :strokeType "line"
 :strokeWidth 2
 :opacity 1
@@ -1741,9 +1741,9 @@
 :point [6128 2040]
 :parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
 :collapsedHeight 0
-:nonce 1754031510020}}
-:block/updated-at 1754031820391} 
-{:block/created-at 1754031820396
+:nonce 1754031510022}}
+:block/updated-at 1755460270436} 
+{:block/created-at 1755460363121
 :block/properties 
 {:ls-type :whiteboard-shape
 :logseq.tldraw.shape 
@@ -1760,7 +1760,7 @@
 :id "5a84b0b2-6ea5-11f0-89f4-fda7aca23b46"
 :fontWeight 400
 :noFill true
-:point [5897 2111.21]
+:point [5897 2137.58]
 :fontSize 20
 :handles 
 {:start 
@@ -1771,14 +1771,14 @@
 :end 
 {:id "end"
 :canBind true
-:point [227 34.69]
+:point [227 37.35]
 :bindingId "5a84b0b1-6ea5-11f0-89f4-fda7aca23b46"}}
 :decorations 
 {:end "arrow"}
 :parentId "686320ea-7a64-4bad-ad6f-71af2ec94478"
-:nonce 1754031691719
+:nonce 1754031691725
 :italic false}}
-:block/updated-at 1754031820396})
+:block/updated-at 1755460363121})
 :pages (
 {:block/uuid #uuid "686320ea-7a64-4bad-ad6f-71af2ec94478"
 :block/properties 
@@ -1951,7 +1951,7 @@
 :assets []
 :shapes-index ("edccb410-560b-11f0-9bdb-01acb89edbfa" "f8a50a40-560b-11f0-9bdb-01acb89edbfa" "005a0060-560c-11f0-9bdb-01acb89edbfa" "067cbdc0-560c-11f0-9bdb-01acb89edbfa" "1a4214e0-560c-11f0-9bdb-01acb89edbfa" "2e33fa40-560c-11f0-9bdb-01acb89edbfa" "48b9fc70-560c-11f0-9bdb-01acb89edbfa" "68e85be0-560c-11f0-9bdb-01acb89edbfa" "3c2b0020-560d-11f0-9bdb-01acb89edbfa" "4df23d50-560d-11f0-9bdb-01acb89edbfa" "6fb01660-560d-11f0-9bdb-01acb89edbfa" "93a98790-560d-11f0-9bdb-01acb89edbfa" "c3e406b0-560d-11f0-9bdb-01acb89edbfa" "0c8b2870-560f-11f0-9bdb-01acb89edbfa" "1abeb790-560f-11f0-9bdb-01acb89edbfa" "23d47630-560f-11f0-9bdb-01acb89edbfa" "71b33200-5610-11f0-9bdb-01acb89edbfa" "b146cd80-69e5-11f0-9008-f55c6be1ac82" "4864de50-69e6-11f0-9008-f55c6be1ac82" "830569d0-69e6-11f0-9008-f55c6be1ac82" "8d0a4360-69e6-11f0-9008-f55c6be1ac82" "8fddd5c0-69e6-11f0-9008-f55c6be1ac82" "a0be0e50-69e6-11f0-9008-f55c6be1ac82" "e6679cf0-69e6-11f0-9008-f55c6be1ac82" "edd9bdb0-69e6-11f0-9008-f55c6be1ac82" "df556f20-69e9-11f0-9008-f55c6be1ac82" "f7de8fe0-69e9-11f0-9008-f55c6be1ac82" "fac50e02-69e9-11f0-9008-f55c6be1ac82" "2587dcd2-69ea-11f0-9008-f55c6be1ac82" "2af8af50-69ea-11f0-9008-f55c6be1ac82" "8acb04f0-69ea-11f0-9008-f55c6be1ac82" "974b3ec2-69ea-11f0-9008-f55c6be1ac82" "b3f357d0-6cc2-11f0-ae4b-e3914f032bab" "c25215a0-6cc2-11f0-ae4b-e3914f032bab" "cad46de0-6cc2-11f0-ae4b-e3914f032bab" "de34e8b2-6cc2-11f0-ae4b-e3914f032bab" "e2414932-6cc2-11f0-ae4b-e3914f032bab" "56474820-6cc3-11f0-ae4b-e3914f032bab" "56476f30-6cc3-11f0-ae4b-e3914f032bab" "6b029800-6cc3-11f0-ae4b-e3914f032bab" "6b02bf10-6cc3-11f0-ae4b-e3914f032bab" "b8570aa0-6cc3-11f0-ae4b-e3914f032bab" "b8570aa1-6cc3-11f0-ae4b-e3914f032bab" "8a362740-6cc4-11f0-ae4b-e3914f032bab" "95144d02-6cc8-11f0-ae4b-e3914f032bab" "934b59c0-6cfd-11f0-ae4b-e3914f032bab" "9cca3a70-6cfd-11f0-ae4b-e3914f032bab" "dc01b330-6cfd-11f0-ae4b-e3914f032bab" "dc01da40-6cfd-11f0-ae4b-e3914f032bab" "ee2ace40-6ea4-11f0-89f4-fda7aca23b46" "5a84b0b2-6ea5-11f0-89f4-fda7aca23b46")}}
 :block/journal? false
-:block/updated-at 1754031827080
+:block/updated-at 1755460372694
 :block/created-at 1751326954881
 :block/type "whiteboard"
 :block/name "game structure"

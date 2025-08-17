@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqs68f3g4xe1f"]
+
+[ext_resource type="Script" uid="uid://bprtwqrm2r58h" path="res://features/interactables/light/FuncLight.gd" id="1_dosju"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dosju"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_up6lu"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8klhh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dosju"]
+
+[node name="LightFixture" type="Node3D"]
+script = ExtResource("1_dosju")
+
+[node name="FixtureMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.22493, 0)
+mesh = SubResource("BoxMesh_dosju")
+skeleton = NodePath("../LighMesh")
+
+[node name="LighMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.425533, 0)
+material_override = SubResource("StandardMaterial3D_up6lu")
+mesh = SubResource("BoxMesh_8klhh")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.647386, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.328672, 0)
+shape = SubResource("BoxShape3D_dosju")
