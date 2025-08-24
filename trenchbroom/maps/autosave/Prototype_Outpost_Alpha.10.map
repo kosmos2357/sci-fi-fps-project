@@ -1496,8 +1496,7 @@
 "targetname" "light_a"
 "light_color" "255 0 0"
 "mesh_color" "255 0 0"
-"pulse_pattern" ""
-"is_broken" "1"
+"pulse_pattern" "5"
 }
 // entity 8
 {
@@ -1510,7 +1509,7 @@
 "is_powered" "1"
 "mesh_color" "255 0 0"
 "is_broken" "1"
-"pulse_pattern" ""
+"pulse_pattern" "5"
 }
 // entity 9
 {

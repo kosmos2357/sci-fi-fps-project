@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="FuncGodotFGDPointClass" load_steps=5 format=3 uid="uid://c8v4kpcfapqek"]
+
+[ext_resource type="Resource" uid="uid://cfmcwa17g4app" path="res://features/interactables/Base Entities/BaseAudible.tres" id="1_trlfc"]
+[ext_resource type="Script" uid="uid://dbqjhcmki38jl" path="res://addons/func_godot/src/fgd/func_godot_fgd_point_class.gd" id="1_txvvv"]
+[ext_resource type="PackedScene" uid="uid://ctpx4iwf4vc1w" path="res://features/interactables/light/spotlight/SpotLight.tscn" id="2_rmkuu"]
+[ext_resource type="Script" uid="uid://bhu3hak7u7k6p" path="res://features/interactables/light/spotlight/FuncSpotLight.gd" id="4_pc2xh"]
+
+[resource]
+script = ExtResource("1_txvvv")
+scene_file = ExtResource("2_rmkuu")
+script_class = ExtResource("4_pc2xh")
+apply_rotation_on_map_build = true
+apply_scale_on_map_build = true
+classname = "FuncSpotLight"
+description = "Spot light entity"
+func_godot_internal = false
+base_classes = Array[Resource]([ExtResource("1_trlfc")])
+class_properties = {
+"is_broken": false,
+"light_color": Color(0, 0, 0, 1),
+"light_energy": 0.0,
+"mesh_color": Color(0, 0, 0, 1),
+"starts_on": false
+}
+class_property_descriptions = {}
+auto_apply_to_matching_node_properties = false
+meta_properties = {
+"color": Color(0.8, 0.8, 0.8, 1),
+"size": AABB(-8, -8, -8, 8, 8, 8)
+}
+node_class = ""
+name_property = ""
+metadata/_custom_type_script = "uid://dbqjhcmki38jl"

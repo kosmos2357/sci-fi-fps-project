@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b3qfth6m3a7is"]
+[gd_scene load_steps=12 format=3 uid="uid://b3qfth6m3a7is"]
 
 [ext_resource type="PackedScene" uid="uid://b4mt130fmomid" path="res://levels/Prototypes/OutpostAlpha/Tb_Build/Outpost Alpha.tscn" id="1_be4k1"]
 [ext_resource type="PackedScene" uid="uid://c8grjrkrfl3lw" path="res://features/levelComponents/water_zone.tscn" id="3_1g5bs"]
@@ -7,25 +7,16 @@
 [ext_resource type="Texture2D" uid="uid://b8pcja5gnxhrx" path="res://Assets/Art/caust_003.png" id="6_46ab3"]
 [ext_resource type="PackedScene" uid="uid://ddknxuyo7g3ya" path="res://features/player/scenes/player.tscn" id="7_46ab3"]
 [ext_resource type="PackedScene" uid="uid://cki2wdhaepxrx" path="res://features/props/Grabbable/grabbable_cube.tscn" id="7_vyvrh"]
-[ext_resource type="PackedScene" uid="uid://dqs68f3g4xe1f" path="res://features/interactables/light/LightFixture.tscn" id="8_46ab3"]
 
 [sub_resource type="Environment" id="Environment_be4k1"]
 background_mode = 1
 background_color = Color(0.568973, 0.568973, 0.568973, 1)
-background_energy_multiplier = 1.29
+background_energy_multiplier = 0.03
 ambient_light_color = Color(0.0745098, 0, 0, 1)
-ambient_light_energy = 0.01
+ambient_light_energy = 0.18
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.0019
 volumetric_fog_albedo = Color(0.839216, 1, 1, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_be4k1"]
-albedo_color = Color(0, 0, 0, 1)
-emission_enabled = true
-emission = Color(1, 1, 0, 1)
-emission_energy_multiplier = 4.52
-
-[sub_resource type="BoxMesh" id="BoxMesh_1g5bs"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1g5bs"]
 size = Vector3(20, 10, 20)
@@ -59,9 +50,6 @@ travel_cost = 2.0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_be4k1")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2581, 3.34046, -0.258308)
-
 [node name="OmniLight3D2" type="OmniLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.2581, -4.65954, -36.2583)
 light_color = Color(0, 0.943033, 0, 1)
@@ -88,11 +76,6 @@ light_volumetric_fog_energy = 1.057
 spot_range = 28.698
 spot_attenuation = 0.71
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.87088, 1.37606, -4.52034)
-material_override = SubResource("StandardMaterial3D_be4k1")
-mesh = SubResource("BoxMesh_1g5bs")
-
 [node name="WaterZone" parent="." instance=ExtResource("3_1g5bs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.8354, -5, -38)
 
@@ -104,12 +87,9 @@ mesh = SubResource("BoxMesh_3iu8o")
 surface_material_override/0 = SubResource("ShaderMaterial_gne8l")
 
 [node name="GrabbableCube" parent="." instance=ExtResource("7_vyvrh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.86175, 1.55707, -2.12272)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.87775, 1.50593, -2.05614)
 
 [node name="Player" parent="." instance=ExtResource("7_46ab3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.31471, 0)
-
-[node name="LightFixture" parent="." instance=ExtResource("8_46ab3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.12422, 1.72648, 0.600667)
 
 [editable path="WaterZone"]

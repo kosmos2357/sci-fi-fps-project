@@ -19,6 +19,7 @@ config/icon="res://Assets/Art/icon.svg"
 
 GAME="*res://globals/game_manager.gd"
 SoundManager="*res://globals/sound_manager.tscn"
+PulseManager="*res://globals/PulseManager.gd"
 
 [display]
 

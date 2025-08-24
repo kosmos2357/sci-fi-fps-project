@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="FuncGodotFGDPointClass" load_steps=5 format=3 uid="uid://ccgyw44qlmwbm"]
 
 [ext_resource type="Script" uid="uid://dbqjhcmki38jl" path="res://addons/func_godot/src/fgd/func_godot_fgd_point_class.gd" id="1_828lv"]
-[ext_resource type="Resource" uid="uid://cfmcwa17g4app" path="res://features/interactables/Base Entities/BaseAudible.tres" id="1_d6a1i"]
+[ext_resource type="Resource" uid="uid://gtd08y1mpwe7" path="res://features/interactables/Base Entities/BaseElectrical.tres" id="1_yws3j"]
 [ext_resource type="PackedScene" uid="uid://dqs68f3g4xe1f" path="res://features/interactables/light/LightFixture.tscn" id="2_yws3j"]
 [ext_resource type="Script" uid="uid://bprtwqrm2r58h" path="res://features/interactables/light/FuncLight.gd" id="4_yws3j"]
 
@@ -14,10 +14,13 @@ apply_scale_on_map_build = true
 classname = "FuncLight"
 description = "Small omni light entity"
 func_godot_internal = false
-base_classes = Array[Resource]([ExtResource("1_d6a1i")])
+base_classes = Array[Resource]([ExtResource("1_yws3j")])
 class_properties = {
+"is_broken": false,
 "light_color": Color(0, 0, 0, 1),
 "light_energy": 0.0,
+"mesh_color": Color(0, 0, 0, 1),
+"pulse_pattern": 0,
 "starts_on": false
 }
 class_property_descriptions = {}

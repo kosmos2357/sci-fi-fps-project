@@ -16,11 +16,11 @@ func load_map(filename: String, keep_tb_groups: bool) -> void:
 func get_texture_list() -> PackedStringArray:
 	var g_textures: PackedStringArray
 	var tex_count: int = map_data.textures.size()
-	
+
 	g_textures.resize(tex_count)
 	for i in range(tex_count):
 		g_textures.set(i, map_data.textures[i].name)
-	
+
 	return g_textures
 
 func set_entity_definitions(entity_defs: Dictionary) -> void:
@@ -48,19 +48,19 @@ func get_entity_dicts() -> Array:
 	for entity in map_data.entities:
 		var dict: Dictionary
 		dict["brush_count"] = entity.brushes.size()
-		
+
 		# TODO: This is a horrible remnant of the worldspawn layer system, remove it.
 		var brush_indices: PackedInt64Array
 		brush_indices.resize(entity.brushes.size())
 		for b in range(entity.brushes.size()):
 			brush_indices[b] = b
-		
+
 		dict["brush_indices"] = brush_indices
 		dict["center"] = Vector3(entity.center.y, entity.center.z, entity.center.x)
 		dict["properties"] = entity.properties
-		
+
 		ent_dicts.append(dict)
-	
+
 	return ent_dicts
 
 func gather_texture_surfaces(texture_name: String) -> Dictionary:
@@ -99,12 +99,12 @@ func gather_entity_concave_collision_surfaces(entity_idx: int) -> void:
 func fetch_surfaces(sg: FuncGodotSurfaceGatherer) -> Array:
 	var surfs: Array[FuncGodotMapData.FuncGodotFaceGeometry] = sg.out_surfaces
 	var surf_array: Array
-	
+
 	for surf in surfs:
 		if surf == null or surf.vertices.size() == 0:
 			surf_array.append(null)
 			continue
-			
+
 		var vertices: PackedVector3Array
 		var normals: PackedVector3Array
 		var tangents: PackedFloat64Array
@@ -117,20 +117,20 @@ func fetch_surfaces(sg: FuncGodotSurfaceGatherer) -> Array:
 			tangents.append(v.tangent.x)
 			tangents.append(v.tangent.w)
 			uvs.append(Vector2(v.uv.x, v.uv.y))
-			
+
 		var indices: PackedInt32Array
 		if surf.indicies.size() > 0:
 			indices.append_array(surf.indicies)
-		
+
 		var brush_array: Array
 		brush_array.resize(Mesh.ARRAY_MAX)
-		
+
 		brush_array[Mesh.ARRAY_VERTEX] = vertices
 		brush_array[Mesh.ARRAY_NORMAL] = normals
 		brush_array[Mesh.ARRAY_TANGENT] = tangents
 		brush_array[Mesh.ARRAY_TEX_UV] = uvs
 		brush_array[Mesh.ARRAY_INDEX] = indices
-		
+
 		surf_array.append(brush_array)
-		
+
 	return surf_array

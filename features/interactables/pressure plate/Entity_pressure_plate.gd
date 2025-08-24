@@ -16,14 +16,16 @@ Entity properties for func_godot
 # -- Entity Specific
 var bodies_on_plate = []
 
+var dict: Dictionary
 func _func_godot_apply_properties(props: Dictionary):
 	# Base Class Props
 	target = props.get("target", "")
 	targetname  = props.get("targetname", "")
 	room_id = props.get("room_id", "")
 	is_enabled = props.get("is_enabled", false)
-
+	dict = props
 func _ready() -> void:
+
 	if not Engine.is_editor_hint():
 		# Check if the signal is NOT already connected before connecting it.
 		if not body_entered.is_connected(_on_body_entered):

@@ -13,16 +13,28 @@ func register_entity(node_instance: Node, name_string: String):
 	print("GameManager: Registered '", name_string, "'")
 
 
-# Called by a trigger (like a button) to send a message to a target.
-func send_message(target_name: String, message: String):
-	if not named_entities.has(target_name):
-		print("GameManager Error: Could not find target '", target_name, "'")
+# This function can now handle one or many targets
+func send_message(target_string: String, message: String):
+	if target_string.is_empty():
 		return
 
-	var target_node = named_entities[target_name]
+	# --- THIS IS THE NEW LOGIC ---
+	# Split the target string into an array of names
+	var target_names = target_string.split(",")
 
-	# Use dynamic dispatch to call the method that matches the message string
-	if target_node.has_method(message):
-		target_node.call(message)
-	else:
-		print("GameManager Warning: Target '", target_name, "' has no method named '", message, "'")
+	# Loop through each name in the array
+	for t_name in target_names:
+		# It's good practice to trim whitespace in case of "name_a, name_b"
+		var clean_name = t_name.strip_edges()
+
+		# --- The rest of the logic is the same, but inside the loop ---
+		if not named_entities.has(clean_name):
+			print("GameManager Error: Could not find target '", clean_name, "'")
+			continue # Continue to the next name in the list
+
+		var target_node = named_entities[clean_name]
+
+		if target_node.has_method(message):
+			target_node.call(message)
+		else:
+			print("GameManager Warning: Target '", clean_name, "' has no method named '", message, "'")
