@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dm7gwifoi62d1"]
+
+[ext_resource type="Script" uid="uid://cj3i0h3rf1yci" path="res://features/interactables/terminal/ActualTerminal/terminal_entity.gd" id="1_hplpo"]
+[ext_resource type="PackedScene" uid="uid://dlfqp3gsl07o5" path="res://features/interactables/terminal/ActualTerminal/TerminalUI.tscn" id="2_gvsto"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8x5mt"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8x5mt"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="TerminalEntity" type="Area3D"]
+process_mode = 3
+script = ExtResource("1_hplpo")
+terminal_ui_scene = ExtResource("2_gvsto")
+
+[node name="TerminalMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_8x5mt")
+
+[node name="InteractionRange" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_8x5mt")

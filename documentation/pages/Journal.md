@@ -17,3 +17,13 @@
 	- But i have noticed how the terminal and button entity share a very common proprty. door_name which is awfully similar to targetname but due to how my GameManager singleton class works it needs to separate the terminal from the button entity but i would rather prefer to have a generic GameManager that simply exchanges data with my entity so that will be the next step setting that up now that i have completed setting up commuinication between entity and TB. The next step is now with Entity and Gamemanager.
 		- So i will explore the gamemanager architecture in depth via blueprinting
 		- I will then cut out the old gamemanager which will break my entities for a bit until i figure out how to generalize the input and output of the manager rather than have entity specific data inside of it.
+-
+- # Part 4
+- Now that I have achieved the underlying framework for my game.
+	- Entity System
+	- Level editor
+	- Player Controller
+- Its time to actually design my levels. For this step i will need to pay more attention to:
+	- Story, Art, Visuals for my level design.
+- [[Moodboard]]
+-

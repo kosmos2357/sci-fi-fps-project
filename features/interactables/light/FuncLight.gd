@@ -44,7 +44,7 @@ var file_tail = "res://Assets/Sounds/"
 enum PulsePattern { NONE, SINE, COSINE, SQUARE_WAVE, NOISE, FLICKER_RANDOM  }
 # --- Add this export variable ---
 @export var pulse_pattern: PulsePattern
-
+@export var omni_range: float
 
 func _func_godot_apply_properties(props: Dictionary):
 	# Look in terminal Output after building to see actual state of props recievedww
@@ -74,7 +74,7 @@ func _func_godot_apply_properties(props: Dictionary):
 	is_broken = props.get("is_broken", false)
 
 	pulse_pattern = props.get("pulse_pattern", 1)
-
+	omni_range = props.get("omni_range", 5)
 func _ready() -> void:
 	call_deferred("init_entity")
 
@@ -90,7 +90,7 @@ func init_entity() -> void:
 	create_sound()
 	# Light Init
 	light_node.light_color = light_color
-
+	light_node.omni_range = omni_range
 	# Make each mesh unique
 	if mesh_node.get_active_material(0):
 		var unique_material = mesh_node.get_active_material(0).duplicate()

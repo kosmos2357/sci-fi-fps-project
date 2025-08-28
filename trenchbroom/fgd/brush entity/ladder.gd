@@ -1,7 +1,15 @@
+@tool
 extends Area3D
 
 
 var player_is_near: bool
+@export var angle: float
+
+func _func_godot_apply_properties(props: Dictionary):
+	# Look in terminal Output after building to see wactual state of props recievedww
+	print("Raw properties for ", self.name, ": ", props)
+	# Base Class Props
+	angle = props.get("angle", 1.0)
 
 func _ready():
 	# We connect our own signals to our own functions.

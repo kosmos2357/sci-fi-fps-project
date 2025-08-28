@@ -84,6 +84,8 @@ var is_sprinting: bool = false
 @onready var flashlight_beam = $Head/SpringArm3D/Camera3D/ViewModelContainer/flashlight/FlashLightBeam
 @onready var animation_component = $Animation_Component
 
+# TERMINAL FEAT: FLAG for input handle
+var controls_enabled: bool = true
 #=============================================================================
 # 4. ENGINE CALLBACKS
 #=============================================================================
@@ -102,6 +104,10 @@ func _ready():
 
 
 func _unhandled_input(event):
+	# TERMINAL FEAT GUARD CLAUSE
+	if not controls_enabled:
+		return
+
 	if event.is_action_pressed("ui_cancel"):
 		make_cursor_visible()
 	# Handle one-shot actions that trigger a state changew
@@ -115,6 +121,9 @@ func _unhandled_input(event):
 		toggle_use_key()
 
 func _input(event: InputEvent) -> void:
+	# TERMINAL FEAT: GUARD CLAUSE
+	if not controls_enabled:
+		return
 	handle_mouse_movement(event)
 	is_sprinting = Input.is_action_pressed("sprint")
 	if event.is_action_pressed("crouch"):
@@ -151,10 +160,10 @@ func _physics_process(delta):
 		else:
 			current_state = States.RUN
 		# --- THIS IS WHERE THE FORWARD HOP LOGIC GOES ---
-		if current_state == States.FALL and previous_state == States.CLIMB:
-			# Apply the special forward hop velocity
-			var push_direction = -global_transform.basis.z
-			velocity = push_direction * (speed * 0.75) + (Vector3.UP * (jump_velocity * 0.5))
+		#if current_state == States.FALL and previous_state == States.CLIMB:
+			## Apply the special forward hop velocity
+			#var push_direction = -global_transform.basis.z
+			#velocity = push_direction * (speed * 0.75) + (Vector3.UP * (jump_velocity * 0.5))
 
 	# --- "ACT" PHASE: Execute the logic for the current state ---
 	match current_state:
@@ -186,8 +195,10 @@ func _state_fall(delta):
 	velocity.y -= gravity * delta
 	if previous_state == States.CLIMB:
 		print("My previous state was climb")
-		velocity.z = 1.5
-		velocity.y = 5.0
+		#velocity.z = 1.5
+		#velocity.y = 5.0
+		var push_direction = -global_transform.basis.z
+		velocity = push_direction * (speed * 0.75) + (Vector3.UP * (jump_velocity * 0.5))
 		previous_state = null
 
 func _state_run(delta):
@@ -237,7 +248,7 @@ func handle_camera_tilt(delta) -> void:
 
 	# Apply the final, combined rotation from our variables
 	head.rotation_degrees = Vector3(camera_pitch, 0, camera_roll)
-
+# dont remove print below
 func _handle_crouching(delta):
 	var is_head_blocked = null
 	if is_instance_valid(head_check_raycast):
@@ -339,7 +350,14 @@ func exit_swim_state():
 	print("I am not swimming")
 
 #=============================================================================
-# 9. AUX FUNCTIONS
+# 9. SETTERS
+#=============================================================================
+
+# TERMINAL FEAT: Sets controls via FLAG
+func set_controls_enabled(status: bool):
+	controls_enabled = status
+#=============================================================================
+# 10. AUX FUNCTIONS
 #=============================================================================
 func hide_cursor() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

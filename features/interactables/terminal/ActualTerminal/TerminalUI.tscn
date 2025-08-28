@@ -1,0 +1,82 @@
+[gd_scene load_steps=9 format=3 uid="uid://dlfqp3gsl07o5"]
+
+[ext_resource type="FontFile" uid="uid://br4icqxa3bsjf" path="res://Assets/fonts/Glass_TTY_VT220.ttf" id="1_dhjdp"]
+
+[sub_resource type="Theme" id="Theme_fi6nc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dhjdp"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_ws0tf"]
+
+[sub_resource type="Theme" id="Theme_dhjdp"]
+default_font = ExtResource("1_dhjdp")
+default_font_size = 20
+
+[sub_resource type="Theme" id="Theme_8nbx4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8nbx4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.409001, 0.941776, 7.70092e-07, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ws0tf"]
+content_margin_left = 10.0
+bg_color = Color(0, 0, 0, 1)
+
+[node name="TerminalUi" type="PanelContainer"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_fi6nc")
+theme_override_styles/panel = SubResource("StyleBoxFlat_dhjdp")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme = SubResource("Theme_ws0tf")
+
+[node name="OutputLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_dhjdp")
+theme_override_font_sizes/normal_font_size = 20
+text = "This will not show up"
+fit_content = true
+scroll_following = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_dhjdp")
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+text = ">  "
+
+[node name="InputLine" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_8nbx4")
+theme_override_colors/caret_color = Color(0, 1, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 1, 0, 1)
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_constants/caret_width = 10
+theme_override_fonts/font = ExtResource("1_dhjdp")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxFlat_8nbx4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ws0tf")
+caret_blink = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b3qfth6m3a7is"]
+[gd_scene load_steps=13 format=3 uid="uid://b3qfth6m3a7is"]
 
 [ext_resource type="PackedScene" uid="uid://b4mt130fmomid" path="res://levels/Prototypes/OutpostAlpha/Tb_Build/Outpost Alpha.tscn" id="1_be4k1"]
 [ext_resource type="PackedScene" uid="uid://c8grjrkrfl3lw" path="res://features/levelComponents/water_zone.tscn" id="3_1g5bs"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b8pcja5gnxhrx" path="res://Assets/Art/caust_003.png" id="6_46ab3"]
 [ext_resource type="PackedScene" uid="uid://ddknxuyo7g3ya" path="res://features/player/scenes/player.tscn" id="7_46ab3"]
 [ext_resource type="PackedScene" uid="uid://cki2wdhaepxrx" path="res://features/props/Grabbable/grabbable_cube.tscn" id="7_vyvrh"]
+[ext_resource type="PackedScene" uid="uid://dm7gwifoi62d1" path="res://features/interactables/terminal/ActualTerminal/TerminalEntity.tscn" id="8_46ab3"]
 
 [sub_resource type="Environment" id="Environment_be4k1"]
 background_mode = 1
@@ -90,6 +91,15 @@ surface_material_override/0 = SubResource("ShaderMaterial_gne8l")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.87775, 1.50593, -2.05614)
 
 [node name="Player" parent="." instance=ExtResource("7_46ab3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.31471, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.491428, 0)
+
+[node name="WaterZone2" parent="." instance=ExtResource("3_1g5bs")]
+transform = Transform3D(4.54736, 0, 0, 0, 1.16304, 0, 0, 0, 10.3552, 15.4167, -2.46787, -124.071)
+
+[node name="GrabbableCube2" parent="." instance=ExtResource("7_vyvrh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9475, 8.63686, -119.56)
+
+[node name="TerminalEntity" parent="." instance=ExtResource("8_46ab3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.99899, 1.80451, -44.8396)
 
 [editable path="WaterZone"]

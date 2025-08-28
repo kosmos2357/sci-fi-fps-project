@@ -12,7 +12,6 @@
 
 [node name="LightFixture" type="Node3D"]
 script = ExtResource("1_dosju")
-is_broken = null
 pulse_pattern = 4
 
 [node name="FixtureMesh" type="MeshInstance3D" parent="."]
@@ -29,6 +28,7 @@ mesh = SubResource("BoxMesh_8klhh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.647386, 0)
 light_color = Color(0, 0, 0, 1)
 light_energy = 0.0
+omni_range = 0.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
