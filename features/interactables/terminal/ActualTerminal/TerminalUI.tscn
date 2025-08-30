@@ -1,6 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dlfqp3gsl07o5"]
+[gd_scene load_steps=12 format=3 uid="uid://dlfqp3gsl07o5"]
 
 [ext_resource type="FontFile" uid="uid://br4icqxa3bsjf" path="res://Assets/fonts/Glass_TTY_VT220.ttf" id="1_dhjdp"]
+[ext_resource type="Script" uid="uid://dxthywfaacdbb" path="res://features/interactables/terminal/ActualTerminal/terminal_ui.gd" id="1_ws0tf"]
+[ext_resource type="AudioStream" uid="uid://cl7x38v21qnqu" path="res://features/interactables/terminal/ActualTerminal/blipSelect.wav" id="3_11sbt"]
+[ext_resource type="AudioStream" uid="uid://b5posqouxjft7" path="res://features/interactables/terminal/ActualTerminal/submit_button.wav" id="4_11sbt"]
 
 [sub_resource type="Theme" id="Theme_fi6nc"]
 
@@ -36,6 +39,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_fi6nc")
 theme_override_styles/panel = SubResource("StyleBoxFlat_dhjdp")
+script = ExtResource("1_ws0tf")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -48,13 +52,18 @@ theme_override_constants/margin_bottom = 15
 layout_mode = 2
 theme = SubResource("Theme_ws0tf")
 
-[node name="OutputLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="OutputLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/ScrollContainer"]
 process_mode = 3
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/default_color = Color(0, 1, 0, 1)
 theme_override_fonts/normal_font = ExtResource("1_dhjdp")
 theme_override_font_sizes/normal_font_size = 20
-text = "This will not show up"
+text = "test"
 fit_content = true
 scroll_following = true
 
@@ -80,3 +89,9 @@ theme_override_font_sizes/font_size = 20
 theme_override_styles/focus = SubResource("StyleBoxFlat_8nbx4")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ws0tf")
 caret_blink = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_11sbt")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_11sbt")

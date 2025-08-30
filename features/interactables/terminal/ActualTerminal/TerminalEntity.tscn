@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dm7gwifoi62d1"]
+[gd_scene load_steps=9 format=3 uid="uid://dm7gwifoi62d1"]
 
 [ext_resource type="Script" uid="uid://cj3i0h3rf1yci" path="res://features/interactables/terminal/ActualTerminal/terminal_entity.gd" id="1_hplpo"]
 [ext_resource type="PackedScene" uid="uid://dlfqp3gsl07o5" path="res://features/interactables/terminal/ActualTerminal/TerminalUI.tscn" id="2_gvsto"]
+[ext_resource type="AudioStream" uid="uid://coo1whheskdh6" path="res://features/interactables/terminal/ActualTerminal/computer-startup-6331.mp3" id="3_7svoy"]
+[ext_resource type="AudioStream" uid="uid://16ib3qd8c8in" path="res://features/interactables/terminal/ActualTerminal/pickupCoin.wav" id="4_3ckxh"]
+[ext_resource type="AudioStream" uid="uid://cl7x38v21qnqu" path="res://features/interactables/terminal/ActualTerminal/blipSelect.wav" id="5_0y3fk"]
+[ext_resource type="AudioStream" uid="uid://ma63qwmwofkf" path="res://features/interactables/terminal/ActualTerminal/error.wav" id="6_5fefp"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_8x5mt"]
 size = Vector3(0.5, 0.5, 0.5)
@@ -14,8 +18,20 @@ process_mode = 3
 script = ExtResource("1_hplpo")
 terminal_ui_scene = ExtResource("2_gvsto")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_7svoy")
+
 [node name="TerminalMesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_8x5mt")
 
 [node name="InteractionRange" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_8x5mt")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_3ckxh")
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_0y3fk")
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_5fefp")
