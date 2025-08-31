@@ -18,14 +18,16 @@ process_mode = 3
 script = ExtResource("1_hplpo")
 terminal_ui_scene = ExtResource("2_gvsto")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_7svoy")
-
 [node name="TerminalMesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_8x5mt")
 
 [node name="InteractionRange" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_8x5mt")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_7svoy")
+volume_db = 8.0
+pitch_scale = 0.75
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_3ckxh")

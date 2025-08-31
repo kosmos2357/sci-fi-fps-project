@@ -92,6 +92,7 @@ func use():
 		SoundManager.play_sound_event(release_sound, self.global_position)
 		return
 
+
 	is_open = not is_open
 	var destination = end_position if is_open else start_position
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://dlfqp3gsl07o5"]
+[gd_scene load_steps=14 format=3 uid="uid://dlfqp3gsl07o5"]
 
 [ext_resource type="FontFile" uid="uid://br4icqxa3bsjf" path="res://Assets/fonts/Glass_TTY_VT220.ttf" id="1_dhjdp"]
 [ext_resource type="Script" uid="uid://dxthywfaacdbb" path="res://features/interactables/terminal/ActualTerminal/terminal_ui.gd" id="1_ws0tf"]
+[ext_resource type="Shader" uid="uid://thbanq5n85qv" path="res://Assets/shaders/crt_monitor.gdshader" id="2_drvnd"]
 [ext_resource type="AudioStream" uid="uid://cl7x38v21qnqu" path="res://features/interactables/terminal/ActualTerminal/blipSelect.wav" id="3_11sbt"]
 [ext_resource type="AudioStream" uid="uid://b5posqouxjft7" path="res://features/interactables/terminal/ActualTerminal/submit_button.wav" id="4_11sbt"]
 
@@ -9,6 +10,23 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dhjdp"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_drvnd"]
+shader = ExtResource("2_drvnd")
+shader_parameter/resolution = Vector2(2048, 1024)
+shader_parameter/scan_line_amount = 1.0
+shader_parameter/warp_amount = 0.0
+shader_parameter/noise_amount = 0.054
+shader_parameter/interference_amount = 0.114
+shader_parameter/grille_amount = 0.1
+shader_parameter/grille_size = 2.699
+shader_parameter/vignette_amount = 0.0
+shader_parameter/vignette_intensity = 0.0
+shader_parameter/aberation_amount = 0.5
+shader_parameter/roll_line_amount = 0.737
+shader_parameter/roll_speed = 1.0
+shader_parameter/scan_line_strength = -4.135
+shader_parameter/pixel_strength = 0.0
 
 [sub_resource type="Theme" id="Theme_ws0tf"]
 
@@ -41,6 +59,16 @@ theme = SubResource("Theme_fi6nc")
 theme_override_styles/panel = SubResource("StyleBoxFlat_dhjdp")
 script = ExtResource("1_ws0tf")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_drvnd")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
 theme_override_constants/margin_left = 15
@@ -63,7 +91,6 @@ size_flags_horizontal = 3
 theme_override_colors/default_color = Color(0, 1, 0, 1)
 theme_override_fonts/normal_font = ExtResource("1_dhjdp")
 theme_override_font_sizes/normal_font_size = 20
-text = "test"
 fit_content = true
 scroll_following = true
 

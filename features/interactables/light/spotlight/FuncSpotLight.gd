@@ -112,7 +112,8 @@ func power_on():
 		else:
 			light_node.light_energy = light_energy
 			mesh_node.get_active_material(0).emission_enabled = true
-			SoundManager.play_sound_event(press_sound, self.global_position)
+			if is_instance_valid(press_sound):
+				SoundManager.play_sound_event(press_sound, self.global_position)
 			print(self.targetname, " is now powered ON.")
 
 
@@ -120,7 +121,8 @@ func power_off():
 	is_powered = false
 	light_node.light_energy = 0
 	mesh_node.get_active_material(0).emission_enabled = false
-	SoundManager.play_sound_event(press_sound, self.global_position)
+	if is_instance_valid(press_sound):
+		SoundManager.play_sound_event(press_sound, self.global_position)
 	print(self.targetname, " is now powered OFF.")
 
 func enable():

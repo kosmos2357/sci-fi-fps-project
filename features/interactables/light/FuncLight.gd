@@ -76,7 +76,9 @@ func _func_godot_apply_properties(props: Dictionary):
 	pulse_pattern = props.get("pulse_pattern", 1)
 	omni_range = props.get("omni_range", 5)
 func _ready() -> void:
-	call_deferred("init_entity")
+	# The code inside will ONLY run when you are playing the game.
+	if not Engine.is_editor_hint():
+		call_deferred("init_entity")
 
 func init_entity() -> void:
 		# Using a random seed ensures every light flickers differently.
@@ -104,7 +106,9 @@ func init_entity() -> void:
 
 	if starts_on:
 		power_on()
-		PulseManager.pulse_updated.connect(_on_pulse_updated)
+		# Added guard for pulse_update
+		if pulse_pattern > 0 and PulseManager:
+			PulseManager.pulse_updated.connect(_on_pulse_updated)
 	else:
 		power_off()
 
@@ -136,7 +140,8 @@ func power_on():
 		# The logic as well
 		light_node.light_energy = light_energy
 		mesh_node.get_active_material(0).emission_enabled = true
-		SoundManager.play_sound_event(press_sound, self.global_position)
+		if is_instance_valid(press_sound):
+			SoundManager.play_sound_event(press_sound, self.global_position)
 		print(self.targetname, " is now powered ON.")
 
 
@@ -144,7 +149,8 @@ func power_off():
 	is_powered = false
 	light_node.light_energy = 0
 	mesh_node.get_active_material(0).emission_enabled = false
-	SoundManager.play_sound_event(press_sound, self.global_position)
+	if is_instance_valid(press_sound):
+		SoundManager.play_sound_event(press_sound, self.global_position)
 	print(self.targetname, " is now powered OFF.")
 
 func enable():

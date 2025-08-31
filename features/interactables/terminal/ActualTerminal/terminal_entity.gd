@@ -106,6 +106,7 @@ func _open_terminal():
 	# Disable the input field during boot-up
 	get_tree().paused = true
 
+	await get_tree().create_timer(DEFAULT_DELAY_TIME + 1).timeout
 	var sanitized_logo = BOOT_LOGO.replace("\t", "    ")
 	# --- The "Animation" ---
 	await write_line(output_label, "*** LO-FI-SCI-FI LTM ***")
