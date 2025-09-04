@@ -2073,7 +2073,9 @@
 "light_energy" "5"
 "starts_on" "1"
 "target" ""
-"is_broken" "0"
+"is_broken" "1"
+"omni_range" "10"
+"pulse_pattern" "0"
 }
 // entity 18
 {

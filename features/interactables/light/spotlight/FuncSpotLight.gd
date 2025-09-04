@@ -2,7 +2,7 @@
 class_name FuncSpotLight
 extends Node3D
 """
-light entity
+Spot light entity
 """
 
 """
@@ -38,7 +38,15 @@ var file_tail = "res://Assets/Sounds/"
 @onready var light_node = $SpotLight3D
 @onready var mesh_node = $EmissionMesh
 
+# NOTE: Have bug with Flicker Random (5). Emission texture not flickering with light src
+# Will simply just use is_broken logic instead until fixed
+enum PulsePattern { NONE, SINE, COSINE, SQUARE_WAVE, NOISE, FLICKER_RANDOM  }
 
+# --- Add this export variable ---
+@export var pulse_pattern: PulsePattern
+@export var omni_range: float
+
+var noise = FastNoiseLite.new()
 
 func _func_godot_apply_properties(props: Dictionary):
 	# Look in terminal Output after building to see actual state of props recievedww
@@ -66,15 +74,28 @@ func _func_godot_apply_properties(props: Dictionary):
 	starts_on = props.get("starts_on", true)
 	is_broken = props.get("is_broken", false)
 
+	pulse_pattern = props.get("pulse_pattern", 1)
+	omni_range = props.get("omni_range", 5)
 
 func _ready() -> void:
+	# The code inside will ONLY run when you are playing the game.
+	if not Engine.is_editor_hint():
+		call_deferred("init_entity")
+
+
+func init_entity() -> void:
+		# Using a random seed ensures every light flickers differently.
+	noise.seed = randi()
+	noise.noise_type = FastNoiseLite.TYPE_VALUE
+	noise.frequency = 0.8
+
 	# Init Entity only in game
 	if not Engine.is_editor_hint() and GAME:
 		GAME.register_entity(self, self.targetname)
 	create_sound()
 	# Light Init
 	light_node.light_color = light_color
-
+	light_node.spot_range = omni_range
 	# Make each mesh unique
 	if mesh_node.get_active_material(0):
 		var unique_material = mesh_node.get_active_material(0).duplicate()
@@ -88,10 +109,11 @@ func _ready() -> void:
 
 	if starts_on:
 		power_on()
+		# Added guard for pulse_update
+		if pulse_pattern > 0 and PulseManager:
+			PulseManager.pulse_updated.connect(_on_pulse_updated)
 	else:
 		power_off()
-
-
 # -- Public API Methods
 
 func power_on():
@@ -100,11 +122,15 @@ func power_on():
 			while is_powered:
 					# Turn the light ON
 				light_node.visible = true
+				# Manually set light_energy for some reason? Not like func light
+				light_node.light_energy = light_energy
 				mesh_node.get_active_material(0).emission_enabled = true
 				# Wait for a short, random "ON" duration
 				await get_tree().create_timer(randf_range(0.05, 2)).timeout
 				# Turn the light OFF
 				light_node.visible = false
+				# Manually set light_energy for some reason? Not like func light
+				light_node.light_energy = 0
 				mesh_node.get_active_material(0).emission_enabled = false
 
 				# Wait for a slightly longer, random "OFF" duration
@@ -140,9 +166,38 @@ func use():
 
 
 
-
 # --- Helper Functions ---
+# This new function will be called every frame by the PulseManager's signal
+func _on_pulse_updated(total_time: float):
+	# Don't do anything if we aren't supposed to be pulsating or powered
+	if pulse_pattern == PulsePattern.NONE or not is_powered:
+		return
 
+	var pulse_value: float = 0.0
+
+	# Use a match statement to select the pattern
+	match pulse_pattern:
+		PulsePattern.SINE:
+			pulse_value = sin(total_time * PulseManager.pulse_speed)
+		PulsePattern.COSINE:
+			pulse_value = cos(total_time * PulseManager.pulse_speed)
+		PulsePattern.SQUARE_WAVE:
+			pulse_value = 1.0 if fmod(total_time, 2.0) > 1.0 else -1.0
+		PulsePattern.NOISE:
+			# The light now generates its own noise using the global time
+			pulse_value = noise.get_noise_1d(total_time * 10.0)
+		PulsePattern.FLICKER_RANDOM:
+			# If we are random, we don't need to connect to the global pulse
+			pass
+	var intensity = (pulse_value + 1.0) / 2.0 # Remap [-1, 1] to [0, 1]
+
+	light_node.light_energy = light_energy * intensity
+	var material = mesh_node.get_active_material(0)
+	if material is StandardMaterial3D:
+		# Allows textures to turn on if off.
+		material.emission_enabled = true
+
+		material.emission_energy_multiplier = intensity
 
 
 

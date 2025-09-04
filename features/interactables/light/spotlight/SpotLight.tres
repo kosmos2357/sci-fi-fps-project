@@ -20,6 +20,8 @@ class_properties = {
 "light_color": Color(0, 0, 0, 1),
 "light_energy": 0.0,
 "mesh_color": Color(0, 0, 0, 1),
+"omni_range": 0.0,
+"pulse_pattern": 0,
 "starts_on": false
 }
 class_property_descriptions = {}
