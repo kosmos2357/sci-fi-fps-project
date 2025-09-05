@@ -16,3 +16,5 @@
 - # Patterns
 - [[Reusability Patterns]]
 - [[State-Driven-Event-Based-Machine]]
+- [[Merge and Branch]]
+-
