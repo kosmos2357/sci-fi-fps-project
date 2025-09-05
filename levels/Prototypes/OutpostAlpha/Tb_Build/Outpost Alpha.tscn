@@ -1,4 +1,4 @@
-[gd_scene load_steps=233 format=4 uid="uid://b4mt130fmomid"]
+[gd_scene load_steps=236 format=4 uid="uid://b4mt130fmomid"]
 
 [ext_resource type="Script" uid="uid://bsbsnggmnqrtl" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_yqs6w"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_y7fde"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" uid="uid://cde2enuicpkwo" path="res://features/interactables/door/door.gd" id="8_4yshb"]
 [ext_resource type="PackedScene" uid="uid://dqs68f3g4xe1f" path="res://features/interactables/light/LightFixture.tscn" id="9_4yshb"]
 [ext_resource type="PackedScene" uid="uid://cq8fn2fi7qbc7" path="res://features/interactables/button/Button_Entity.tscn" id="10_kq03x"]
+[ext_resource type="Script" uid="uid://bf8gs2vakp340" path="res://features/interactables/resources/SoundEvent.gd" id="11_7syqd"]
+[ext_resource type="AudioStream" uid="uid://kfsmc58bo0jq" path="res://Assets/Sounds/button1.wav" id="12_ydlme"]
 [ext_resource type="PackedScene" uid="uid://ctpx4iwf4vc1w" path="res://features/interactables/light/spotlight/SpotLight.tscn" id="13_wvch3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_57viw"]
@@ -719,6 +721,12 @@ _surfaces = [{
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_etirp"]
 points = PackedVector3Array(-0.25, 1.5, -1.5, -0.25, -1.5, -1.5, 0.25, -1.5, -1.5, 0.25, 1.5, -1.5, -0.25, 1.5, 1.5, -0.25, -1.5, 1.5, 0.25, -1.5, 1.5, 0.25, 1.5, 1.5)
+
+[sub_resource type="Resource" id="Resource_wvch3"]
+script = ExtResource("11_7syqd")
+stream = ExtResource("12_ydlme")
+volume_db = 1.0
+pitch_scale = 1.0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_qg5lp"]
 _surfaces = [{
@@ -1466,6 +1474,7 @@ target = "light,light_a,light_b,light_c,light_d,light_e,light_f,light_g,light_h,
 targetname = "button_light"
 is_enabled = true
 is_powered = true
+press_sound = SubResource("Resource_wvch3")
 press_sound_file = "button1.wav"
 press_sound_vol = 1.0
 press_sound_pitch = 1.0
