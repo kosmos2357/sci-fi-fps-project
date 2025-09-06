@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cukjgu3mqvdy6"]
+
+[node name="StatusUi" type="PanelContainer"]
+offset_right = 1024.0
+offset_bottom = 512.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HeaderLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "SYSTEM STATUS"
+
+[node name="StatusLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "ONLINE"

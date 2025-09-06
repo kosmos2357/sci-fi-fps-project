@@ -53,7 +53,7 @@ func use():
 
 		if is_enabled:
 			if not target.is_empty():
-				GAME.send_message(self.target, "use")
+				GAME.send_message(self.target, "use", self)
 				has_been_triggerd = true
 		else:
 			print("NOT ENABLED")

@@ -1,9 +1,11 @@
 class_name GameManager
 extends Node
 
+signal entity_activated(activator_name, targetted_entities, message)
+
 # The "phone book" of all registered entities
 var named_entities = {}
-
+var event_history: Array = []
 # Called by entities in their _ready() function to add themselves to the book.
 func register_entity(node_instance: Node, name_string: String):
 	if node_instance == null or name_string.is_empty():
@@ -14,27 +16,38 @@ func register_entity(node_instance: Node, name_string: String):
 
 
 # This function can now handle one or many targets
-func send_message(target_string: String, message: String):
+func send_message(target_string: String, message: String, activator: Node):
 	if target_string.is_empty():
 		return
 
-	# --- THIS IS THE NEW LOGIC ---
-	# Split the target string into an array of names
 	var target_names = target_string.split(",")
+	var message_sent_successfully = false
 
-	# Loop through each name in the array
 	for t_name in target_names:
-		# It's good practice to trim whitespace in case of "name_a, name_b"
 		var clean_name = t_name.strip_edges()
+		if named_entities.has(clean_name):
+			var target_node = named_entities[clean_name]
+			if target_node.has_method(message):
+				target_node.call(message)
+				message_sent_successfully = true # Mark that at least one target was found and called
 
-		# --- The rest of the logic is the same, but inside the loop ---
-		if not named_entities.has(clean_name):
-			print("GameManager Error: Could not find target '", clean_name, "'")
-			continue # Continue to the next name in the list
+	# After the loop, if the message was successful, make the public announcement
+	if message_sent_successfully and is_instance_valid(activator) and "targetname" in activator:
+		var activator_name = activator.targetname
+		# Broadcast the ACTIVATOR'S name
+		emit_signal("entity_activated", activator_name, target_string,  message)
+		_log_event(activator_name, target_string, message)
 
-		var target_node = named_entities[clean_name]
+func _log_event(activator_name: String, target_string: String, message: String):
+	var log_entry = {
+		"timestamp": Time.get_ticks_msec(),
+		"activator": activator_name,
+		"target": target_string,
+		"message": message
+	}
+	event_history.append(log_entry)
+	# You can print this for live debugging
+	print("EVENT LOGGED: ", log_entry)
 
-		if target_node.has_method(message):
-			target_node.call(message)
-		else:
-			print("GameManager Warning: Target '", clean_name, "' has no method named '", message, "'")
+func get_history() -> Array:
+	return event_history

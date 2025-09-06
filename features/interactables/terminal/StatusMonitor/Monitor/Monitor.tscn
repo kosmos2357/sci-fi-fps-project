@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://wu4knxm2t0f5"]
+
+[ext_resource type="PackedScene" uid="uid://cukjgu3mqvdy6" path="res://features/interactables/terminal/StatusMonitor/UI/StatusUI.tscn" id="1_oix0s"]
+[ext_resource type="Script" uid="uid://cy028cqnkyyx5" path="res://features/interactables/terminal/StatusMonitor/Monitor/monitor.gd" id="1_vm34d"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sjn86"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_oix0s"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_sjn86"]
+resource_local_to_scene = true
+size = Vector2(1, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_oix0s"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vm34d"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_oix0s")
+
+[node name="Monitor" type="StaticBody3D"]
+script = ExtResource("1_vm34d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_sjn86")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_oix0s")
+
+[node name="ScreenMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0129674, -0.999916, 0, 0.999916, -0.0129674, 0, 0, 0.515453)
+mesh = SubResource("PlaneMesh_sjn86")
+surface_material_override/0 = SubResource("StandardMaterial3D_vm34d")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+
+[node name="StatusUi" parent="SubViewport" instance=ExtResource("1_oix0s")]

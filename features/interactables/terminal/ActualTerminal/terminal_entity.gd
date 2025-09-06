@@ -150,7 +150,7 @@ func _on_command_entered(command: String):
 			write_line(output_label, "\n...Password Accepted. Access Granted.")
 			# ...send the unlock message to the target.
 			if not target_name.is_empty():
-				GAME.send_message(target_name, "unlock")
+				GAME.send_message(target_name, "unlock", self)
 				write_line(output_label, "\n...Signal sent to unlock " + target_name)
 
 		else:

@@ -50,7 +50,7 @@ func use():
 
 		if is_enabled:
 			if not target.is_empty():
-				GAME.send_message(self.target, "use")
+				GAME.send_message(self.target, "use", self)
 
 		else:
 			print("NOT ENABLED")

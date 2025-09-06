@@ -722,7 +722,7 @@ _surfaces = [{
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_etirp"]
 points = PackedVector3Array(-0.25, 1.5, -1.5, -0.25, -1.5, -1.5, 0.25, -1.5, -1.5, 0.25, 1.5, -1.5, -0.25, 1.5, 1.5, -0.25, -1.5, 1.5, 0.25, -1.5, 1.5, 0.25, 1.5, 1.5)
 
-[sub_resource type="Resource" id="Resource_wvch3"]
+[sub_resource type="Resource" id="Resource_7syqd"]
 script = ExtResource("11_7syqd")
 stream = ExtResource("12_ydlme")
 volume_db = 1.0
@@ -1474,7 +1474,7 @@ target = "light,light_a,light_b,light_c,light_d,light_e,light_f,light_g,light_h,
 targetname = "button_light"
 is_enabled = true
 is_powered = true
-press_sound = SubResource("Resource_wvch3")
+press_sound = SubResource("Resource_7syqd")
 press_sound_file = "button1.wav"
 press_sound_vol = 1.0
 press_sound_pitch = 1.0

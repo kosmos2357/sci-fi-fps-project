@@ -92,7 +92,7 @@ func use():
 			if not target.is_empty():
 				print("TERMINAL ONww")
 				SoundManager.play_sound_event(press_sound, self.global_position)
-				GAME.send_message(self.target, "unlock")
+				GAME.send_message(self.target, "unlock", self)
 		else:
 
 			print("NOT POWERED")
