@@ -95,7 +95,7 @@ func use():
 		if is_powered and is_enabled:
 			if not target.is_empty():
 				SoundManager.play_sound_event(press_sound, self.global_position)
-				GAME.send_message(self.target, "use")
+				GAME.send_message(self.target, "use", self)
 		else:
 			SoundManager.play_sound_event(release_sound, self.global_position)
 			print("NOT POWERED")

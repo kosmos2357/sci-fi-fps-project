@@ -16,7 +16,9 @@ func register_entity(node_instance: Node, name_string: String):
 
 
 # This function can now handle one or many targets
-func send_message(target_string: String, message: String, activator: Node):
+# TODO: Add args to signal emission for event bus, as well make args an array if possible
+# WARNING: Adding args breaks all other entities, need to somehow make optional.
+func send_message(target_string: String, message: String, activator: Node, args: Array = []):
 	if target_string.is_empty():
 		return
 
@@ -28,9 +30,18 @@ func send_message(target_string: String, message: String, activator: Node):
 		if named_entities.has(clean_name):
 			var target_node = named_entities[clean_name]
 			if target_node.has_method(message):
-				target_node.call(message)
-				message_sent_successfully = true # Mark that at least one target was found and called
+				# If the 'args' array is empty, use the simple .call()
+				if args.is_empty():
+					target_node.call(message)
+					message_sent_successfully = true
+				# If the 'args' array has items, use .callv() to pass them along
+				else:
+					target_node.callv(message, args)
+					message_sent_successfully = true
 
+
+
+	# Event Bus
 	# After the loop, if the message was successful, make the public announcement
 	if message_sent_successfully and is_instance_valid(activator) and "targetname" in activator:
 		var activator_name = activator.targetname

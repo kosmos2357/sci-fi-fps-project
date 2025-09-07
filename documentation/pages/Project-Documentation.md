@@ -17,5 +17,5 @@
 - [[Reusability Patterns]]
 - [[State-Driven-Event-Based-Machine]]
 - [[Merge and Branch]]
--
+- [[Count how many lines of code in project]]
 -

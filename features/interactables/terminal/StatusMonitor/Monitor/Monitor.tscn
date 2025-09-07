@@ -17,6 +17,8 @@ viewport_path = NodePath("SubViewport")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vm34d"]
 resource_local_to_scene = true
 albedo_texture = SubResource("ViewportTexture_oix0s")
+emission_enabled = true
+emission_texture = SubResource("ViewportTexture_oix0s")
 
 [node name="Monitor" type="StaticBody3D"]
 script = ExtResource("1_vm34d")

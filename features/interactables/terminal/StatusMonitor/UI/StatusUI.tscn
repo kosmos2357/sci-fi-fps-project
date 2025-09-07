@@ -1,16 +1,26 @@
-[gd_scene format=3 uid="uid://cukjgu3mqvdy6"]
+[gd_scene load_steps=3 format=3 uid="uid://cukjgu3mqvdy6"]
+
+[sub_resource type="Theme" id="Theme_vew3a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjxhi"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="StatusUi" type="PanelContainer"]
 offset_right = 1024.0
 offset_bottom = 512.0
+theme = SubResource("Theme_vew3a")
+theme_override_styles/panel = SubResource("StyleBoxFlat_gjxhi")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 
 [node name="HeaderLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 50
 text = "SYSTEM STATUS"
 
 [node name="StatusLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 75
 text = "ONLINE"

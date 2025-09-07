@@ -1,13 +1,17 @@
+@tool
 extends StaticBody3D
 @onready var status_label = $SubViewport/StatusUi/VBoxContainer/StatusLabel
 # Targetname of entity
 @export var entity_to_monitor: String = "button_light"
-
+@export var targetname: String = "monitor_a"
 # A counter for the number of presses
 var press_count: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# Register entity
+	if GAME:
+		GAME.register_entity(self, targetname)
 	# Connect to the GameManager's global announcement signal
 	if GAME:
 		GAME.entity_activated.connect(_on_entity_messaged)
@@ -28,5 +32,12 @@ func _on_entity_messaged(activator_entity: String, targetted_entities: String, m
 		print("PRess_count ", press_count)
 		status_label.text = "Presses: " + str(press_count)
 
+
 func update_status(new_status: String):
 	status_label.text = new_status
+
+# For Roation
+# This is the public API that the valve will call
+func set_percentage(value: float):
+	var percent = roundi(value)
+	status_label.text = str(percent) + "%"
