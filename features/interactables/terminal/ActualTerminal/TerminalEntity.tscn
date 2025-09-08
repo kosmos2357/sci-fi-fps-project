@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dm7gwifoi62d1"]
+[gd_scene load_steps=12 format=3 uid="uid://dm7gwifoi62d1"]
 
 [ext_resource type="Script" uid="uid://cj3i0h3rf1yci" path="res://features/interactables/terminal/ActualTerminal/terminal_entity.gd" id="1_hplpo"]
 [ext_resource type="PackedScene" uid="uid://dlfqp3gsl07o5" path="res://features/interactables/terminal/ActualTerminal/TerminalUI.tscn" id="2_gvsto"]
@@ -8,10 +8,21 @@
 [ext_resource type="AudioStream" uid="uid://ma63qwmwofkf" path="res://features/interactables/terminal/ActualTerminal/error.wav" id="6_5fefp"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_8x5mt"]
-size = Vector3(0.5, 0.5, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8x5mt"]
-size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5fefp"]
+resource_local_to_scene = true
+size = Vector2(1, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_5fefp"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wdc2a"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_5fefp")
+emission_enabled = true
+emission_texture = SubResource("ViewportTexture_5fefp")
 
 [node name="TerminalEntity" type="Area3D"]
 process_mode = 3
@@ -37,3 +48,13 @@ stream = ExtResource("5_0y3fk")
 
 [node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_5fefp")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(1024, 1024)
+
+[node name="TerminalUi" parent="SubViewport" instance=ExtResource("2_gvsto")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.50552)
+mesh = SubResource("PlaneMesh_5fefp")
+surface_material_override/0 = SubResource("StandardMaterial3D_wdc2a")

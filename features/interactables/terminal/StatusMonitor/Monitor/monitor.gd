@@ -1,4 +1,4 @@
-@tool
+#@tool
 extends StaticBody3D
 @onready var status_label = $SubViewport/StatusUi/VBoxContainer/StatusLabel
 # Targetname of entity

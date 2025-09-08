@@ -33,7 +33,6 @@ shape = SubResource("BoxShape3D_22yyc")
 mesh = SubResource("CylinderMesh_22yyc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("CylinderShape3D_22yyc")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="AnimatableBody3D"]

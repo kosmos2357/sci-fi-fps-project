@@ -2,7 +2,7 @@ extends Area3D
 
 var player_is_near: bool = false
 @onready var animatable_body = $AnimatableBody3D
-@export var rotation_speed: float = 2.0
+@export var rotation_speed: float = 10.0
 @export var target = "monitor_a"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

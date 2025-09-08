@@ -18,6 +18,7 @@ var is_waiting_for_password: bool = false
 @onready var beep_sound = $AudioStreamPlayer2
 @onready var done_sound = $AudioStreamPlayer3
 @onready var error_sound = $AudioStreamPlayer4
+@onready var sub_viewport = $SubViewport
 @export var log_entries = [
 	{
 		"title": "Maintenance Report #7-A",
@@ -75,13 +76,36 @@ func _ready():
 	body_exited.connect(_on_body_exited)
 
 func _input(event):
-	# If the UI is already open, stop this function immediately.
-	if is_instance_valid(ui_instance):
+	# Add additional check because of new case where we want to re-enter terminal
+	# We only want to stop processing input if the UI is currently in full-screen mode.
+	# We know it's in full-screen if its parent is the main scene root.
+	if is_instance_valid(ui_instance) and ui_instance.get_parent() == get_tree().get_root():
 		return
-	# Check if the player is near and presses the 'interact' key
+	# If the UI is minimized or doesn't exist, we can proceed.
 	if player_is_near and event.is_action_pressed("interact"):
-		get_viewport().set_input_as_handled() # Prevents other inputs from firing
+		get_viewport().set_input_as_handled()
+		use()
+func use():
+	# If the UI instance doesn't exist yet, run the first-time setup and boot sequence.
+	if not is_instance_valid(ui_instance):
 		_open_terminal()
+	# If it does exist, just re-open it.
+	else:
+		_reopen_terminal()
+
+func _reopen_terminal():
+	# Move the existing UI from the SubViewport back to the main screen
+	$SubViewport.remove_child(ui_instance)
+	get_tree().get_root().add_child(ui_instance)
+
+	# Re-enable input and pause the game
+	var input_line = ui_instance.find_child("InputLine")
+	input_line.editable = true
+	input_line.grab_focus()
+	get_tree().paused = true
+	var player = get_tree().get_first_node_in_group("player")
+	if player:
+		player.set_controls_enabled(false)
 
 func _on_body_entered(body):
 	if body.is_in_group("player"):
@@ -168,6 +192,8 @@ func _on_command_entered(command: String):
 	# Ex: LOG LIST
 	var noun = parts[0].to_lower()
 	match noun:
+		"minimize":
+			_minimize_terminal()
 		"calc":
 			# Expects a format like "calc 12 * 4"
 			if parts.size() < 4:
@@ -340,3 +366,21 @@ func write_error(output_label, arg:String, delay: float = DEFAULT_DELAY_TIME):
 	# Play sound
 	error_sound.play()
 	await get_tree().create_timer(delay).timeout
+
+func _minimize_terminal():
+	if ui_instance.get_parent() != get_tree().get_root():
+		return # Not in full-screen mode
+
+	# Move the UI from the main screen back to the SubViewport
+	get_tree().get_root().remove_child(ui_instance)
+	sub_viewport.add_child(ui_instance)
+
+	# Disable input and unpause the game
+	var input_line = ui_instance.find_child("InputLine")
+	input_line.editable = false
+	get_tree().paused = false
+	# Re-enable player controls
+	var player = get_tree().get_first_node_in_group("player")
+	if is_instance_valid(player):
+		player.set_controls_enabled(true)
+	startup_sound.stop()

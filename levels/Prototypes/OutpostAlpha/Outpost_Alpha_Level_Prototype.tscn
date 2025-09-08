@@ -108,7 +108,7 @@ transform = Transform3D(4.54736, 0, 0, 0, 1.16304, 0, 0, 0, 10.3552, 15.4167, -2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9475, 8.63686, -119.56)
 
 [node name="TerminalEntity" parent="." instance=ExtResource("8_46ab3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.99899, 1.80451, -44.8396)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.257, 2.45739, -10.1485)
 
 [node name="Monitor" parent="." instance=ExtResource("9_gne8l")]
 transform = Transform3D(0.648824, 0, 0.760939, 0, 1, 0, -0.760939, 0, 0.648824, -10.6828, 2.27315, -7.31962)
