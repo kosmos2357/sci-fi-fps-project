@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcpsmw16uml7a"]
+
+[ext_resource type="Script" uid="uid://dhd48m4uaqlcy" path="res://features/interactables/terminal/DataPad/data_pad_ui.gd" id="1_7myof"]
+
+[node name="DataPadUi" type="Window"]
+title = "DataPad"
+initial_position = 1
+size = Vector2i(800, 600)
+script = ExtResource("1_7myof")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+
+[node name="Logs" type="HSplitContainer" parent="TabContainer"]
+layout_mode = 2
+split_offset = 400
+metadata/_tab_index = 0
+
+[node name="ItemList" type="ItemList" parent="TabContainer/Logs"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.227942, 1, 0.944938, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/Logs"]
+layout_mode = 2
+
+[node name="Items" type="ScrollContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/Items"]
+layout_mode = 2
+columns = 5

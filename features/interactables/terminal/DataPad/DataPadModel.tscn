@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwj28qm41rb6a"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jwpp8"]
+size = Vector3(0.1, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_trr7y"]
+size = Vector3(0.1, 0.5, 0.5)
+
+[sub_resource type="Animation" id="Animation_jwpp8"]
+resource_name = "Raise"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_trr7y"]
+_data = {
+&"Raise": SubResource("Animation_jwpp8")
+}
+
+[node name="DataPadModel" type="AnimatableBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_jwpp8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_trr7y")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../CollisionShape3D")
+libraries = {
+&"": SubResource("AnimationLibrary_trr7y")
+}

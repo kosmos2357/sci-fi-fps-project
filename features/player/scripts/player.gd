@@ -31,6 +31,9 @@ var complex_states = {
 @export_group("Sound")
 @export var flash_light_sound: SoundEvent
 @export var use_key_sound: SoundEvent
+@export_group("Journal")
+@export var journal_ui_scene: PackedScene
+var journal_instance = null
 
 
 # --- Crouching Properties ---
@@ -84,6 +87,8 @@ var is_sprinting: bool = false
 @onready var flashlight_beam = $Head/SpringArm3D/Camera3D/ViewModelContainer/flashlight/FlashLightBeam
 @onready var animation_component = $Animation_Component
 
+
+
 # TERMINAL FEAT: FLAG for input handle
 var controls_enabled: bool = true
 #=============================================================================
@@ -107,6 +112,8 @@ func _unhandled_input(event):
 	# TERMINAL FEAT GUARD CLAUSE
 	if not controls_enabled:
 		return
+	if event.is_action_pressed("journal"):
+		toggle_journal()
 
 	if event.is_action_pressed("ui_cancel"):
 		make_cursor_visible()
@@ -330,6 +337,21 @@ func toggle_flashlight() -> void:
 func toggle_use_key() -> void:
 	SoundManager.play_sound_event(use_key_sound, self.global_position)
 
+func toggle_journal():
+	if is_instance_valid(journal_instance):
+		# If it's open, close it
+		journal_instance.queue_free()
+		journal_instance = null
+
+		set_controls_enabled(true)
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	else:
+		# If it's closed, open it
+		journal_instance = journal_ui_scene.instantiate()
+		add_child(journal_instance)
+
+		set_controls_enabled(false)
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 #=============================================================================
 # 8. AREA 3D FLAGS
 #=============================================================================

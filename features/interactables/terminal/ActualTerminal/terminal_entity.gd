@@ -192,6 +192,21 @@ func _on_command_entered(command: String):
 	# Ex: LOG LIST
 	var noun = parts[0].to_lower()
 	match noun:
+
+		"addlog":
+			# We expect a command like: addlog "My Log Title" "This is the content."
+			# For this simple test, we'll just use a hardcoded entry.
+			var test_entry = {
+				"title": "Test Log Entry " + str(randi_range(1, 100)),
+				"content": "This is a test entry added via the terminal."
+			}
+			Journal.add_entry(test_entry)
+			output_label.append_text("\n...Added new test entry to journal.")
+
+			# If the journal is open, tell it to refresh its list
+			var journal_ui = get_tree().get_root().find_child("DatapadUI", true, false)
+			if is_instance_valid(journal_ui):
+				journal_ui._populate_log_list()
 		"minimize":
 			_minimize_terminal()
 		"calc":
